@@ -1,0 +1,120 @@
+﻿@model IEnumerable<W_GJS.Models.O_ALBUM>
+@{
+    ViewBag.Title = "ShowCategoryAlbum";
+    Layout = "~/Views/Shared/_ShopLayout.cshtml";
+}
+
+@section PageTitle {
+    <section class="page-title">
+        <div class="container">
+
+            <header>
+
+                <ul class="breadcrumb">
+                    <!-- breadcrumb -->
+                    <li><a href="@Url.Action("Index")">Trang Chủ</a></li>
+                    <li class="active">Album</li>
+                </ul><!-- /breadcrumb -->
+
+                <h2>
+                    <!-- Page Title -->
+                    <strong>Album</strong>
+                </h2><!-- /Page Title -->
+
+            </header>
+
+        </div>
+    </section>
+}
+<link rel="stylesheet" href="../SGallery/js/css/styles.css" />
+@*@foreach (var item in listcategory)
+    {
+        if(item.O_ALBUM.Where(t => t.ACTIVE== true).ToList().Count != 0)
+        {
+            <h2 class="owl-featured margin-bottom-30 margin-top20"><strong>@item.CATEGORY_ALBUM_NAME</strong></h2>
+
+        <div class="row lightbox" data-plugin-options='{"delegate": "a", "gallery": {"enabled": true}}'>
+        @foreach (var itemimage in item.O_ALBUM)
+            {
+                if (itemimage.ACTIVE == true)
+                {
+                       <div class="col-sm-3 col-md-3">
+                            <div class="box-content thumbnail text-center">
+                            <a href="@itemimage.URL_IMAGE" class="item-image">
+                                <img class="img-responsive appear-animation" data-animation="fadeIn" src="@itemimage.URL_IMAGE" alt=" " />
+                            </a>
+                            </div>
+                       </div>
+
+                }
+
+            }
+           </div>
+        }
+    }*@
+<h2 class="owl-featured margin-bottom-30 margin-top20"><strong>Bộ sưu tập @ViewBag.Name</strong></h2>
+
+@if(Model.Count() > 0)
+{ 
+   
+    <div style="background-color: #111; opacity: 0.6;" class="demo-wrapper">
+        <div id="gallery-container">
+
+            <ul class="items--small">
+                @foreach (var itemimage in Model)
+                {
+                    if (itemimage.ACTIVE == true)
+                    {
+                        <li class="item"><a href="#"><img src="@itemimage.URL_IMAGE" alt=" @itemimage.O_CATEGORY_ALBUM.CATEGORY_ALBUM_NAME " /></a></li>
+
+                    }
+
+                }
+            </ul>
+            <ul class="items--big">
+                @foreach (var itemimage in Model)
+                {
+                    if (itemimage.ACTIVE == true)
+                    {
+                        <li class="item--big">
+                            <a href="#">
+                                <figure>
+                                    <img width="800px" height="600px" src="@itemimage.URL_IMAGE" alt="" />
+                                    <figcaption class="img-caption">
+                                        @itemimage.O_CATEGORY_ALBUM.CATEGORY_ALBUM_NAME
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                    }
+
+                }
+            </ul>
+
+
+            <div class="controls">
+                <span class="control icon-arrow-left" data-direction="previous"></span>
+                <span class="control icon-arrow-right" data-direction="next"></span>
+                <span class="grid icon-grid"></span>
+                <span class="fs-toggle icon-fullscreen"></span>
+            </div>
+        </div>
+
+    </div>
+    <script src="../SGallery/js/jquery-1.8.2.min.js"></script>
+    <script src="../SGallery/js/plugins.js"></script>
+    <script src="../SGallery/js/scripts.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('#gallery-container').sGallery({
+                fullScreenEnabled: true
+            });
+
+        });
+    </script>
+}
+else
+{
+ <p>Chưa có hình ảnh</p>
+}

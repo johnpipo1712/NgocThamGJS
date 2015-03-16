@@ -1,0 +1,65 @@
+﻿@{
+    Layout = "";
+    W_GJS.Models.GJSEntities gjs = new W_GJS.Models.GJSEntities();
+    List<W_GJS.Models.O_PRODUCT> listproduct = this.Model;
+}
+
+@if (listproduct.Count == 0)
+{
+    <p>Không tìm thấy dữ liệu nào.</p>
+}
+else
+{
+    foreach (var item in listproduct)
+    {
+        <div class="col-md-4 col-sm-4">
+            <!-- item -->
+            <a class="shop-item-list" href="@Url.Action("ProductDetailCatalog", new { PRODUCT_CD = item.PRODUCT_CD })">
+                <figure>
+                    <!-- image -->
+                    <img class="img-responsive" src="@item.URL_IMAGE" alt="@item.TAG_ALT" />
+                </figure><!-- /image -->
+                @if (item.QUANTITY <= 0)
+                {
+                    <span class="shop-stock-info stock-no">
+                        <!-- stock -->
+                        <i class="fa fa-times"></i> hết hàng
+                    </span><!-- /stock -->
+
+                }
+                else
+                {
+                    <span class="shop-stock-info stock-yes">
+                        <!-- stock -->
+                        <i class="fa fa-check"></i> còn hàng
+                    </span><!-- /stock -->
+
+                }
+                <div class="product-info">
+                    <!-- title and price -->
+                    <h2>
+                        <span class="product-name">@item.PRODUCT_NAME</span>
+                        @if (item.PRICE_PROMOTION != null)
+                        {
+                            <span class="bold">@item.PRICE_PROMOTION</span> <span class="line-through">@item.PRICE</span>
+
+                        }
+                        else
+                        {
+                            <span class="bold">@item.PRICE</span>
+
+                        }
+                    </h2>
+
+                </div><!-- /title and price -->
+                @if (item.O_PRODUCT_NEW != null && item.O_PRODUCT_NEW.ToList().Count > 0)
+                {
+                    <div class="sb-gdv-disc">
+                        <div class="sb-gdv-disc__content">Mới</div>
+                    </div>
+                }
+            </a>
+            <a href="@Url.Action("AddCart", new { PRODUCT_CD = item.PRODUCT_CD, QUANTITY = "1",SIZE = "5" })" class="btn btn-primary btn-sm addtocart"><i class="fa fa-shopping-cart"></i> THÊM VÀO GIỎ HÀNG</a>
+        </div><!-- /item -->
+    }
+}

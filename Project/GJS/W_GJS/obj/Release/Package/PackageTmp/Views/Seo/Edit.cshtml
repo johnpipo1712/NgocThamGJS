@@ -1,0 +1,94 @@
+﻿@model W_GJS.Models.O_SEO
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+@section Breadcrumb {
+    <ul class="breadcrumb breadcrumb-page">
+        <li class="breadcrumb-label text-light-gray">Bạn đang ở đây: </li>
+        <li><a href="#">Trang chủ</a></li>
+        <li class="active"><a href="#">SEO</a></li>
+    </ul>
+
+    <div class="page-header">
+
+        <div class="row">
+            <!-- Page header, center on small screens -->
+            <h1 class="col-xs-12 col-sm-4 text-center text-left-sm"><i class="fa fa-bolt page-header-icon"></i>&nbsp;&nbsp;SEO</h1>
+        </div>
+    </div>
+}
+<div class="row">
+    <div class="col-sm-12">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="panel form-horizontal">
+
+                <div class="panel-heading">
+                    <span class="panel-title">Sửa</span>
+                </div>
+
+                @Html.ValidationSummary(true)
+
+                <div class="panel-body">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TITILE, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.TITILE)
+                            @Html.ValidationMessageFor(model => model.TITILE)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.META_DES, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.META_DES)
+                            @Html.ValidationMessageFor(model => model.META_DES)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.META_KEYWORDS, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.META_KEYWORDS)
+                            @Html.ValidationMessageFor(model => model.META_KEYWORDS)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.META_ROBOTS, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.META_ROBOTS)
+                            @Html.ValidationMessageFor(model => model.META_ROBOTS)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.META_REVISIT, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.META_REVISIT)
+                            @Html.ValidationMessageFor(model => model.META_REVISIT)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div style="margin-bottom: 0;" class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" value="Sửa" class="btn btn-default" />
+                        </div>
+                    </div> <!-- / .form-group -->
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Trở về danh sách", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

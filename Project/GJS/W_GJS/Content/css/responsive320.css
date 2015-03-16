@@ -1,0 +1,21 @@
+﻿@media only screen and (max-width: 320px) {
+    .dathang_theoyeucau {
+        width: 300px;
+    }
+
+    .booking img {
+        height: 70px;
+    }
+
+    .topbar-second-li img {
+        width: 100%;
+    }
+
+    div.slider {
+        top: -188px;
+    }
+
+    .nav-main {
+        padding-left: 0;
+    }
+}

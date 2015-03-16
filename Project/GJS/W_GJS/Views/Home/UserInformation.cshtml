@@ -1,0 +1,119 @@
+﻿@model W_GJS.Models.O_CUSTOMER
+
+@section PageTitle {
+    <section class="page-title">
+        <div class="container">
+
+            <header>
+
+                <ul class="breadcrumb">
+                    <!-- breadcrumb -->
+                    <li><a href="@Url.Action("Index")">Trang Chủ</a></li>
+                    <li class="active">Thông tin tài khoản</li>
+                </ul><!-- /breadcrumb -->
+
+                <h2>
+                    <!-- Page Title -->
+                    <strong>Thông tin tài khoản</strong>
+                </h2><!-- /Page Title -->
+
+            </header>
+
+        </div>
+    </section>
+}
+
+
+<form id="form-user-information-update" action="@Url.Action("UserInformationUpdate", "Home")" method="post" class="sky-form">
+
+    <div class="modal-body">
+        <fieldset class="form-horizontal">
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Tên tài khoản</label>
+                <section class="col-sm-5">
+
+                    <label class="input hightlight">
+                        @Session[W_GJS.General.SessionConstants.LOGINED_USER_KEY] <a href="#" class="pull-right" data-toggle="modal" data-target="#ChangePasswordModal">Đổi mật khẩu</a>
+                    </label>
+                </section>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label required">Họ tên</label>
+                    <section class="col col-md-2">
+                        <label class="input">
+                            <input type="text" value="@Model.CUSTOMER_FIRST_NAME" name="first_name" placeholder="Họ">
+                        </label>
+                    </section>
+                    <section class="col-md-3">
+                        <label class="input">
+                            <input type="text" value="@Model.CUSTOMER_LAST_NAME" name="last_name" placeholder="Tên">
+                        </label>
+                    </section>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label required">Giới tính</label>
+                <section class="col-md-3">
+                    <label class="select">
+                        <select name="sex">
+                            <option value="0" selected="" disabled="">Giới tính</option>
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                        </select>
+                        <i></i>
+                    </label>
+                </section>
+                <script>
+                $(document).ready(function () {
+                        $("select[name=sex]").val("@Model.SEX");
+                });
+                </script>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label required">Email</label>
+                <section class="col-sm-5">
+                    <label class="input">
+                        <i class="icon-append fa fa-envelope"></i>
+                        <input type="text" value="@Model.EMAIL" name="email" placeholder="Email">
+                        <b class="tooltip tooltip-bottom-right">Chúng tôi sẽ gửi email xác nhận qua địa chỉ này</b>
+                    </label>
+                </section>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label required">Số điện thoại</label>
+                <section class="col-sm-5">
+                    <label class="input">
+                        <i class="icon-append fa fa-phone"></i>
+                        <input type="text" value="@Model.PHONE" name="phone_number" placeholder="Số điện thoại">
+                        <b class="tooltip tooltip-bottom-right">Chỉ chấp nhận số</b>
+                    </label>
+                </section>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label required">Địa chỉ</label>
+                <section class="col-sm-5">
+                    <label class="input">
+                        <i class="icon-append fa fa-university"></i>
+                        <input type="text" value="@Model.ADDRESS" name="address" placeholder="Địa chỉ">
+                        <b class="tooltip tooltip-bottom-right">Nhập đầy đủ thông tin</b>
+                    </label>
+                </section>
+            </div>
+</fieldset>
+
+        <fieldset>
+            <div id="error-user-information-update" class="row"> </div>
+        </fieldset>
+    </div>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <a class="btn btn-default" href="@Url.Action("Index", "Home")">Trở về trang chủ</a>
+            <button id="information-update-button" data-action="@Url.Action("UserInformationUpdate", "Home")" type="button" class="btn btn-primary">Cập nhật</button>
+            <input type="submit" style="display:none" />
+            <span id="loadingDivUserInformationUpdate" style="display: none;">
+                <img alt="Loading" src="@Url.Content("~/Content/Images/ajax-loader.gif")" />
+            </span>
+        </div>
+    </div>
+</form>

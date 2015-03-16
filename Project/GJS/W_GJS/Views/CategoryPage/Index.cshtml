@@ -1,0 +1,86 @@
+﻿@model IEnumerable<W_GJS.Models.O_CATEGORY_PAGE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+
+@section Breadcrumb {
+    <ul class="breadcrumb breadcrumb-page">
+        <li class="breadcrumb-label text-light-gray">Bạn đang ở đây: </li>
+        <li><a href="#">Trang chủ</a></li>
+        <li class="active"><a href="#">Menu trang</a></li>
+    </ul>
+
+    <div class="page-header">
+
+        <div class="row">
+            <!-- Page header, center on small screens -->
+            <h1 class="col-xs-12 col-sm-4 text-center text-left-sm"><i class="fa fa-home page-header-icon"></i>&nbsp;&nbsp;Menu trang</h1>
+            <div class="col-xs-12 col-sm-8">
+                <div class="row">
+                    <hr class="visible-xs no-grid-gutter-h">
+                    <div class="pull-right col-xs-12 col-sm-auto"><a style="width: 100%;" class="btn btn-primary btn-labeled" href="@Url.Action("Create", "CategoryPage")"><span class="btn-label icon fa fa-plus"></span>Tạo mới</a></div>
+                    <!-- Margin -->
+                    <div class="visible-xs clearfix form-group-margin"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="table-primary">
+        <div class="table-header">
+            <div class="table-caption">
+                Danh sách
+            </div>
+        </div>
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.CATEGORY_PAGE_CODE)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CATEGORY_PAGE_NAME)
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CATEGORY_PAGE_CODE)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CATEGORY_PAGE_NAME)
+                        </td>
+
+
+                        <td>
+                            @Html.ActionLink("Sửa", "Edit", new { CATEGORY_PAGE_CD = item.CATEGORY_PAGE_CD }) |
+                            @*@if (item.ACTIVE == false)
+                            {
+                                @Html.ActionLink("Kích hoạt", "Active", new { CATEGORY_PAGE_CD = item.CATEGORY_PAGE_CD })
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Xóa", "Deactive", new { CATEGORY_PAGE_CD = item.CATEGORY_PAGE_CD })
+                            }*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="table-footer">
+
+        </div>
+    </div>
+</div>
+

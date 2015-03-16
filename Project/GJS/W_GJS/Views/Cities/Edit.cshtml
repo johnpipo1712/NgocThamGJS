@@ -1,0 +1,73 @@
+﻿@model W_GJS.Models.O_CITIES
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+@section Breadcrumb {
+    <ul class="breadcrumb breadcrumb-page">
+        <li class="breadcrumb-label text-light-gray">Bạn đang ở đây: </li>
+        <li><a href="#">Trang chủ</a></li>
+        <li class="active"><a href="#">Khu vực</a></li>
+    </ul>
+
+    <div class="page-header">
+
+        <div class="row">
+            <!-- Page header, center on small screens -->
+            <h1 class="col-xs-12 col-sm-4 text-center text-left-sm"><i class="fa fa-sitemap page-header-icon"></i>&nbsp;&nbsp;Khu vực</h1>
+        </div>
+    </div>
+}
+<div class="row">
+    <div class="col-sm-12">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="panel form-horizontal">
+
+                <div class="panel-heading">
+                    <span class="panel-title">Sửa</span>
+                </div>
+
+                @Html.ValidationSummary(true)
+
+                <div class="panel-body">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CITIES_CODE, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.CITIES_CODE)
+                            @Html.ValidationMessageFor(model => model.CITIES_CODE)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CITIES_NAME, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.CITIES_NAME)
+                            @Html.ValidationMessageFor(model => model.CITIES_NAME)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+
+                    <div style="margin-bottom: 0;" class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" value="Sửa" class="btn btn-default" />
+                        </div>
+                    </div> <!-- / .form-group -->
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+<div>
+    @Html.ActionLink("Trở về danh sách", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

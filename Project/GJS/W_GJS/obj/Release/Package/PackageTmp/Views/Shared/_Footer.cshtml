@@ -1,0 +1,162 @@
+﻿<!-- FOOTER -->
+@{
+    HttpApplicationState application = HttpContext.Current.ApplicationInstance.Application;
+}
+<footer id="footer">
+    <div class="container">
+
+        <div class="row">
+
+            <!-- col #1 -->
+            <div class="logo_footer dark col-md-3">
+                
+                <img alt="" src="@Url.Content("~/Content")/images/viLogo.png" height="70" class="logo" />
+
+                <p class="block" style="line-height: 15px;">
+                    25/2 Nguyễn Huỳnh Đức P8, Tp.Mỹ Tho, Tĩnh Tiền Giang<br />
+                    Email: ngocthamso1@yahoo.com<br />
+                    Phone: (073) 3 872838<br />
+                    Fax: (073) 3 872838<br />
+                </p>
+
+                <p style="line-height:none; margin:0 0 0 0;">
+                    <!-- social -->
+                    <a href="#" class="social fa fa-facebook"></a>
+                    <a href="#" class="social fa fa-twitter"></a>
+                    <a href="#" class="social fa fa-google-plus"></a>
+                    <a href="#" class="social fa fa-linkedin"></a>
+                </p><!-- /social -->
+
+            </div>
+            <!-- /col #1 -->
+            <!-- col #2 -->
+            <div class="spaced col-md-3 col-sm-4">
+                @*<h4><strong>Bài Báo</strong> Gần Đây</h4>
+                <ul class="list-unstyled">
+                    <li>
+                        <a class="block" href="#">Vàng đang xuống giá đáy</a>
+                        <small>Ngày 01/08/2014</small>
+                    </li>
+                    <li>
+                        <a class="block" href="#">Kim cương đang lên ngôi</a>
+                        <small>Ngày 11/06/2014</small>
+                    </li>
+                    <li>
+                        <a class="block" href="#">Các doanh nghiệp kinh doanh vàng đang phát triển</a>
+                        <small>Ngày 19/10/2013</small>
+                    </li>
+                </ul>*@
+                <div class="counter-wrapper">
+                    <h4 class="text-center"><strong>Số lượng truy cập</strong></h4>
+                    <table>
+                        <tr>
+                            <th class="counter-online-now">Hiện tại:</th>
+                            <td class="counter-people">@application["VISITORS_ONLINE"]</td>
+                        </tr>
+                        <tr>
+                            <th>Trong ngày:</th>
+                            <td class="counter-people">@application["COUNTER_VISIT_GN"]</td>
+                        </tr>
+                        <tr>
+                            <th>Hôm qua:</th>
+                            <td class="counter-people">@application["COUNTER_VISIT_HQ"]</td>
+                        </tr>
+                        <tr>
+                            <th>Tuần này:</th>
+                            <td class="counter-people">@application["COUNTER_VISIT_WEEK_TN"]</td>
+                        </tr>
+                        <tr>
+                            <th>Tuần trước:</th>
+                            <td class="counter-people">@application["COUNTER_VISIT_WEEK_TT"]</td>
+                        </tr>
+                        <tr>
+                            <th>Tháng này:</th>
+                            <td class="counter-people">@application["COUNTER_VISIT_MONTH_TN"]</td>
+                        </tr>
+                        <tr>
+                            <th>Tháng trước:</th>
+                            <td class="counter-people">@application["COUNTER_VISIT_MONTH_TT"]</td>
+                        </tr>
+                        <tr>
+                            <th>Tất cả:</th>
+                            <td class="counter-people">@application["COUNTER_VISIT_MONTH_TOTAL"]</td>
+                        </tr>
+                        
+                        
+                        
+                     </table>
+                </div>
+            </div>
+            <!-- /col #2 -->
+            <!-- col #3 -->
+            @{
+                W_GJS.Models.GJSEntities gjs = new W_GJS.Models.GJSEntities();
+                W_GJS.Models.O_INFORMATION infomation = gjs.O_INFORMATION.Single(t => t.CD == 1);
+            }
+            <div class="spaced col-md-3 col-sm-4">
+                <div id="fb-root"></div>
+                <script>
+
+                    (function (d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
+                <div class="fb-like-box"
+                     style="background: #fff"
+                     data-href="@infomation.INFORMATION_FACBOOK"
+                     data-layout="button_count"
+                     data-width="250"
+                     data-height="250"
+                     data-show-faces="true"
+                     data-stream="false"
+                     data-show-border="false"
+                     data-header="false"></div>
+            </div>
+            <!-- /col #3 -->
+            <!-- col #4 -->
+            <div class="spaced col-md-3 col-sm-4">
+                <h4>Về <strong>Chúng Tôi</strong></h4>
+                <p>
+                    NTJ ​là thương hiệu cho dòng sản phẩm trang sức cao cấp của công ty vàng bạc đá quý Ngọc Thẫm chuyên về lĩnh vực nhẫn cưới, vàng miếng, kim cương...
+                </p>
+
+                <h4><small><strong>Gửi chúng tôi email của bạn để nhận những thông tin sớm nhất</strong></small></h4>
+                <form method="get" action="#" class="input-group">
+                    <input required type="email" class="form-control" name="email" id="email" value="" placeholder="Địa chỉ E-mail">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary">GỬI</button>
+                    </span>
+                </form>
+
+            </div>
+            <!-- /col #4 -->
+
+        </div>
+
+    </div>
+
+    <hr />
+
+    <div class="copyright">
+        <div class="container text-center fsize12">
+            Thiết kế bởi nhóm phát triển web và ứng dụng di động chuyên nghiệp <a href="https://www.facebook.com/TechStormTeam" class="fsize11" target="_blank" title="Tech Storm" class="copyright">Tech Storm</a> &bull; Tất cả bản quyền thuộc về &copy; Công ty TNHH Ngọc Thẫm. &nbsp;
+            <a href="#" class="fsize11">Chinh Sách của Công Ty</a> &bull;
+            <a href="#" class="fsize11">Điều Khoản Dịch Vụ</a>
+        </div>
+    </div>
+</footer>
+@*<script type='text/javascript'>
+    (function () {
+        var done = false;
+        var script = document.createElement('script');
+        script.async = true;
+        script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript';
+        document.getElementsByTagName('HEAD').item(0).appendChild(script);
+        script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: '5cd78fac-fd27-4219-a5d0-52f2860a94ac', f: true }); done = true; } };
+    })();
+</script>*@
+
+<!-- /FOOTER -->

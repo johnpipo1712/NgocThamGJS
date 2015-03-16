@@ -1,0 +1,33 @@
+﻿
+
+@{
+    ViewBag.Title = "SearchProducts";
+    Layout = "~/Views/Shared/_ShopLayout.cshtml";
+}
+
+@section PageTitle {
+    <section class="page-title">
+        <div class="container">
+
+            <header>
+
+                <ul class="breadcrumb">
+                    <!-- breadcrumb -->
+                    <li><a href="@Url.Action("Index")">Trang Chủ</a></li>
+                    <li class="active">Tìm kiếm</li>
+                </ul><!-- /breadcrumb -->
+
+                <h2>
+                    <!-- Page Title -->
+                    <strong>Kết quả tìm kiếm</strong>
+                </h2><!-- /Page Title -->
+
+            </header>
+
+        </div>
+    </section>
+}
+
+<h2 class="owl-featured"><strong>Đã tìm thấy @Model.NumberOfItemFound kết quả</strong></h2>
+<div class="spacing"></div>
+@Html.Raw(Model.HtmlString)

@@ -1,0 +1,121 @@
+﻿@model W_GJS.Models.O_BRANCH
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+
+
+@section Breadcrumb {
+    <ul class="breadcrumb breadcrumb-page">
+        <li class="breadcrumb-label text-light-gray">Bạn đang ở đây: </li>
+        <li><a href="#">Trang chủ</a></li>
+        <li class="active"><a href="#">Chi nhánh</a></li>
+    </ul>
+
+    <div class="page-header">
+
+        <div class="row">
+            <!-- Page header, center on small screens -->
+            <h1 class="col-xs-12 col-sm-4 text-center text-left-sm"><i class="fa fa-sitemap page-header-icon"></i>&nbsp;&nbsp;Chi nhánh</h1>
+        </div>
+    </div>
+}
+<div class="row">
+    <div class="col-sm-12">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="panel form-horizontal">
+
+                <div class="panel-heading">
+                    <span class="panel-title">Sửa</span>
+                </div>
+
+                @Html.ValidationSummary(true)
+
+                <div class="panel-body">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BRANCH_CODE, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.BRANCH_CODE)
+                            @Html.ValidationMessageFor(model => model.BRANCH_CODE)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BRANCH_NAME, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.BRANCH_NAME)
+                            @Html.ValidationMessageFor(model => model.BRANCH_NAME)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CITIES_DETAIL_CD, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.DropDownList("CITIES_DETAIL_CD", (SelectList)ViewBag.DCities)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ADDRESS, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.ADDRESS)
+                            @Html.ValidationMessageFor(model => model.ADDRESS)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2">Lấy kinh độ, vĩ độ tại</div>
+                        <div class="col-sm-10">
+                            <a href="http://www.itouchmap.com/latlong.html" target="_blank">http://www.itouchmap.com/latlong.html</a>
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.LONGITUDE, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.LONGITUDE)
+                            @Html.ValidationMessageFor(model => model.LONGITUDE)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.LATITUDE, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.LATITUDE)
+                            @Html.ValidationMessageFor(model => model.LATITUDE)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PHONE, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.PHONE)
+                            @Html.ValidationMessageFor(model => model.PHONE)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    
+
+                    <div style="margin-bottom: 0;" class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" value="Sửa" class="btn btn-default" />
+                        </div>
+                    </div> <!-- / .form-group -->
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<div>
+    @Html.ActionLink("Trở về danh sách", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,113 @@
+﻿@model IEnumerable<W_GJS.Models.O_NEWS>
+@{
+    ViewBag.Title = "Category_News";
+    W_GJS.Models.GJSEntities gjs = new W_GJS.Models.GJSEntities();
+    List<W_GJS.Models.O_NEWS_HIGHLIGHTS> listNews_Hight_Light = gjs.O_NEWS_HIGHLIGHTS.Where(t => t.ACTIVE == true).OrderByDescending(x => x.CREATEDATE).ToList();
+    
+}
+
+@section Styles {
+    <link href="@Url.Content("~/Self/news/css/mainstyles.css")" rel="stylesheet" type="text/css" />
+}
+@section PageTitle {
+    <section class="page-title">
+        <div class="container">
+
+            <header>
+
+                <ul class="breadcrumb">
+                    <!-- breadcrumb -->
+                    <li><a href="@Url.Action("Index")">Trang Chủ</a></li>
+                    <li class="active">Danh mục tin tức</li>
+                </ul><!-- /breadcrumb -->
+
+                <h2>
+                    <!-- Page Title -->
+                   <strong>Danh mục tin tức</strong>
+                </h2><!-- /Page Title -->
+
+            </header>
+
+        </div>
+    </section>
+}
+
+
+
+
+<h2 class="owl-featured">
+    <strong>
+        @if (@Model.ToList().Count > 0) 
+        {
+            @Model.ToList()[0].O_CATEGORY_NEWS.CATEGORY_NEWS_NAME
+        }
+    </strong>
+</h2>
+<div class="wrapper" align="center">
+    <div id="content" style="margin-top:40px;">
+        <!-- InstanceBeginEditable name="ContentThongTin" -->
+        <div id="leftpanel_thongtin">
+            <div class="enter">
+            </div>
+            <div id="contentTinTuc">
+                @if (@Model.ToList().Count > 0)
+                {
+                    @Model.ToList()[0].O_CATEGORY_NEWS.CATEGORY_NEWS_NAME
+                    List<W_GJS.Models.O_NEWS> list = Model.ToList();
+                    int count = list.Count;
+
+                    <div class="imghomenews"> <img width="300" src="@list[0].IMAGE_NEWS" align=""> </div>
+                    <div id="tintuc_home_copy" style="width:260px">
+                        <h4><a href="@Url.Action("NewsDetail", new { NEWS_CD = list[0].NEWS_CD })">@list[0].NEWS_TITLE</a></h4>
+                        @list[0].NEW_DESCRIPTIONS<br>
+                        <div align="right"><a href="@Url.Action("NewsDetail", new { NEWS_CD = list[0].NEWS_CD })">Xem thêm</a></div>
+                    </div><div class="enter"><br> <hr noshade="noshade" width="90%"></div>
+
+
+                    <div id="news-sub-list"></div>
+
+    <script>
+    function loadNews(currentPage) {
+        inProgress = true;
+        $("#loadingDiv").show();
+
+        $.post("@Url.Action("CategoryNewsPaging", "Home")", { "CATEGORY_NEWS_CD": @if (@Model.ToList().Count > 0){@Model.ToList()[0].O_CATEGORY_NEWS.CATEGORY_NEWS_CD}, "numberOfItemsInPage": 3, "currentPage": currentPage },
+            function (data) {
+                $("#news-sub-list").html(data);
+                $("#loadingDiv").hide();
+                inProgress = false;
+            });
+        }
+
+        loadNews(1);
+    </script>
+                    
+                }
+               
+
+            </div>
+        </div>
+        <div id="rightpanel_thongtin">
+            <div id="thongtin_panel">
+                <div id="newsvideo">
+                    <div id="newsvideocontent">
+                        <div id="videokhac">
+                            <h5 class="title-highlight-news">TIN TỨC NỔI BẬT</h5>
+                            <ul>
+                                @foreach (var item in listNews_Hight_Light)
+                                {
+                                    <li><a href="@Url.Action("NewsDetail", new { NEWS_CD = item.NEWS_CD })">@item.O_NEWS.NEWS_TITLE (@String.Format("{0:dd/MM/yyy}", @item.O_NEWS.CREATEDATE))</a></li>
+
+                                }
+                               </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- InstanceEndEditable -->
+    </div>
+    <div class="enter"> </div>
+</div>
+

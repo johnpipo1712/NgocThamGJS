@@ -1,0 +1,68 @@
+#ab_support {
+background: url("../images/icon-support.png") no-repeat scroll left top rgba(0, 0, 0, 0);
+display: block;
+height: 96px;
+width: 105px;
+}
+
+.ab_support {
+position: fixed;
+bottom: -1px;
+right: 5px;
+z-index: 99;
+}
+
+.ab_support .support_chat {
+background: url("../images/support_bg.png") no-repeat scroll left top rgba(0, 0, 0, 0);
+display: none;
+height: 254px;
+width: 277px;
+}
+
+.ab_support .support_chat .sp_title {
+color: #001A36;
+font-size: 1.4em;
+font-weight: bold;
+left: 96px;
+position: absolute;
+top: 24px;
+}
+
+.ab_support .support_chat .sp_phone {
+color: #ffffff;
+font-size: 1.3em;
+font-weight: bold;
+left: 106px;
+letter-spacing: 1px;
+position: absolute;
+top: 94px;
+}
+
+.ab_support .support_chat .support_info {
+left: 6px;
+top: 147px;
+position: absolute;
+width: 265px;
+}
+
+.ab_support .support_chat .support_info li.sp_left {
+display: inline-block;
+margin-left: 50px;
+text-align: center;
+width: 76px;
+}
+
+.ab_support .support_chat .support_info li a {
+color: inherit;
+}
+
+.ab_support .support_chat .support_info li.sp_right {
+display: inline-block;
+margin-left: 23px;
+width: 77px;
+text-align: center;
+}
+
+.ab_support .support_chat .support_info li a {
+color: inherit;
+}

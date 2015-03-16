@@ -1,0 +1,107 @@
+﻿@model W_GJS.Models.O_NEWS
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+<script src="~/ckeditor/ckeditor.js" type="text/javascript"></script>
+@section Breadcrumb {
+    <ul class="breadcrumb breadcrumb-page">
+        <li class="breadcrumb-label text-light-gray">Bạn đang ở đây: </li>
+        <li><a href="#">Trang chủ</a></li>
+        <li class="active"><a href="#">Tin tức</a></li>
+    </ul>
+
+    <div class="page-header">
+
+        <div class="row">
+            <!-- Page header, center on small screens -->
+            <h1 class="col-xs-12 col-sm-4 text-center text-left-sm"><i class="fa fa-info-circle page-header-icon"></i>&nbsp;&nbsp;Tin tức</h1>
+        </div>
+    </div>
+}
+<div class="row">
+    <div class="col-sm-12">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="panel form-horizontal">
+
+                <div class="panel-heading">
+                    <span class="panel-title">Sửa</span>
+                </div>
+
+                @Html.ValidationSummary(true)
+
+                <div class="panel-body">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NEWS_TITLE, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.NEWS_TITLE)
+                            @Html.ValidationMessageFor(model => model.NEWS_TITLE)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NEW_DESCRIPTIONS, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.TextAreaFor(model => model.NEW_DESCRIPTIONS)
+                            @Html.ValidationMessageFor(model => model.NEW_DESCRIPTIONS)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IMAGE_NEWS, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.IMAGE_NEWS)
+                            @Html.ValidationMessageFor(model => model.IMAGE_NEWS)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SOURCE_COPY, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.SOURCE_COPY)
+                            @Html.ValidationMessageFor(model => model.SOURCE_COPY)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CATEGORY_NEWS_CD, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.DropDownList("CATEGORY_NEWS_CD", (SelectList)ViewBag.categoryNews)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NEWS_CONTENT, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.TextAreaFor(model => model.NEWS_CONTENT, new { @id = "ckeContent" })
+                            <script type="text/javascript">
+                                CKEDITOR.replace("ckeContent");
+                            </script>
+                            @Html.ValidationMessageFor(model => model.NEWS_CONTENT)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div style="margin-bottom: 0;" class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" value="Sửa" class="btn btn-default" />
+                        </div>
+                    </div> <!-- / .form-group -->
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+<div>
+    @Html.ActionLink("Trở về danh sách", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

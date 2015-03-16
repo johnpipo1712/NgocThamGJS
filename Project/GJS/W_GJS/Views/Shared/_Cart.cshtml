@@ -1,0 +1,68 @@
+﻿@{
+    W_GJS.Models.O_ORDER Ord = (W_GJS.Models.O_ORDER)Session["Cart"];
+}
+<ul class="quick-cart-wrapper">
+    <li class="quick-cart dropdown pull-right">
+            @if(Ord == null)
+            {
+                <a href="#" class="dropdown-toggle btn btn-primary"><i class="fa fa-shopping-cart"></i> Chưa có sản phẩm <i class="fa fa-angle-down"></i></a>
+            }
+            else
+            {
+                <a href="#" class="dropdown-toggle btn btn-primary"><i class="fa fa-shopping-cart"></i> @Ord.D_ORDER_DETAIL.Count SẢN PHẨM @*- @String.Format("{0:0,0 " + Ord.D_ORDER_DETAIL.ToList()[0].O_PRODUCT.CURRENCY + "}", W_GJS.Models.O_ORDER.Price_Total(Ord))*@<i class="fa fa-angle-down"></i></a>
+          
+            }
+           <ul class="dropdown-menu pull-right">
+            <li>
+                @if(Ord == null)
+                {
+                        <p><i class="fa fa-warning"></i> Ban chưa có sản phẩm trong giỏ hàng</p>
+                }
+                else
+                { 
+                <p><i class="fa fa-warning"></i> Ban có @Ord.D_ORDER_DETAIL.Count sản phẩm trong giỏ hàng</p>
+
+                <!-- CART CONTENT -->
+                <div class="quick-cart-content">
+                    @foreach (var item in Ord.D_ORDER_DETAIL)
+                    {
+                        <a class="quick-cart-item" href="@Url.Action("Cart", "Home")">
+                        <!-- item 1 -->
+                        <img class="pull-left" src="@item.O_PRODUCT.URL_IMAGE" width="40" alt="quick cart">
+                        <div class="inline-block">
+                            <span class="title block">@item.O_PRODUCT.PRODUCT_NAME</span>
+                            <span class="price block">@item.QUANTITY)</span>
+                        </div>
+                    </a><!-- /item 1 -->
+                    }
+                   
+
+                    <div class="row cart-footer">
+                        <!-- cart footer -->
+                        <div class="col-md-6 nopadding-right">
+                            <a href="@Url.Action("Cart", "Home")" class="btn btn-primary fullwidth">GIỎ HÀNG</a>
+                        </div>
+                        @*<div class="col-md-6 nopadding-left" id="checkout-wrap">
+                        @if (!String.IsNullOrEmpty((string)Session[W_GJS.General.SessionConstants.LOGINED_USER_KEY]))
+                        {
+                            using (Html.BeginForm("Checkout", "Home", FormMethod.Post))
+                            {
+                               <button type="submit" onclick="return confirm('Bạn có chắc muốn thanh toán !!!');" class="btn btn-info fullwidth">THANH TOÁN</button>
+                             /update cart 
+                            }
+                        }
+                        else
+                        {
+                            <a href="#" data-toggle="modal" data-target="#LoginModal" class="btn btn-info fullwidth">THANH TOÁN</a>
+
+                        }
+                        </div>*@
+                    </div><!-- /cart footer -->
+
+                </div>
+                <!-- /CART CONTENT -->
+                    }
+            </li>
+        </ul>
+    </li>
+</ul>

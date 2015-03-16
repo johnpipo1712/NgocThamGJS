@@ -1,0 +1,292 @@
+/**
+	@Light		#FFE344
+	@Dark	#FFE345
+*/
+
+.spaced small strong {
+    color: #fff;
+}
+
+a,
+.tp-caption a {
+    color: #FFE345;
+}
+
+    #footer li a:hover,
+    #footer a:hover,
+    a, a:hover, a:active,
+    #topNav ul.nav li li a:hover,
+    .tp-caption a:hover,
+    .featured-box-minimal h4,
+    .glyphicon, .wi,
+    p.dropcap:first-letter,
+    ul.side-nav a:hover,
+    ul.side-nav ul li.active > a,
+    .li, div.owl-carousel .caption,
+    .pagination > li > a,
+    .pagination > li > span,
+    .pagination > li > a:hover,
+    .pagination > li > span:hover,
+    .pagination > li > a:focus,
+    .pagination > li > span:focus,
+    div.mega-price-table .pricing:hover h4,
+    div.mega-price-table .pricing-table i.fa, /* icons */
+    #blog a > span,
+    #blog h1 > span,
+    .cartContent a.remove_item:hover,
+    .cartContent button.remove_item:hover,
+    .owl-carousel.featured a.figure > span > i,
+    .btn-link,
+    .styleColor {
+        /*color:#FFE344;*/
+        color: #FF3737;
+    }
+
+p.dropcap.color:first-letter,
+span.badge,
+#toTop:hover,
+#bar, .slider-handle,
+div.featured-box i.fa,
+i.featured-icon,
+.progress-bar-primary,
+.modal-header,
+.timeline .timeline-left .item:before,
+.timeline .timeline-right .item:before,
+.timeline .timeline-centered .item.pull-right:before,
+.timeline .timeline-centered .item.pull-left:before,
+div.mega-price-table .pricing-title,
+div.mega-price-table .pricing-head,
+div.mega-price-table .pricing.popular,
+#topNav ul.nav > li:hover > a:before,
+#topNav ul.nav > li.active > a:before,
+.styleBackgroundColor {
+    background-color: #FFE344;
+}
+
+    /* icons , boxes */
+    i.featured-icon:after,
+    div.featured-box.nobg.border-only i.fa {
+        color: #FFE344;
+        border-color: #FFE344;
+    }
+
+section.product-view-colors a:hover,
+section.product-view-colors a.active,
+i.featured-icon {
+    border-color: #FFE344;
+}
+
+    i.featured-icon.empty {
+        color: #FFE344 !important;
+        border-color: #FFE344;
+    }
+
+/* Top Nav */
+#topNav ul.nav .dropdown-menu > li.active > a,
+#topNav ul.nav .dropdown-menu > li:hover > a,
+#topNav ul.nav .dropdown-menu > li:focus > a {
+    color: #333 !important;
+    background-color: #FFE344;
+}
+
+#topNav ul.dropdown-menu > li:hover > a.dropdown-toggle:after { /* arrow sub-submenu */
+    color: #333;
+}
+
+/* Primary Button */
+.btn-primary {
+    border-color: #FFE345;
+    background-color: #FFE345;
+}
+
+.btn-white {
+    color: #FFE344 !important;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary,
+.daterangepicker td.active,
+.daterangepicker td.active:hover,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+    border-color: #FFE344;
+    background-color: #FFE344;
+}
+
+
+/* embed title */
+section header em,
+h1 > em, h2 > em, h3 > em, h4 > em, h5 > em, h6 > em {
+    font-style: normal;
+    /*color:#FFE344;*/
+    color: #FF3737;
+}
+
+/* Top Nav active/hover */
+#topNav ul.nav > li.mega-menu > ul li:hover > a,
+#topNav ul.nav > li.mega-menu > ul li.active > a,
+#topNav ul.nav > li:hover:before,
+#topNav ul.nav > li.active:before {
+    background-color: #FFE344;
+}
+/* Top Nav color active */
+#topNav .nav-pills.colored > li.active > a,
+#topNav .nav-pills.colored > li.active > a:hover,
+#topNav .nav-pills.colored > li.active > a:focus {
+    color: #333;
+    background-color: #FFE344;
+}
+
+/* Misc */
+.styleBackgroundColor,
+.featured-box-minimal i.fa {
+    background-color: #FFE344;
+}
+
+ul.list-icon li:before {
+    color: #FFE344;
+    font-size: 16px;
+}
+
+body.boxed #topBar {
+    border-top: #FFE344 4px solid;
+}
+
+.panel-epona {
+    border: #FFE344 1px solid;
+}
+
+    .panel-epona > .panel-heading {
+        background-color: #FFE344;
+        color: #333;
+    }
+
+/* Slider Captions */
+.tp-caption.block_styleColor {
+    background-color: #FFE344;
+    color: #333;
+}
+
+.tp-caption.block_white {
+    color: #FFE344;
+}
+
+/* flex slider */
+.flexslider.flexFull .flex-direction-nav a:hover,
+.flexslider.flexContent .flex-direction-nav a:hover {
+    background-color: #FFE344;
+    color: #333;
+}
+
+/* essentials rewrite */
+.alert.alert-default {
+    border-left: #FFE344 3px solid;
+}
+
+/* item box */
+.item-box .item-hover .overlay {
+    background-color: rgba(169,69,69,0.6);
+}
+
+
+
+/* 
+	Sky Forms
+*/
+/**/
+/* normal state */
+/**/
+.sky-form .toggle i:before {
+    background-color: #FFE344;
+}
+
+.sky-form .button {
+    background-color: #FFE344;
+}
+
+
+/**/
+/* checked state */
+/**/
+.sky-form .radio input + i:after {
+    background-color: #FFE344;
+}
+
+.sky-form .checkbox input + i:after {
+    color: #FFE344;
+}
+
+.sky-form .radio input:checked + i,
+.sky-form .checkbox input:checked + i,
+.sky-form .toggle input:checked + i {
+    border-color: #FFE344;
+}
+
+.sky-form .rating input:checked ~ label {
+    color: #FFE344;
+}
+
+#topNav ul.nav > li > a > span {
+    color: #aaa;
+}
+
+h2.owl-featured {
+    border-bottom: 2px solid #FFE344;
+    color: #FFE344;
+}
+
+.dathang_theoyeucau > div.content_dathang {
+    border: 5px solid #FFE344;
+}
+
+#footer .counter-wrapper h4 {
+    color: #FFE344;
+    -webkit-text-shadow: 1px 2px 1px #555;
+    text-shadow: 1px 2px 1px #555;
+}
+
+.counter-online-now {
+    color: #FFE344;
+    -webkit-text-shadow: 1px 2px 1px #555;
+    text-shadow: 1px 2px 1px #555;
+}
+
+.table-stores tr:first-child td {
+    background: #FFE344 !important;
+}
+
+.page-title h2 strong {
+    color: #FFE344;
+    -webkit-text-shadow: 2px 3px 3px #222;
+    text-shadow: 2px 3px 3px #222;
+}
+
+.breadcrumb > .active {
+    color: #FFE345;
+    text-shadow: 2px 3px 3px #222;
+    font-weight: bold;
+}
+
+.breadcrumb a {
+    color: grey;
+}
+
+#discussion {
+    background: #eee;
+}
+
+.page-head {
+    color: #FFE344;
+    -webkit-text-shadow: 1px 2px 1px #555;
+    text-shadow: 1px 2px 1px #555;
+}

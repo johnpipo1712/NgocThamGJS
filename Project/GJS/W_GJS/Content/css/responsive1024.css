@@ -1,0 +1,17 @@
+﻿@media only screen and (max-width: 1024px) and (max-height: 768px) {
+    .nav-main {
+        padding-left: 240px;
+    }
+
+    .topbar-first-li {
+        padding-right: 7% !important;
+    }
+
+    .logo {
+        top: 5px;
+    }
+
+    div.slider {
+        top: -129px;
+    }
+}

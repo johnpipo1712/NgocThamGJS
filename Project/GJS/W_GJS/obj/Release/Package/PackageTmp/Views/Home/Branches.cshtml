@@ -1,0 +1,122 @@
+﻿@model IEnumerable<W_GJS.Models.O_BRANCH>
+@{
+    ViewBag.Title = "Home Page";
+
+}
+
+@section Styles {
+    <link href="@Url.Content("~/Self/branches/css/default.css")" rel="stylesheet" type="text/css" />
+}
+@section Scripts {
+   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="@Url.Content("~/Self/branches/js/script.js")"></script>
+}
+
+@section PageTitle {
+    <section class="page-title">
+        <div class="container">
+
+            <header>
+
+                <ul class="breadcrumb">
+                    <!-- breadcrumb -->
+                    <li><a href="@Url.Action("Index")">Trang Chủ</a></li>
+                    <li class="active">Hệ thống chi nhánh</li>
+                </ul><!-- /breadcrumb -->
+
+                <h2>
+                    <!-- Page Title -->
+                    <strong>Hệ thống chi nhánh</strong>
+                </h2><!-- /Page Title -->
+
+            </header>
+
+        </div>
+    </section>
+}
+
+
+<h2 class="owl-featured margin-bottom-30 margin-top20"><strong>HỆ THỐNG CHI NHÁNH</strong></h2>
+
+<div class="page-container">
+    <div class="left-vnmap">
+        <img src="@Url.Content("~/Content")/images/branches/img-bando.png" alt="">
+    </div>
+    <div class="right-branches">
+        <div class="sys-store">
+            <div class="choose-sys-store">
+               
+                    <div class="choose-type">
+                        @Html.DropDownList("city", (SelectList)ViewBag.Cities, new { @class = "search-type tinh", @style = "opacity: 0;", onchange = "GetCity();" })
+
+                        <span id="spansearch" class="search-label button-label">Tiền Giang</span>
+                    </div>
+                    <div class="choose-type">
+                        @Html.DropDownList("Dcity", (SelectList)ViewBag.DCities,"---", new { @class = "search-type tinh", @style = "opacity: 0;", onchange = "GetDCity();"})
+                        <span id="spansearchD" class="search-label button-label">---</span>
+                    </div>
+                <a href="#" id="ctl00_cntMain_ctl00_btnSearch" class="sys-search">Tìm</a>
+                       
+                   
+            </div><!--end choose store-->
+            <div class="wrap-sys-store">
+                <table id="table-branches" class="table-stores">
+                    <tbody>
+                        <tr>
+                            <td class="sys1">Tên chi nhánh </td>
+                            <td class="sys2">Địa chỉ</td>
+                            <td class="sys3">Điện thoại</td>
+                        </tr>
+                        @for (int i = 0; i < Model.Count(); i++)
+{
+    if (i % 2 != 0)
+    {
+        <tr class="hand-cursor" onclick='window.open("@Url.Action("GoogleMap", "Home", new { CD = @Model.ToList()[i].BRANCH_CD }) ", " mywindow", "status=1" );'>
+            <td class="sys1">@Model.ToList()[i].BRANCH_NAME</td>
+            <td class="sys2">@Model.ToList()[i].ADDRESS</td>
+            <td class="sys3">@Model.ToList()[i].PHONE</td>
+        </tr>
+    }
+    else
+    {
+                    <tr class="even hand-cursor" onclick='window.open("@Url.Action("GoogleMap", "Home", new { CD = @Model.ToList()[i].BRANCH_CD }) ", " mywindow", "status=1" );'>
+                                    <td class=" sys1">
+                        @Model.ToList()[i].BRANCH_NAME</td>
+                                    <td class="sys2">@Model.ToList()[i].ADDRESS</td>
+                                    <td class="sys3">@Model.ToList()[i].PHONE</td>
+                                </tr>
+                            }
+
+                        }
+
+                    </tbody>
+                </table>
+
+                <!-- AspNetPager 7.3.2  Copyright:2003-2010 BoYang Computer Co., Ltd. (http://en.webdiyer.com) -->
+                <!--AspNetPager is hidden because there're only one page of records-->
+                <!-- AspNetPager 7.3.2  Copyright:2003-2010 BoYang Computer Co., Ltd. (http://en.webdiyer.com) -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="mapView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Bản đồ</h4>
+            </div>
+            <div class="modal-body">
+                <div id="map_canvas"  style="width: 100%; height: 480px; ">
+
+                </div>
+            </div>
+            @*<div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>*@
+        </div>
+    </div>
+</div>

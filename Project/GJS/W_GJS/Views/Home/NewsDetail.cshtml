@@ -1,0 +1,100 @@
+﻿@model W_GJS.Models.O_NEWS
+@{
+    ViewBag.Title = "NewsDetail";
+    Layout = "~/Views/Shared/_ShopLayout.cshtml";
+    W_GJS.Models.GJSEntities gjs = new W_GJS.Models.GJSEntities();
+    List<W_GJS.Models.O_NEWS_HIGHLIGHTS> listNews_Hight_Light = gjs.O_NEWS_HIGHLIGHTS.Where(t => t.ACTIVE == true).OrderByDescending(x => x.CREATEDATE).ToList();
+    List<W_GJS.Models.O_NEWS_NEW> listNews_NEW = gjs.O_NEWS_NEW.Where(t => t.ACTIVE == true).OrderByDescending(x => x.CREATEDATE).ToList();
+    W_GJS.Models.O_INFORMATION Infomation = gjs.O_INFORMATION.Single(t => t.CD == 1);
+  
+}
+
+@section Styles {
+    <link href="@Url.Content("~/Self/news/css/mainstyles.css")" rel="stylesheet" type="text/css" />
+}
+
+@section PageTitle {
+    <section class="page-title">
+        <div class="container">
+
+            <header>
+
+                <ul class="breadcrumb">
+                    <!-- breadcrumb -->
+                    <li><a href="@Url.Action("Index")">Trang Chủ</a></li>
+                    <li class="active">Chi tiết tin tức</li>
+                </ul><!-- /breadcrumb -->
+
+                <h2>
+                    <!-- Page Title -->
+                    <strong>Chi tiết tin tức</strong>
+                </h2><!-- /Page Title -->
+
+            </header>
+
+        </div>
+    </section>
+}
+
+
+
+
+<h2 class="owl-featured">TIN TỨC</h2>
+<div class="wrapper" align="center">
+    <div id="content" style="margin-top:40px;">
+        <!-- InstanceBeginEditable name="ContentThongTin" -->
+        <div id="leftpanel_thongtin">
+            <div id="contentthongtinvang" style="line-height:20px;">
+                <h2>@Model.NEWS_TITLE</h2>
+                <div id="date">@String.Format("{0:dd/MM/yyyy}",@Model.CREATEDATE) | @Model.SOURCE_COPY</div>
+                @Html.Raw(Model.NEWS_CONTENT)
+            </div>
+            <div class="enter">
+                <div id="fb-root"></div>
+                <script>
+                    (function (d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
+                <div class="fb-comments" data-href="@Infomation.INFORMATION_FACBOOK/News/@Model.NEWS_TITLE" data-numposts="100" data-colorscheme="light"></div>
+
+            </div>
+            <br>
+            <div id="tinkhac">
+                <h5 class="title-highlight-news">
+                    CÁC TIN MỚi
+                </h5>
+                <ul>
+                    @foreach (var item in listNews_NEW)
+                    {
+                          <li><a href="@Url.Action("NewsDetail", new { NEWS_CD = item.NEWS_CD })">@item.O_NEWS.NEWS_TITLE (@String.Format("{0:dd/MM/yyy}", @item.O_NEWS.CREATEDATE))</a></li>
+                  
+                    }
+                 </ul>
+            </div>
+        </div>
+        <div id="rightpanel_thongtin">
+            <div id="thongtin_panel">
+                <div id="newsvideo">
+                    <div id="newsvideocontent">
+                        <div id="videokhac">
+                            <h5 class="title-highlight-news">TIN TỨC NỔI BẬT</h5>
+                            <ul>
+                                @foreach (var item in listNews_Hight_Light)
+                                {
+                                    <li><a href="@Url.Action("NewsDetail", new { NEWS_CD = item.NEWS_CD })">@item.O_NEWS.NEWS_TITLE (@String.Format("{0:dd/MM/yyy}", @item.O_NEWS.CREATEDATE))</a></li>
+
+                                }
+                             </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="enter"> </div>
+</div>

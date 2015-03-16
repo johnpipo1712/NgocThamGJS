@@ -1,0 +1,291 @@
+﻿@{
+    ViewBag.Title = "Trang Chủ";
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+@{
+    W_GJS.Models.GJSEntities gjs = new W_GJS.Models.GJSEntities();
+    W_GJS.Models.O_SEO seo = gjs.O_SEO.Single(t => t.CD == 1);
+    W_GJS.Models.M_PAGE popup = gjs.M_PAGE.Single(t => t.PAGE_COTRACT_CD == 9);
+    List<W_GJS.Models.O_CATEGORY_PRODUCT> listCategoryProduct = gjs.O_CATEGORY_PRODUCT.Where(t => t.ACTIVE == true).ToList();
+
+    List<W_GJS.Models.O_PRODUCT_HIGHLIGHTS> listproduct_hightlights = gjs.O_PRODUCT_HIGHLIGHTS.Where(t => t.O_PRODUCT.ACTIVE == true && t.O_PRODUCT.STATUS == 1).ToList();
+    List<W_GJS.Models.O_NEWS_NEW> listNews_NEW = gjs.O_NEWS_NEW.Where(t => t.ACTIVE == true).ToList();
+
+}
+<html>
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <title>@seo.TITILE</title>
+    <meta name="keywords" content="@seo.META_KEYWORDS" />
+    <meta name="description" content="@seo.META_DES" />
+    <!-- mobile settings -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href='@Url.Content("~/Content")/images/favicon.png' />
+
+
+    @*@Styles.Render("~/Content/css")*@
+    @*<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,vietnamese' rel='stylesheet' type='text/css'>*@
+    <link href="@Url.Content("~/Content/css/fonts.googleapis.css")" rel="stylesheet" type="text/css" />
+
+    <link href="@Url.Content("~/Content/css/flare/prettify.css")" rel="stylesheet" type="text/css" />
+
+    <link href="@Url.Content("~/Content/plugins/bootstrap/css/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/font-awesome.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/sky-forms.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/weather-icons.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/line-icons.css")" rel="stylesheet" type="text/css" />
+    @*<link href="@Url.Content("~/Content/plugins/owl-carousel/owl.pack.css")" rel="stylesheet" type="text/css" />*@
+    <link href="@Url.Content("~/Content/plugins/owl-carousel-latest/owl.carousel.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/plugins/owl-carousel-latest/owl.theme.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/plugins/owl-carousel-latest/owl.transitions.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/plugins/magnific-popup/magnific-popup.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/animate.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/flexslider.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/revolution-slider.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/layerslider.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/layout-shop.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/essentials.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/layout.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/header-3.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/footer-default.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/color_scheme/red.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/style.css")" rel="stylesheet" type="text/css" />
+
+    <script src="@Url.Content("~/Content/plugins/modernizr.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/plugins/jquery-2.1.1.min.js")" type="text/javascript"></script>
+
+    <link href="@Url.Content("~/Content/css/default.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/supported.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/responsive768.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/responsive568.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/responsive480.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/responsive320.css")" rel="stylesheet" type="text/css" />
+
+    <!--[if lte IE 8]>
+        <script src="@Url.Content("~/Scripts/respond.js")" type="text/javascript"></script>
+    <![endif]-->
+</head>
+
+<body class="smoothscroll">
+    <!-- Default Modal For All Pages -->
+    @Html.Partial("_Modal")
+
+    <div id="wrapper">
+        @*@ViewContext.Controller.ValueProvider.GetValue("controller").RawValue -
+            @ViewContext.Controller.ValueProvider.GetValue("action").RawValue*@
+        @Html.Partial("_TopBar")
+        @*@RenderSection("Slide", false)*@
+
+        @Html.Partial("_Slide")
+
+        <div id="header">
+
+
+            @Html.Partial("_Menu")
+
+        </div>
+
+        <!-- CONTENT -->
+        <!-- ABOUT -->
+        <section id="about">
+            <div class="container">
+                <header>
+                    <h2>
+                        Chào mừng bạn đã đến website
+                        <span class="word-rotator active" style="height: 42px;">
+                            <!-- word rotator -->
+                            <span class="items bold" style="top: -84px;">
+                                <span><em>Ngọc Thẫm</em></span>
+                                <span><em>Cửa hàng vàng bạc đá quý</em></span>
+                                <span><em>Công ty TNHH Ngọc Thẫm</em></span>
+                            </span>
+                        </span><!-- /word rotator -->
+                    </h2>
+                    <div class="divider half-margins onepage"><!-- lines divider --></div>
+                </header>
+
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et.</p>
+                @*<hr class="half-margins invisible"><!-- 60px spacer -->
+                <div class="row text-left">
+                    <!-- Passion -->
+                    <div class="col-md-4">
+                        <h3>Uy tín</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Etiam suscipit nisl eget lorem pellentesque quis iaculis mi mattis.</p>
+                    </div>
+
+                    <!-- Precision -->
+                    <div class="col-md-4">
+                        <h3>Tận tình</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Etiam suscipit nisl eget lorem pellentesque quis iaculis mi mattis.</p>
+                    </div>
+
+                    <!-- Simplicity -->
+                    <div class="col-md-4">
+                        <h3>Chu đáo</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Etiam suscipit nisl eget lorem pellentesque quis iaculis mi mattis.</p>
+                    </div>
+                </div>*@
+
+            </div>
+        </section>
+
+        <!-- HOT NEWS -->
+        <section id="hotNews" class="alternate">
+            <div class="container">
+                <!-- FEATURED PRODUCTS -->
+                <h2 class="owl-featured"><strong>Tin Tức</strong> Mới Nhất</h2>
+                <div class="owl-carousel featured" data-plugin-options='{"itemsDesktop":[1199,4], "itemsDesktopSmall":[980,3], "itemsTablet":[684,2], "itemsMobile":[490,1], "singleItem": false, "stopOnHover":false, "autoPlay":true, "autoHeight": false, "navigation": true, "pagination": false}'>
+                   @foreach (var item in listNews_NEW)
+                   {
+                       <div>
+                        <div class="owl-featured-item">
+                            <a class="figure" href="@Url.Action("NewsDetail", new { NEWS_CD = item.NEWS_CD })">
+                                <span><i class="fa fa-plus"></i></span>
+                                <img alt="" src="@item.O_NEWS.IMAGE_NEWS" width="230" />
+                            </a>
+                            <div class="owl-featured-detail">
+                                <a class="featured-title" href="@Url.Action("NewsDetail", new { NEWS_CD = item.NEWS_CD })">@item.O_NEWS.NEWS_TITLE. </a>
+                            </div>
+                        </div>
+                    </div>
+                   }
+                     
+                </div>
+                <!-- /FEATURED PRODUCTS -->
+            </div>
+        </section>
+
+        <!-- WORK -->
+        <section class="" id="work">
+            <div class="container">
+                <header class="text-center">
+                    <h1>
+                        <strong style="font-weight: bold;">NHỮNG SẢN PHẨM NỔI BẬT</strong> CỦA CHÚNG TÔI
+                    </h1>
+                    <div class="divider half-margins onepage center"><!-- lines divider --></div>
+                </header>
+
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et.</p>
+
+                <div id="portfolio">
+                    <ul data-option-key="filter" data-sort-id="isotope-list" class="nav nav-pills isotope-filter isotope-filter noborder">
+                        <li class="active" data-option-value="*"><a href="onepage.html#">Tất cả</a></li>
+
+                        @foreach (var item in listCategoryProduct)
+                        {
+                            if(item.O_PRODUCT.Where(t=>t.ACTIVE == true && t.STATUS==1 && t.O_PRODUCT_HIGHLIGHTS.Count > 0).ToList().Count > 0)
+                            { 
+                                <li data-option-value=".@item.CATEGORY_PRODUCT_CD" class=""><a href="onepage.html#">@item.CATEGORY_PRODUCT_NAME</a></li>
+                            }
+                        }
+                      
+                    </ul>
+
+                    <div class="row">
+                        <ul data-sort-id="isotope-list" class="sort-destination isotope fadeIn" style="position: relative; overflow: hidden; height: 698px;">
+                            @foreach (var item in listproduct_hightlights)
+                            {
+                                 <li class="sotope-item col-sm-6 col-md-3 col-xs-12 @item.O_PRODUCT.CATEGORY_PRODUCT_CD isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1); opacity: 1;">
+                                <!-- item -->
+                                <div class="item-box">
+                                    <figure>
+                                        <a href="@Url.Action("ProductDetail",new { PRODUCT_CD = item.PRODUCT_CD })" class="item-hover">
+                                            <span class="overlay color2"></span>
+                                            <span class="inner">
+                                                <span class="block fa fa-plus fsize20"></span>
+                                                <strong>Chi Tiết</strong> Sản Phẩm
+                                            </span>
+                                        </a>
+                                        <img width="260" height="260" alt="" src="@item.O_PRODUCT.URL_IMAGE" class="img-responsive">
+                                    </figure>
+                                    <div class="item-box-desc">
+                                        <h4>@item.O_PRODUCT.PRODUCT_NAME</h4>
+                                    </div>
+                                </div>
+                            </li>
+                            } 
+                           
+                        </ul>
+                    </div><!-- /.masonry-container -->
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+
+
+
+        <!-- /CONTENT -->
+        @Html.Partial("_Footer")
+
+        <a href="shop-home-1.html#" id="toTop"></a>
+
+    </div><!-- /#wrapper -->
+
+
+    <a href="#" class="booking" data-toggle="modal" data-target="#BookingModal">
+        <img src="@Url.Content("~/Content/images/booking1.png")" alt="Booking" />
+    </a>
+
+    <div class="dathang_theoyeucau">
+
+        <div class="content_dathang">
+            @Html.Raw(popup.PAGE_COTRACT_CONTENT)
+
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FILES -->
+
+    <script src="@Url.Content("~/Content/plugins/jquery.isotope.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/plugins/masonry.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/plugins/bootstrap/js/bootstrap.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/plugins/magnific-popup/jquery.magnific-popup.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/plugins/owl-carousel-latest/owl.carousel.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/plugins/knob/js/jquery.knob.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/plugins/flexslider/jquery.flexslider-min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/plugins/revolution-slider/js/jquery.themepunch.plugins.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/plugins/revolution-slider/js/jquery.themepunch.revolution.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/revolution_slider.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.lazyload.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.infinitescroll.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/scripts.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/self-scripts.js")" type="text/javascript"></script>
+
+    <script>
+        $("#topMain li a").click(function () {
+            $('li').removeClass('active');
+            $(this).parent().addClass('active');
+        });
+
+        $("#topMain .dropdown-menu li a").click(function () {
+            $('li').removeClass('active');
+            $(this).parent().parent().parent().addClass('active');
+        });
+
+        
+        function showPopup() {
+            var needPopup = @(Session["needPopup"] == null ? "true" : "false");
+            @{
+                Session["needPopup"] = true;
+            }
+            if (needPopup) {
+                $("#PopupModal").modal();
+            }
+        }
+        showPopup();
+    </script>
+</body>
+</html>

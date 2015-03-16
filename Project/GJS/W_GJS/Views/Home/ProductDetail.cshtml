@@ -1,0 +1,299 @@
+﻿@model W_GJS.Models.O_PRODUCT
+@{
+    ViewBag.Title = "ProductDetail";
+    W_GJS.Models.GJSEntities gjs = new W_GJS.Models.GJSEntities();
+    List<W_GJS.Models.O_PRODUCT> ListProduct = gjs.O_PRODUCT.Where(t => t.CATEGORY_PRODUCT_CD == Model.CATEGORY_PRODUCT_CD && t.ACTIVE == true && t.PRODUCT_CD != Model.PRODUCT_CD).ToList().Skip(0).Take(3).ToList();
+    
+    W_GJS.Models.O_INFORMATION Infomation = gjs.O_INFORMATION.Single(t => t.CD == 1);
+    }
+
+@section Scripts {
+    <!-- SHOP OPTIONS -->
+<script type="text/javascript">
+
+			/*
+				SHOP COLOR/SIZE/QTY SELECTOR EXAMPLE
+				If you use this script, keep it here, under jQuery.
+				Or move it to your custom.js (after scripts.js)
+			*/
+
+			/**
+				COLOR SELECTOR
+			**/
+			jQuery('section.product-view-colors a').bind("click", function(e) {
+				e.preventDefault();
+
+				/** Reset the selected thumbnail **/
+				jQuery('.product-view-colors a').removeClass('active');
+				jQuery(this).addClass('active');
+
+				/** add the color (value) to the hidden input, inside the form **/
+				jQuery("input#color").val(jQuery(this).attr('data-color').trim());
+
+
+				/** CHANGE BIG IMAGE **/
+				jQuery("#product-main-image").attr('src', jQuery(this).attr('data-src'));
+
+
+				/*
+					CHANGE STOCK INFO
+				*/
+				/* stock color */
+				var data_stock = jQuery(this).attr('data-stock').trim();
+				jQuery("#product-view-stock-info").removeClass('stock-yes stock-no');
+				jQuery("#product-view-stock-info").addClass('stock-' + data_stock);
+
+				/* stock icon */
+				jQuery("#product-view-stock-info i").removeClass('fa-check fa-times');
+				if(data_stock == 'yes') {
+					jQuery("#product-view-stock-info i").addClass('fa-check');
+				} else {
+					jQuery("#product-view-stock-info i").addClass('fa-times');
+				}
+
+			});
+
+
+			/**
+				SIZE SELECTOR
+			**/
+			jQuery("#product-size-dd li a").bind("click", function(e) {
+				e.preventDefault();
+
+				var data_val = jQuery(this).attr('data-val').trim();
+
+				/* change visual value and hidden input */
+				jQuery("#product-selected-size>span").empty().append(data_val);
+				jQuery("#size").val(data_val);
+
+				/* change visual selected */
+				jQuery("#product-size-dd li").removeClass('active');
+				jQuery(this).parent().addClass('active');
+			});
+
+
+			/**
+				QTY SELECTOR
+			**/
+			jQuery("#product-qty-dd li a").bind("click", function(e) {
+				e.preventDefault();
+
+				var data_val = jQuery(this).attr('data-val').trim();
+
+				/* change visual value and hidden input */
+				jQuery("#product-selected-qty>span").empty().append(data_val);
+				jQuery("#qty").val(data_val);
+
+				/* change visual selected */
+				jQuery("#product-qty-dd li").removeClass('active');
+				jQuery(this).parent().addClass('active');
+			});
+
+</script>
+
+    @*<script>
+        $("#txtWeight").on('keypress', function (ev) {
+            var keyCode = window.event ? ev.keyCode : ev.which;
+            //codes for 0-9
+            if (keyCode < 48 || keyCode > 57) {
+                //codes for backspace, delete, enter
+                if (keyCode != 0 && keyCode != 8 && keyCode != 13 && !ev.ctrlKey) {
+                    ev.preventDefault();
+                }
+            }
+        });
+    </script>*@
+}
+
+@section PageTitle {
+    <section class="page-title">
+        <div class="container">
+
+            <header>
+
+                <ul class="breadcrumb">
+                    <!-- breadcrumb -->
+                    <li><a href="@Url.Action("Index")">Trang Chủ</a></li>
+                    <li class="active">Chi tiết sản phẩm</li>
+                </ul><!-- /breadcrumb -->
+
+                <h2>
+                    <!-- Page Title -->
+                    <strong>Chi tiết sản phẩm</strong>
+                </h2><!-- /Page Title -->
+
+            </header>
+
+        </div>
+    </section>
+}
+
+
+
+
+<h2 class="owl-featured margin-bottom-30 margin-top20"><strong>Chi Tiết</strong> Sản Phẩm</h2>
+
+<div class="row">
+
+    <div class="col-md-4 col-sm-4">
+
+        <figure class="product-view-image">
+            <!-- product image -->
+            <a href="@Model.URL_IMAGE" class="lightbox img-thumbnail" data-plugin-options="{&quot;type&quot;:&quot;image&quot;}">
+                <img id="product-main-image" class="img-responsive" src="@Model.URL_IMAGE" width="620" height="620" alt="" >
+            </a>
+
+            <p class="fsize11 margin-top30">
+               @Html.Raw(Model.PRODUCT_CONTENT)
+            </p>
+
+        </figure>
+
+    </div>
+
+    <div class="col-md-8 col-sm-8">
+
+        <h1 class="product-view-title">@Model.PRODUCT_NAME</h1>
+        @if (Model.PRICE_PROMOTION != null)
+        {
+          <h3 class="product-view-price"><em>@Model.PRICE_PROMOTION</em></h3>
+      
+        }
+        else
+        {
+        <h3 class="product-view-price"><em>@Model.PRICE</em></h3>
+      
+        }
+        <table style="width: 50%;">
+            <tr>
+                <th>Mã sản phẩm:</th>
+                <td>@Model.PRODUCT_CODE</td>
+            </tr>
+            <tr>
+                <th>Loại:</th>
+                <td>@Model.O_CATEGORY_PRODUCT.CATEGORY_PRODUCT_NAME</td>
+            </tr>
+            <tr>
+                <th>Trọng lượng:</th>
+                <td>@Model.WEIGHT</td>
+            </tr>
+            <tr>
+                <th>Loại hột:</th>
+                <td>@Model.O_CATEGORY_GRANULES.CATEGORY_GRANULES_NAME</td>
+            </tr>
+            <tr>
+                <th>Tiền công:</th>
+                <td>@Model.WAGES</td>
+            </tr>
+        </table>
+
+        <hr class="half-margins">
+        @if (Model.QUANTITY <= 0)
+        {
+               <span id="product-view-stock-info" class="shop-stock-info stock-no">
+            <!-- stock -->
+            <i class="fa fa-check"></i> hết hàng
+        </span><!-- /stock -->
+
+        }
+        else
+        {
+               <span id="product-view-stock-info" class="shop-stock-info stock-yes">
+            <!-- stock -->
+            <i class="fa fa-check"></i> còn hàng
+        </span><!-- /stock -->
+
+        }
+     
+        <!-- see the bottom of the page for the script -->
+      
+        @using (Html.BeginForm("AddCartQuantity", "Home", new { PRODUCT_CD = "PRODUCT_CD", QUANTITY = "QUANTITY", SIZE = "SIZE" }, FormMethod.Post, new { @class = "form-inline margin-top30 nopadding clearfix" }))
+        {
+             <!-- see the bottom of the page for the script -->
+            <input type="hidden" id="color" name="color" value="white">
+    <input type="hidden" name="PRODUCT_CD" value="@Model.PRODUCT_CD">
+
+                <!-- see the bottom of the page for the script -->
+
+            <div class="btn-group pull-left product-opt-size">
+                Kích cỡ
+                <input type="number" step="0.1" class="small-width" name="SIZE" value="5" placeholder="Kích cỡ" />
+            </div><!-- /btn-group -->
+
+            <div class="btn-group pull-left product-opt-qty">
+                Số lượng
+                <input type="number" class="small-width" name="QUANTITY" value="1" placeholder="Số lượng" />
+            </div><!-- /btn-group -->
+            
+                <button type="submit" class="btn btn-primary pull-left">THÊM VÀO GIỎ HÀNG</button>
+            
+
+        }
+        <div>
+            <div id="fb-root"></div>
+            <script>
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+            <div class="fb-comments" data-href="@Infomation.INFORMATION_FACBOOK/Proudct/@Model.PRODUCT_NAME" data-numposts="100" data-colorscheme="light"></div>
+        </div>
+    </div>
+
+</div>
+
+<h2 class="owl-featured margin-bottom-30 margin-top20"><strong>Sản Phẩm</strong> Liên Quan</h2>
+<!-- PRODUCT LIST -->
+<div class="row">
+    @if (ListProduct == null || ListProduct.Count == 0)
+    {
+        <p>Không có sản phẩm nào.</p>
+    }
+    @foreach (var item in ListProduct)
+    {
+       <div class="col-md-4 col-sm-4">
+                <!-- item -->
+                <a class="shop-item-list" href="@Url.Action("ProductDetail",new { PRODUCT_CD = item.PRODUCT_CD })">
+                    <figure>
+                        <!-- image -->
+                        <img class="img-responsive" src="@item.URL_IMAGE" alt="@item.TAG_ALT" />
+                    </figure><!-- /image -->
+                    @if(item.QUANTITY <= 0)
+                    {
+                        <span class="shop-stock-info stock-no">
+                        <!-- stock -->
+                        <i class="fa fa-times"></i> hết hàng
+                    </span><!-- /stock -->
+                    
+                    }
+                    else
+                    {
+                    <span class="shop-stock-info stock-yes">
+                        <!-- stock -->
+                        <i class="fa fa-check"></i> còn hàng
+                    </span><!-- /stock -->
+                        
+                    }
+                    <div class="product-info">
+                        <!-- title and price -->
+                        <h2>
+                            <span class="product-name">@item.PRODUCT_NAME</span>
+                            <span class="bold">@String.Format("{0:0,0 " + item.CURRENCY + "}", item.PRICE_PROMOTION)</span> <span class="line-through">@String.Format("{0:0,0 " + item.CURRENCY + "}", item.PRICE)</span>
+                        </h2>
+                    </div><!-- /title and price -->
+                    @if (item.O_PRODUCT_NEW != null && item.O_PRODUCT_NEW.ToList().Count > 0)
+                    {
+                        <div class="sb-gdv-disc">
+                            <div class="sb-gdv-disc__content">Mới</div>
+                        </div>
+                    }
+                </a>
+                <a href="@Url.Action("AddCart", new { PRODUCT_CD = item.PRODUCT_CD, QUANTITY = "1", SIZE = "5" })" class="btn btn-primary btn-sm addtocart"><i class="fa fa-shopping-cart"></i> THÊM VÀO GIỎ HÀNG</a>
+     
+            </div><!-- /item -->
+    }
+    
+</div>

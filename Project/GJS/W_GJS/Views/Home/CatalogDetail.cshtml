@@ -1,0 +1,139 @@
+﻿@model IEnumerable<W_GJS.Models.O_CATEGORY_PRODUCT_DETAIL>
+@{
+    ViewBag.Title = "Catalog";
+    //W_GJS.Models.GJSEntities gjs = new W_GJS.Models.GJSEntities();
+    //List<W_GJS.Models.O_CATEGORY_PRODUCT_DETAIL> listcategory = gjs.O_CATEGORY_PRODUCT_DETAIL.Where(t => t.ACTIVE == true && t.CATEGORY_PRODUCT_CD == ViewBag.CATEGORY_PRODUCT_CD).ToList();
+}
+
+@*section Slide {
+        @Html.Partial("_Slide")
+    }*@
+
+@section PageTitle {
+    <section class="page-title">
+        <div class="container">
+
+            <header>
+
+                <ul class="breadcrumb">
+                    <!-- breadcrumb -->
+                    <li><a href="@Url.Action("Index")">Trang Chủ</a></li>
+                    <li class="active">Catalog</li>
+                </ul><!-- /breadcrumb -->
+
+                <h2>
+                    <!-- Page Title -->
+                    <strong>Catalog</strong>
+                </h2><!-- /Page Title -->
+
+            </header>
+
+        </div>
+    </section>
+
+}
+
+@section Scripts {
+    <script type="text/javascript" src="@Url.Content("~/Self/catalog/js/script.js")"></script>
+}
+
+
+<!-- options -->
+<div class="row shop-top-options">
+
+    <div class="col-sm-9 col-md-9">
+
+
+        <h2><strong>@ViewBag.Name</strong></h2>
+
+        <ul class="breadcrumb">
+            <!-- breadcrumb -->
+            <li><a href="@Url.Action("Index")">Trang chủ</a></li>
+            <li class="active">Danh sách sản phẩm</li>
+        </ul><!-- /breadcrumb -->
+
+    </div>
+
+    <div class=" col-sm-3 col-md-3">
+
+        @*<select class="form-control pointer fsize13 pull-right" name="orderby">
+                <option value="menu_order" selected="selected">Sắp xếp mặc định</option>
+                <option value="popularity">Sắp xếp theo độ phổ biến</option>
+                <option value="rating">Sắp xếp theo điểm đánh giá</option>
+                <option value="date">Sắp xếp theo thời gian</option>
+                <option value="price">Sắp xếp theo price: thấp tới cao</option>
+                <option value="price-desc">Sắp xếp theo price: cao xuống thấp</option>
+            </select>*@
+
+    </div>
+</div>
+<!-- /options -->
+
+@if (Model.ToList().Count == 0)
+{
+    <p>Không tìm thấy sản phẩm nào.</p>
+}
+else
+{
+    foreach (var item in Model)
+    {
+        <h2 class="owl-featured margin-bottom-30 margin-top20"><strong>@item.CATEGORY_PRODUCT_DETAIL_NAME</strong></h2>
+        if (item.O_PRODUCT.Count == 0)
+        {
+            <p>Không tìm thấy sản phẩm nào.</p>
+        }
+        else
+        {
+            <div id="ProductList-@item.CATEGORY_PRODUCT_DETAIL_CD"></div>
+
+
+    <script>
+
+        function loadProducts_@(item.CATEGORY_PRODUCT_DETAIL_CD)(currentPage) {
+            inProgress_@(item.CATEGORY_PRODUCT_DETAIL_CD) = true;
+            $("#loadingDiv-@(@item.CATEGORY_PRODUCT_DETAIL_CD)").show();
+
+            $.post("@Url.Action("CategoryProducDetailtListPaging", "Home")", { "CATEGORY_PRODUCT_DETAIL_CD": @item.CATEGORY_PRODUCT_DETAIL_CD ,"productMenu": false,"numberOfItemsInPage": 6, "currentPage": currentPage },
+            function (data) {
+                $("#ProductList-@(item.CATEGORY_PRODUCT_DETAIL_CD)").html(data);
+                $("#loadingDiv-@(item.CATEGORY_PRODUCT_DETAIL_CD)").hide();
+                inProgress_@(item.CATEGORY_PRODUCT_DETAIL_CD) = false;
+            });
+        }
+
+        //$(document).ready(function () {
+        loadProducts_@(item.CATEGORY_PRODUCT_DETAIL_CD)(1);
+        //});
+
+        @*$(".paging-@(item.CATEGORY_PRODUCT_CD)").click(function () {
+            if (!inProgress@(item.CATEGORY_PRODUCT_CD)) {
+                loadProducts@(@item.CATEGORY_PRODUCT_CD)();
+            }
+        });*@
+
+
+    </script>
+
+    
+        }
+    }
+}
+
+
+@*<div class="row">
+        <div class="col-md-6">
+            Hiện 6 trên tổng số 10 sản phẩm
+        </div>
+        <div class="col-md-6">
+            <ul class="pagination pull-right">
+                <li class="disabled"><a href="@Url.Action("ProductList", "Home")">&laquo;</a></li>
+                <li class="active"><a href="@Url.Action("ProductList", "Home")">1 <span class="sr-only">(current)</span></a></li>
+                <li><a href="@Url.Action("ProductList", "Home")">2</a></li>
+                <li><a href="@Url.Action("ProductList", "Home")">3</a></li>
+                <li><a href="@Url.Action("ProductList", "Home")">4</a></li>
+                <li><a href="@Url.Action("ProductList", "Home")">5</a></li>
+                <li><a href="@Url.Action("ProductList", "Home")">&raquo;</a></li>
+            </ul>
+        </div>
+    </div>*@
+

@@ -1,0 +1,423 @@
+﻿<!-- Top Nav -->
+@{
+    W_GJS.Models.GJSEntities gjs = new W_GJS.Models.GJSEntities();
+    List<W_GJS.Models.O_CATEGORY_PRODUCT> listCategory = gjs.O_CATEGORY_PRODUCT.Where(t => t.ACTIVE == true).ToList();
+    List<W_GJS.Models.O_CATEGORY_NEWS> listNews = gjs.O_CATEGORY_NEWS.Where(t => t.ACTIVE == true).ToList();
+    List<W_GJS.Models.O_PRICE_GOLD> listPriceGold = gjs.O_PRICE_GOLD.ToList();
+    List<W_GJS.Models.O_CATEGORY_ALBUM> listCatagoryAlbum = gjs.O_CATEGORY_ALBUM.ToList();
+    string currentController = (string)ViewContext.Controller.ValueProvider.GetValue("controller").RawValue;
+    string currentAction = (string)ViewContext.Controller.ValueProvider.GetValue("action").RawValue;
+}
+@*@currentAction - @currentController
+    @if (currentController == "Home" && currentAction == "Index")
+    { <p>asd</p> }*@
+<header id="topNav">
+    <div class="container">
+
+        <!-- Logo -->
+        @*<a class="logo" href="@Url.Action("Index", "Home")">
+                <img src="@Url.Content("~/Content")/images/viLogo.png" height="75" alt="" />
+            </a>*@
+
+        <!-- Mobile Menu Button -->
+        <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <!-- /Search -->
+        <!-- Top Nav -->
+        <div class="navbar-collapse nav-main-collapse collapse">
+            <nav class="nav-main">
+
+                <!--
+                    NOTE
+
+                    For a regular link, remove "dropdown" class from LI tag and "dropdown-toggle" class from the href.
+                    Direct Link Example:
+
+                    <li>
+                        <a href="#">HOME</a>
+                    </li>
+                -->
+                <ul id="topMain" class="nav nav-pills nav-main colored">
+
+                    @if (currentController == "Home" && currentAction == "Index")
+                    {
+                        <li class="active">
+                            <a href="@Url.Action("Index", "Home")">
+                                TRANG CHỦ <span>home</span>
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="@Url.Action("Index", "Home")">
+                                TRANG CHỦ <span>home</span>
+                            </a>
+                        </li>
+                    }
+
+                    @if (currentController == "Home")
+                    {
+                        if (currentAction == "AboutCompany" ||
+                                currentAction == "AboutVision" ||
+                                currentAction == "AboutDevelopment" ||
+                                currentAction == "AboutAchievements" ||
+                                currentAction == "AboutLicense")
+                        {
+                            <li class="dropdown active">
+                                <a href="@Url.Action("AboutCompany", "Home")">GIỚI THIỆU <span>about us</span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("AboutCompany", "Home")"><i class="fa fa-chevron-right"></i> Giới thiệu công ty</a></li>
+                                    <li><a href="@Url.Action("AboutVision", "Home")"><i class="fa fa-chevron-right"></i> Tầm nhìn & Sứ mệnh</a></li>
+                                    <li><a href="@Url.Action("AboutDevelopment", "Home")"><i class="fa fa-chevron-right"></i> Quá trình phát triển</a></li>
+                                    <li><a href="@Url.Action("AboutAchievements", "Home")"><i class="fa fa-chevron-right"></i> Thành tựu</a></li>
+                                    <li><a href="@Url.Action("Recruitment", "Home")"><i class="fa fa-chevron-right"></i> Tuyển dụng</a></li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="dropdown">
+                                <a href="@Url.Action("AboutCompany", "Home")">GIỚI THIỆU <span>about us</span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("AboutCompany", "Home")"><i class="fa fa-chevron-right"></i> Giới thiệu công ty</a></li>
+                                    <li><a href="@Url.Action("AboutVision", "Home")"><i class="fa fa-chevron-right"></i> Tầm nhìn & Sứ mệnh</a></li>
+                                    <li><a href="@Url.Action("AboutDevelopment", "Home")"><i class="fa fa-chevron-right"></i> Quá trình phát triển</a></li>
+                                    <li><a href="@Url.Action("AboutAchievements", "Home")"><i class="fa fa-chevron-right"></i> Thành tựu</a></li>
+                                    <li><a href="@Url.Action("Recruitment", "Home")"><i class="fa fa-chevron-right"></i> Tuyển dụng</a></li>
+                                </ul>
+                            </li>
+                        }
+                    }
+
+                    @if ((currentController == "Home" && currentAction == "Product_Category") ||
+                        (currentController == "Home" && currentAction == "ProductDisplay" ) ||
+                        (currentController == "Home" && currentAction == "Product_Category_Detail"))
+                    {
+                        <li class="dropdown active">
+                            <a href="@Url.Action("ProductDisplay", "Home")">SẢN PHẨM <span>products</span></a>
+                            <ul class="dropdown-menu">
+                                @foreach (var item in listCategory)
+                                {
+                                    <li>
+                                        
+                                        @if (item.O_CATEGORY_PRODUCT_DETAIL != null && item.O_CATEGORY_PRODUCT_DETAIL.Where(t=>t.ACTIVE == true).ToList().Count > 0)
+                                        {
+                                        @Html.ActionLink(item.CATEGORY_PRODUCT_NAME, "Product_Category", new { CATEGORY_PRODUCT_CD = item.CATEGORY_PRODUCT_CD }, new { @alt = item.TAG_ALT, @class = "submenu_next" })
+                                        <ul class="dropdown-menu">
+                                            @foreach (var item_detail in item.O_CATEGORY_PRODUCT_DETAIL.Where(t => t.ACTIVE == true).ToList())
+                                            {
+                                            <li>
+                                                <a href="@Url.Action("Product_Category_Detail", new { CATEGORY_PRODUCT_DETAIL_CD = item_detail.CATEGORY_PRODUCT_DETAIL_CD })"> @item_detail.CATEGORY_PRODUCT_DETAIL_NAME</a>
+                                            </li>
+                                            }
+                                        </ul>
+                                        }
+                                        else
+                                        {
+                                            @Html.ActionLink(item.CATEGORY_PRODUCT_NAME, "Product_Category", new { CATEGORY_PRODUCT_CD = item.CATEGORY_PRODUCT_CD }, new { @alt = item.TAG_ALT })
+                                        }
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="dropdown">
+                            <a href="@Url.Action("ProductDisplay", "Home")">SẢN PHẨM <span>products</span></a>
+                            <ul class="dropdown-menu">
+                                @foreach (var item in listCategory)
+                                {
+                                    <li>
+                                        @if (item.O_CATEGORY_PRODUCT_DETAIL != null && item.O_CATEGORY_PRODUCT_DETAIL.Where(t => t.ACTIVE == true).ToList().Count > 0)
+                                        {
+                                            @Html.ActionLink(item.CATEGORY_PRODUCT_NAME, "Product_Category", new { CATEGORY_PRODUCT_CD = item.CATEGORY_PRODUCT_CD }, new { @alt = item.TAG_ALT, @class = "submenu_next" })
+                                            <ul class="dropdown-menu">
+                                                @foreach (var item_detail in item.O_CATEGORY_PRODUCT_DETAIL.Where(t => t.ACTIVE == true).ToList())
+                                                {
+                                                    <li>
+                                                        <a href="@Url.Action("Product_Category_Detail", new { CATEGORY_PRODUCT_DETAIL_CD = item_detail.CATEGORY_PRODUCT_DETAIL_CD })"> @item_detail.CATEGORY_PRODUCT_DETAIL_NAME</a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                        }
+                                        else
+                                        {
+                                            @Html.ActionLink(item.CATEGORY_PRODUCT_NAME, "Product_Category", new { CATEGORY_PRODUCT_CD = item.CATEGORY_PRODUCT_CD }, new { @alt = item.TAG_ALT })
+                                        }
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                    }
+
+                    @if (currentController == "Home")
+                    {
+                        if (currentAction == "DiamondAssess" ||
+                                currentAction == "ColoredStonesAssess" ||
+                                currentAction == "LaserInscription")
+                        {
+                            <li class="active dropdown">
+                                <a class="dropdown-toggle" href="#">DỊCH VỤ <span>services</span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("DiamondAssess", "Home")">Bảo trì sản phẩm nữ trang</a></li>
+                                    <li><a href="@Url.Action("ColoredStonesAssess", "Home")">Khắc chữ trên nữ trang</a></li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" href="#">DỊCH VỤ <span>services</span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("DiamondAssess", "Home")">Bảo trì sản phẩm nữ trang</a></li>
+                                    <li><a href="@Url.Action("ColoredStonesAssess", "Home")">Khắc chữ trên nữ trang</a></li>
+                                </ul>
+                            </li>
+                        }
+                    }
+
+                    @if (currentController == "Home" && currentAction == "Branches")
+                    {
+                        <li class="active">
+                            <a href="@Url.Action("Branches", "Home")">HỆ THỐNG CHI NHÁNH <span>branches</span></a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="@Url.Action("Branches", "Home")">HỆ THỐNG CHI NHÁNH <span>branches</span></a>
+                        </li>
+                    }
+
+                    @if (!String.IsNullOrEmpty((string)Session[W_GJS.General.SessionConstants.LOGINED_USER_KEY])
+                        && (int)Session[W_GJS.General.SessionConstants.LOGINED_USER_ROLE_KEY] == 2)
+                    {
+
+                        if ((currentController == "Home" && currentAction == "Catalog")
+                            || (currentController == "Home" && currentAction == "CatalogDetail")
+                            || (currentController == "Home" && currentAction == "Catalog_Category_Detail"))
+                        {
+                            <li class="active dropdown">
+                                <a href="@Url.Action("Catalog", "Home")">CATALOG <span>catalog</span></a>
+                                <ul class="dropdown-menu">
+                                    @foreach (var item in listCategory)
+                                    {
+                                        <li>
+                                            
+                                            @if (item.O_CATEGORY_PRODUCT_DETAIL != null && item.O_CATEGORY_PRODUCT_DETAIL.Where(t => t.ACTIVE == true).ToList().Count > 0)
+                                            {
+                                                <a class="submenu_next" href="@Url.Action("CatalogDetail", new { CATEGORY_PRODUCT_CD = item.CATEGORY_PRODUCT_CD })">@item.CATEGORY_PRODUCT_NAME</a>
+                                                <ul class="dropdown-menu">
+                                                    @foreach (var item_detail in item.O_CATEGORY_PRODUCT_DETAIL.Where(t => t.ACTIVE == true).ToList())
+                                                    {
+                                                        <li>
+                                                            <a href="@Url.Action("Catalog_Category_Detail", new { CATEGORY_PRODUCT_DETAIL_CD = item_detail.CATEGORY_PRODUCT_DETAIL_CD })"> @item_detail.CATEGORY_PRODUCT_DETAIL_NAME</a>
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            }
+                                            else
+                                            {
+                                                <a href="@Url.Action("CatalogDetail", new { CATEGORY_PRODUCT_CD = item.CATEGORY_PRODUCT_CD })">@item.CATEGORY_PRODUCT_NAME</a>
+                                            
+                                            }
+                                        </li>
+
+                                    }
+                                </ul>
+                            </li>
+
+                        }
+                        else
+                        {
+                            <li class="dropdown">
+                                <a href="@Url.Action("Catalog", "Home")">CATALOG <span>catalog</span></a>
+                                <ul class="dropdown-menu">
+                                    @foreach (var item in listCategory)
+                                    {
+                                        <li>
+                                            @if (item.O_CATEGORY_PRODUCT_DETAIL != null && item.O_CATEGORY_PRODUCT_DETAIL.Where(t => t.ACTIVE == true).ToList().Count > 0)
+                                            {
+                                                <a class="submenu_next" href="@Url.Action("CatalogDetail", new { CATEGORY_PRODUCT_CD = item.CATEGORY_PRODUCT_CD })">@item.CATEGORY_PRODUCT_NAME</a>
+                                                <ul class="dropdown-menu">
+                                                    @foreach (var item_detail in item.O_CATEGORY_PRODUCT_DETAIL.Where(t => t.ACTIVE == true).ToList())
+                                                    {
+                                                        <li>
+                                                            <a href="@Url.Action("Catalog_Category_Detail", new { CATEGORY_PRODUCT_DETAIL_CD = item_detail.CATEGORY_PRODUCT_DETAIL_CD })"> @item_detail.CATEGORY_PRODUCT_DETAIL_NAME</a>
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            }
+                                            else
+                                            {
+                                                <a href="@Url.Action("CatalogDetail", new { CATEGORY_PRODUCT_CD = item.CATEGORY_PRODUCT_CD })">@item.CATEGORY_PRODUCT_NAME</a>
+
+                                            }
+                                        </li>
+                                        
+                                    }
+                                </ul>
+                            </li>
+
+                        }
+                    }
+
+                    @if ((currentController == "Home" && currentAction == "ShowAlbum") ||
+                         (currentController == "Home" && currentAction == "ShowCategoryAlbum"))
+                    {
+                        <li class="active dropdown">
+                            <a href="@Url.Action("ShowAlbum", "Home")">BỘ SƯU TẬP <span>album</span></a>
+                            <ul class="dropdown-menu">
+                                @foreach (var item in listCatagoryAlbum)
+                                {
+                                    <li><a href="@Url.Action("ShowCategoryAlbum", new { CATEGORY_ALBUM_CD =item.CATEGORY_ALBUM_CD })">@item.CATEGORY_ALBUM_NAME</a></li>
+
+                                }
+                            </ul>
+                        </li>
+
+                    }
+                    else
+                    {
+                        <li class="dropdown">
+                            <a href="@Url.Action("ShowAlbum", "Home")">BỘ SƯU TẬP <span>album</span></a>
+                            <ul class="dropdown-menu">
+                                @foreach (var item in listCatagoryAlbum)
+                                {
+                                    <li><a href="@Url.Action("ShowCategoryAlbum", new { CATEGORY_ALBUM_CD =item.CATEGORY_ALBUM_CD })">@item.CATEGORY_ALBUM_NAME</a></li>
+
+                                }
+                            </ul>
+                        </li>
+
+                    }
+
+                    @if ((currentController == "Home" && currentAction == "News") ||
+                        (currentController == "Home" && currentAction == "Category_News"))
+                    {
+                        <li class="active dropdown">
+                            <a href="@Url.Action("News", "Home")">TIN TỨC <span>news</span></a>
+                            <ul class="dropdown-menu">
+                                @foreach (var item in listNews)
+                                {
+                                    <li><a href="@Url.Action("Category_News", new { CATEGORY_NEWS_CD = item.CATEGORY_NEWS_CD })">@item.CATEGORY_NEWS_NAME</a></li>
+
+                                }
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="dropdown">
+                            <a href="@Url.Action("News", "Home")">TIN TỨC <span>news</span></a>
+                            <ul class="dropdown-menu">
+                                @foreach (var item in listNews)
+                                {
+                                    <li><a href="@Url.Action("Category_News", new { CATEGORY_NEWS_CD = item.CATEGORY_NEWS_CD })">@item.CATEGORY_NEWS_NAME</a></li>
+
+                                }
+                            </ul>
+                        </li>
+                    }
+
+                    <li data-toggle="modal" data-target="#gold-rate-modal">
+                        <a href="#">BẢNG GIÁ VÀNG <span>gold rates</span></a>
+                    </li>
+
+                    <!--<li><a href="#" data-toggle="modal" data-target="#LoginModal">@*<i class="fa fa-angle-right"></i>*@Đăng Nhập <span>login</span></a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#RegisterModal">@*<i class="fa fa-angle-right"></i>*@Đăng Kí <span>register</span></a></li>-->
+                </ul>
+            </nav>
+        </div>
+        <!-- /Top Nav -->
+
+    </div><!-- /.container -->
+</header>
+<!-- /Top Nav -->
+
+<div id="TopNavBottom">
+    <div class="container">
+        <!-- Search -->
+        <form class="search" method="get" action="@Url.Action("SearchProducts", "Home")">
+            <input type="text" class="form-control" name="keyword" value="" placeholder="Tìm Kiếm Sản Phẩm">
+            <button class="fa fa-search"></button>
+        </form>
+
+        @Html.Partial("_Cart")
+    </div>
+</div>
+
+<!-- Gold Rates Modal -->
+<div class="modal fade" id="gold-rate-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <table class="table-stores" style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td class="col1" style="text-align:center">
+                                <strong>BẢNG GIÁ VÀNG</strong> <br>
+                                @DateTime.Now.ToString("dd/MM/yyyy") &nbsp;&nbsp; <span id="then" class="second">@DateTime.Now.ToString("hh:mm:ss")</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table-stores" style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td class="col1" style="text-align:center">
+                                <strong>
+                                    Mã loại vàng
+                                </strong>
+                            </td>
+                            <td class="col2" style="text-align:center">
+                                <strong>
+                                    Tên loại vàng
+                                </strong>
+                            </td>
+                            <td class="col3" style="text-align:center">
+                                <strong>
+                                    Giá bán
+                                </strong>
+                            </td>
+                            <td class="col4" style="text-align:center">
+                                <strong>
+                                    Giá mua
+                                </strong>
+                            </td>
+                        </tr>
+                        @for (int i = 0; i < listPriceGold.Count; i++)
+                        {
+                            if (i % 2 == 0)
+                            {
+                                <tr>
+                                    <td class="col1">@listPriceGold[i].GOLD_CODE</td>
+                                    <td class="col2">@listPriceGold[i].GOLD_NAME</td>
+                                    <td class="col3" style="text-align:right">@String.Format("{0:0,0 VNĐ}", @listPriceGold[i].PRICE_SALES)</td>
+                                    <td class="col4" style="text-align:center">@String.Format("{0:0,0 VNĐ}", @listPriceGold[i].PRICE_BUY)</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr class="even">
+                                    <td class="col1">@listPriceGold[i].GOLD_CODE</td>
+                                    <td class="col2">@listPriceGold[i].GOLD_NAME</td>
+                                    <td class="col3" style="text-align:right">@String.Format("{0:0,0 VNĐ}", @listPriceGold[i].PRICE_SALES)</td>
+                                    <td class="col4" style="text-align:center">@String.Format("{0:0,0 VNĐ}", @listPriceGold[i].PRICE_BUY)</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>

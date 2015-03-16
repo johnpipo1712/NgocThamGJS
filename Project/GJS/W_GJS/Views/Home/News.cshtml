@@ -1,0 +1,192 @@
+﻿@{
+    ViewBag.Title = "News";
+    W_GJS.Models.GJSEntities gjs = new W_GJS.Models.GJSEntities();
+
+    List<W_GJS.Models.O_NEWS> listNews = Model.ResultList;
+    List<W_GJS.Models.O_NEWS_NEW> listNews_NEW = gjs.O_NEWS_NEW.Where(t => t.ACTIVE == true).OrderByDescending(x => x.CREATEDATE).ToList();
+    List<W_GJS.Models.O_NEWS_HIGHLIGHTS> listNews_Hight_Light = gjs.O_NEWS_HIGHLIGHTS.Where(t => t.ACTIVE == true).OrderByDescending(x => x.CREATEDATE).ToList();
+    List<W_GJS.Models.O_CATEGORY_NEWS> listCategory_News = gjs.O_CATEGORY_NEWS.Where(t => t.ACTIVE == true).ToList();
+}
+
+@section Scripts {
+    <script type="text/javascript" src="@Url.Content("~/Self/news/js/script.js")"></script>
+}
+
+@section PageTitle {
+    <section class="page-title">
+        <div class="container">
+
+            <header>
+
+                <ul class="breadcrumb">
+                    <!-- breadcrumb -->
+                    <li><a href="@Url.Action("Index")">Trang Chủ</a></li>
+                    <li class="active">Tin tức</li>
+                </ul><!-- /breadcrumb -->
+
+                <h2>
+                    <!-- Page Title -->
+                   <strong>Tin tức</strong>
+                </h2><!-- /Page Title -->
+
+            </header>
+
+        </div>
+    </section>
+}
+
+
+
+
+<h2 class="owl-featured margin-bottom-30 padding-top20"><strong>Tin Tức</strong></h2>
+
+<div id="blog" class="row">
+
+    <!-- BLOG SIDEBAR -->
+    <div class="col-md-3 col-sm-3">
+
+        <!-- blog search -->
+        <div class="widget">
+            <form method="get" action="@Url.Action("SearchNews", "Home")" class="input-group">
+                <input type="text" class="form-control" name="keyword" value="" placeholder="Tìm Kiếm Bài Viết" />
+                <span class="input-group-btn">
+                    <button class="btn btn-primary"><i class="fa fa-search"></i></button>
+                </span>
+            </form>
+        </div>
+
+        <!-- RECENT,POPULAR -->
+        <div class="widget">
+
+            <!-- TABS -->
+            <div class="tabs nomargin-top">
+
+                <!-- tabs -->
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active">
+                        <a href="#tab1" data-toggle="tab">
+                            Nổi bật
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#tab2" data-toggle="tab">
+                            Mới nhất
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- tabs content -->
+                <div class="tab-content">
+                    <div id="tab1" class="tab-pane active">
+                        <ul>
+                            @foreach (var item in listNews_Hight_Light)
+                            {
+                               <li><a href="@Url.Action("NewsDetail", new { NEWS_CD = item.NEWS_CD })"><i class="fa fa-sign-out"></i> @item.O_NEWS.NEWS_TITLE</a> <small>@String.Format("{0:dd/MM/yyy}", @item.O_NEWS.CREATEDATE)</small></li>
+                       
+                            }
+                        </ul>
+                    </div>
+
+                    <div id="tab2" class="tab-pane">
+                        <!-- tab content -->
+                        <ul>
+                            @foreach (var item in listNews_NEW)
+                            {
+                                <li><a href="@Url.Action("NewsDetail", new { NEWS_CD = item.NEWS_CD })"><i class="fa fa-sign-out"></i> @item.O_NEWS.NEWS_TITLE</a> <small>@String.Format("{0:dd/MM/yyy}", @item.O_NEWS.CREATEDATE)</small></li>
+
+                            }     
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /TABS -->
+
+        </div>
+        <!-- /RECENT,POPULAR -->
+        <!-- categories -->
+        <div class="widget">
+            <h4>DANH MỤC TIN TỨC</h4>
+
+            <ul class="nav nav-list">
+                @foreach (var item in listCategory_News)
+                {
+                    <li><a  href="@Url.Action("Category_News", new { CATEGORY_NEWS_CD = item.CATEGORY_NEWS_CD })"><i class="fa fa-angle-right"></i> @item.CATEGORY_NEWS_NAME</a></li>
+                }
+       
+            </ul>
+        </div>
+
+        <!-- tags -->
+        @*<div class="widget">
+            <h4>TAGS</h4>
+            <a class="tag label label-default light" href="@Url.Action("News", "Home")"><i class="fa fa-tags"></i> Vàng</a>
+            <a class="tag label label-default light" href="@Url.Action("News", "Home")"><i class="fa fa-tags"></i> Bạc</a>
+            <a class="tag label label-default light" href="@Url.Action("News", "Home")"><i class="fa fa-tags"></i> Đá Quý</a>
+            <a class="tag label label-default light" href="@Url.Action("News", "Home")"><i class="fa fa-tags"></i> Nhẫn</a>
+            <a class="tag label label-default light" href="@Url.Action("News", "Home")"><i class="fa fa-tags"></i> Kim cương</a>
+        </div>*@
+
+
+    </div>
+    <!-- /BLOG SIDEBAR -->
+    <!-- BLOG ARTICLE LIST -->
+    
+    
+
+    <div class="col-md-9 col-sm-9">
+        @if (Model.IsSearching)
+        {
+            <h2 class="search-result-title"><strong>Đã tìm thấy @Model.NumberOfItemFound kết quả</strong></h2>
+        }
+        @*<div class="spacing"></div>*@
+        <!-- article - image -->
+        @if (listNews.Count == 0)
+        {
+            <p>Không tìm được bài viết nào.</p>
+        }
+        else 
+        {
+            <div id="news-home-list"></div>
+<script>
+
+    function loadNews(currentPage, keyword) {
+        inProgress = true;
+        $("#loadingDiv").show();
+
+        $.post("@Url.Action("NewsHomePaging", "Home")", { "numberOfItemsInPage": 3, "currentPage": currentPage, "keyword": keyword },
+        function (data) {
+            $("#news-home-list").html(data);
+            $("#loadingDiv").hide();
+            inProgress = false;
+        });
+    }
+
+    loadNews(1, "@Model.keyword");
+</script>
+        }
+        <!-- /article - image -->
+
+       
+     
+        <!-- pagination -->
+        @*<div class="text-center">
+
+            <ul class="pagination">
+                <li class="disabled"><a href="@Url.Action("News", "Home")">&laquo;</a></li>
+                <li class="active"><a href="@Url.Action("News", "Home")">1 <span class="sr-only">(current)</span></a></li>
+                <li><a href="@Url.Action("News", "Home")">2</a></li>
+                <li><a href="@Url.Action("News", "Home")">3</a></li>
+                <li><a href="@Url.Action("News", "Home")">4</a></li>
+                <li><a href="@Url.Action("News", "Home")">5</a></li>
+                <li><a href="@Url.Action("News", "Home")">&raquo;</a></li>
+            </ul>
+
+        </div>*@
+        <!-- /pagination -->
+
+
+    </div>
+    <!-- /BLOG ARTICLE LIST -->
+
+</div>

@@ -1,0 +1,89 @@
+﻿@model W_GJS.Models.O_CATEGORY_ALBUM
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+
+@section Breadcrumb {
+    <ul class="breadcrumb breadcrumb-page">
+        <li class="breadcrumb-label text-light-gray">Bạn đang ở đây: </li>
+        <li><a href="#">Trang chủ</a></li>
+        <li class="active"><a href="#">Bộ sưu tập</a></li>
+    </ul>
+
+    <div class="page-header">
+
+        <div class="row">
+            <!-- Page header, center on small screens -->
+            <h1 class="col-xs-12 col-sm-4 text-center text-left-sm"><i class="fa fa-picture-o page-header-icon"></i>&nbsp;&nbsp;Bộ sưu tập</h1>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col-sm-12">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="panel form-horizontal">
+
+                <div class="panel-heading">
+                    <span class="panel-title">Thêm</span>
+                </div>
+
+                @Html.ValidationSummary(true)
+
+                <div class="panel-body">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CATEGORY_ALBUM_NAME, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.CATEGORY_ALBUM_NAME)
+                            @Html.ValidationMessageFor(model => model.CATEGORY_ALBUM_NAME)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+
+                        <div class="col-sm-10">
+
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+
+                        <div class="col-sm-10">
+
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+
+                        <div class="col-sm-10">
+
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+
+                        <div class="col-sm-10">
+
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div style="margin-bottom: 0;" class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" value="Thêm" class="btn btn-default" />
+                        </div>
+                    </div> <!-- / .form-group -->
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<div>
+    @Html.ActionLink("Trở về danh sách", "Index")
+</div>

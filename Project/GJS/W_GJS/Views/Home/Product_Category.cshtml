@@ -1,0 +1,180 @@
+﻿@model IEnumerable<W_GJS.Models.O_CATEGORY_PRODUCT_DETAIL>
+@{
+    ViewBag.Title = "Product_Category";
+    W_GJS.Models.GJSEntities gjs = new W_GJS.Models.GJSEntities();
+    List<W_GJS.Models.O_CATEGORY_PRODUCT> listcategory = gjs.O_CATEGORY_PRODUCT.Where(t => t.ACTIVE == true).OrderByDescending(x => x.CREATEDATE).ToList();
+
+}
+
+@section PageTitle {
+    <section class="page-title">
+        <div class="container">
+
+            <header>
+
+                <ul class="breadcrumb">
+                    <!-- breadcrumb -->
+                    <li><a href="#">Trang sản phẩm</a></li>
+                </ul><!-- /breadcrumb -->3
+
+                <h2>
+                    <!-- Page Title -->
+                    <strong>Trang Sản Phẩm</strong>
+                </h2><!-- /Page Title -->
+
+            </header>
+
+        </div>
+    </section>
+}
+
+<h2 class="owl-featured margin-bottom-30 margin-top20"><strong>Danh Sách Sản Phẩm</strong></h2>
+
+<!-- options -->
+<div class="row shop-top-options">
+
+    <div class="col-sm-9 col-md-9">
+
+
+        <h2><strong>@ViewBag.Name</strong></h2>
+
+        <ul class="breadcrumb">
+            <!-- breadcrumb -->
+            <li><a href="@Url.Action("Index")">Trang chủ</a></li>
+            <li class="active">Danh sách sản phẩm</li>
+        </ul><!-- /breadcrumb -->
+
+    </div>
+
+    <div class=" col-sm-3 col-md-3">
+
+        @*<select class="form-control pointer fsize13 pull-right" name="orderby">
+            <option value="menu_order" selected="selected">Sắp xếp mặc định</option>
+            <option value="popularity">Sắp xếp theo độ phổ biến</option>
+            <option value="rating">Sắp xếp theo điểm đánh giá</option>
+            <option value="date">Sắp xếp theo thời gian</option>
+            <option value="price">Sắp xếp theo price: thấp tới cao</option>
+            <option value="price-desc">Sắp xếp theo price: cao xuống thấp</option>
+        </select>*@
+
+    </div>
+</div>
+<!-- /options -->
+
+<div class="row">
+
+    <div class="col-md-3">
+
+        <!-- SIDE NAV -->
+        <ul class="side-nav list-group" id="sidebar-nav">
+            @foreach (var item in listcategory)
+            {
+                <li class="list-group-item list-toggle">
+                    <a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-@item.CATEGORY_PRODUCT_CODE">@item.CATEGORY_PRODUCT_NAME</a>
+                    @if (item.O_CATEGORY_PRODUCT_DETAIL != null && item.O_CATEGORY_PRODUCT_DETAIL.Where(t => t.ACTIVE == true).ToList().Count > 0)
+                    {
+                        <ul id="collapse-@item.CATEGORY_PRODUCT_CODE" class="collapse">
+                            @foreach (var item_detail in item.O_CATEGORY_PRODUCT_DETAIL.Where(t => t.ACTIVE == true).OrderByDescending(x => x.CREATEDATE).ToList())
+                            {
+                                <li><a href="@Url.Action("Product_Category_Detail", new { CATEGORY_PRODUCT_DETAIL_CD = item_detail.CATEGORY_PRODUCT_DETAIL_CD })"><i class="fa fa-angle-right"></i> @item_detail.CATEGORY_PRODUCT_DETAIL_NAME</a></li>
+                            }
+                        </ul>
+                    }
+                </li>
+            }
+
+
+        </ul>
+        <!-- /SIDE NAV -->
+        <!-- BANNER -->
+        <hr class="half-margins invisible" />
+
+        <a class="hidden-sm" href="../../../wrapbootstrap.com/theme/epona-responsive-website-template-WB0464P7N.htm" rel="nofollow" target="_blank">
+            <img class="img-responsive" src="@Url.Content("~/Content")/images/shop_banner.png" alt="" />
+        </a>
+        <!-- /BANNER -->
+        <!-- FACEBOOK -->
+
+    </div>
+    <div class="col-md-9">
+
+
+        <!-- PRODUCT LIST -->
+        <div class="row">
+
+        @if (Model.ToList().Count == 0)
+        {
+            <p>Không tìm thấy sản phẩm nào.</p>
+        }
+        else
+        { 
+            foreach (var item in Model)
+            {
+                <h2 class="owl-featured margin-bottom-30 margin-top20"><strong>@item.CATEGORY_PRODUCT_DETAIL_NAME</strong></h2>
+                if (item.O_PRODUCT.Count == 0)
+                {
+                    <p>Không tìm thấy sản phẩm nào.</p>
+                }
+                else
+                {
+                    <div id="ProductList-@item.CATEGORY_PRODUCT_DETAIL_CD"></div>
+
+
+                    <script>
+
+                        function loadProducts_@(item.CATEGORY_PRODUCT_DETAIL_CD)(currentPage) {
+                            inProgress_@(item.CATEGORY_PRODUCT_DETAIL_CD) = true;
+                            $("#loadingDiv-@(@item.CATEGORY_PRODUCT_DETAIL_CD)").show();
+
+                            $.post("@Url.Action("CategoryProducDetailtListPaging", "Home")", { "CATEGORY_PRODUCT_DETAIL_CD": @item.CATEGORY_PRODUCT_DETAIL_CD , "productMenu": true, "numberOfItemsInPage": 6, "currentPage": currentPage },
+                            function (data) {
+                                $("#ProductList-@(item.CATEGORY_PRODUCT_DETAIL_CD)").html(data);
+                                $("#loadingDiv-@(item.CATEGORY_PRODUCT_DETAIL_CD)").hide();
+                                inProgress_@(item.CATEGORY_PRODUCT_DETAIL_CD) = false;
+                            });
+                        }
+
+                        //$(document).ready(function () {
+                        loadProducts_@(item.CATEGORY_PRODUCT_DETAIL_CD)(1);
+                        //});
+
+                        @*$(".paging-@(item.CATEGORY_PRODUCT_CD)").click(function () {
+            if (!inProgress@(item.CATEGORY_PRODUCT_CD)) {
+                loadProducts@(@item.CATEGORY_PRODUCT_CD)();
+            }
+        });*@
+
+
+                    </script>
+
+
+                }
+            }
+        }
+        </div>
+        <!-- /PRODUCT LIST -->
+        <!-- PAGINATION -->
+        @*<div class="row">
+
+                <div class="col-md-6 text-left">
+                    <p class="hidden-xs pull-left nomargin padding20">Showing 1-16 of 38 results.</p>
+                </div>
+
+                <div class="col-md-6 text-right">
+                    <ul class="pagination">
+                        <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+
+            </div>*@
+        <!-- /PAGINATION -->
+
+    </div>
+
+</div>

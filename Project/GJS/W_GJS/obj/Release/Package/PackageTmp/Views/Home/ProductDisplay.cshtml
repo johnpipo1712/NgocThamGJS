@@ -1,0 +1,193 @@
+﻿
+@{
+    ViewBag.Title = "Trang chủ";
+    W_GJS.Models.GJSEntities gjs = new W_GJS.Models.GJSEntities();
+    List<W_GJS.Models.O_PRODUCT_NEW> listproduct_new = gjs.O_PRODUCT_NEW.Where(t => t.O_PRODUCT.ACTIVE == true && t.STATUS == 1).OrderByDescending(x => x.CREATEDATE).ToList();
+    List<W_GJS.Models.O_PRODUCT_HIGHLIGHTS> listproduct_hightlights = gjs.O_PRODUCT_HIGHLIGHTS.Where(t => t.O_PRODUCT.ACTIVE == true && t.O_PRODUCT.STATUS == 1).OrderByDescending(x => x.CREATEDATE).ToList();
+    List<W_GJS.Models.O_PRODUCT_SELLING> listproduct_selling = gjs.O_PRODUCT_SELLING.Where(t => t.O_PRODUCT.ACTIVE == true && t.O_PRODUCT.STATUS == 1).OrderByDescending(x => x.CREATEDATE).ToList();
+    List<W_GJS.Models.O_CATEGORY_PRODUCT> listcategory = gjs.O_CATEGORY_PRODUCT.Where(t => t.ACTIVE == true).OrderByDescending(x => x.CREATEDATE).ToList();
+}
+
+@*@section Slide {
+        @Html.Partial("_Slide")
+    }*@
+
+@section Scripts {
+    <script>
+
+        function loadProducts() {
+            inProgress = true;
+            $("#loadingDiv").show();
+
+            $.post("@Url.Action("GetNext9Products", "Home")", { "blockNumber": blockNumber },
+                    function (data) {
+                        NoMoreData = data.NoMoreData;
+                        if (NoMoreData) {
+                            $("#moreProducts").hide();
+                        }
+                        $("#ProductList").append(data.HTMLString);
+                        $("#loadingDiv").hide();
+                        blockNumber++;
+                        inProgress = false;
+
+                    });
+        }
+
+        var NoMoreData = false;
+        var blockNumber = 0;
+        loadProducts();
+
+        $( "#moreProducts" ).click(function() {
+            if (!NoMoreData && !inProgress) {
+                loadProducts();
+            }
+        });
+    </script>
+
+}
+
+@section PageTitle {
+    <section class="page-title">
+        <div class="container">
+
+            <header>
+
+                <ul class="breadcrumb">
+                    <!-- breadcrumb -->
+                    <li><a href="@Url.Action("Index")">Trang sản phẩm</a></li>
+                </ul><!-- /breadcrumb -->
+
+                <h2>
+                    <!-- Page Title -->
+                    <strong>Trang Sản Phẩm</strong>
+                </h2><!-- /Page Title -->
+
+            </header>
+
+        </div>
+    </section>
+}
+
+<!-- FEATURED PRODUCTS -->
+<h2 class="owl-featured"><strong>Sản Phẩm</strong> Nổi Bật</h2>
+<div class="owl-carousel featured" data-plugin-options='{"singleItem": false, "stopOnHover":false, "autoPlay":true, "autoHeight": false, "navigation": true, "pagination": false}'>
+    @foreach (var item in listproduct_hightlights)
+    {
+        <div>
+            <div class="owl-featured-item">
+                <a class="figure" href="@Url.Action("ProductDetail", new { PRODUCT_CD = item.PRODUCT_CD })">
+                    <span><i class="fa fa-plus"></i></span>
+                    <img class="" alt="" src="@item.O_PRODUCT.URL_IMAGE" width="230" />
+                </a>
+                <div class="owl-featured-detail">
+                    <a class="featured-title" href="@Url.Action("ProductDetail", new { PRODUCT_CD = item.PRODUCT_CD })">@item.O_PRODUCT.PRODUCT_NAME</a>
+                    <span class="price"><span class="line-through styleColor">@item.O_PRODUCT.PRICE</span> <strong>@item.O_PRODUCT.PRICE_PROMOTION</strong></span>
+                    <a href="@Url.Action("AddCart", new { PRODUCT_CD = item.PRODUCT_CD, QUANTITY = "1",SIZE = "5" })" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> THÊM VÀO GIỎ HÀNG</a>
+
+                </div>
+                @if (item.O_PRODUCT.O_PRODUCT_NEW != null && item.O_PRODUCT.O_PRODUCT_NEW.ToList().Count > 0)
+                {
+                    <div class="sb-gdv-disc">
+                        <div class="sb-gdv-disc__content">Mới</div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    }
+</div>
+<!-- /FEATURED PRODUCTS -->
+
+<div class="divider">
+    <!-- divider -->
+    <i class="fa fa-star"></i>
+</div>
+
+<!-- FEATURED PRODUCTS -->
+<h2 class="owl-featured"><strong>Sản Phẩm</strong> Bán Chạy</h2>
+<div class="owl-carousel featured" data-plugin-options='{"singleItem": false, "stopOnHover":false, "autoPlay":true, "autoHeight": false, "navigation": true, "pagination": false}'>
+    @foreach (var item in listproduct_selling)
+    {
+        <div>
+            <div class="owl-featured-item">
+                <a class="figure" href="@Url.Action("ProductDetail", new { PRODUCT_CD = item.PRODUCT_CD })">
+                    <span><i class="fa fa-plus"></i></span>
+                    <img class="" alt="" src="@item.O_PRODUCT.URL_IMAGE" width="230" />
+                </a>
+                <div class="owl-featured-detail">
+                    <a class="featured-title" href="@Url.Action("ProductDetail", new { PRODUCT_CD = item.PRODUCT_CD })">@item.O_PRODUCT.PRODUCT_NAME</a>
+                    <span class="price"><span class="line-through styleColor">@item.O_PRODUCT.PRICE</span> <strong>@item.O_PRODUCT.PRICE_PROMOTION</strong></span>
+                    <a href="@Url.Action("AddCart", new { PRODUCT_CD = item.PRODUCT_CD, QUANTITY = "1",SIZE = "5" })" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> THÊM VÀO GIỎ HÀNG</a>
+                </div>
+                @if (item.O_PRODUCT.O_PRODUCT_NEW != null && item.O_PRODUCT.O_PRODUCT_NEW.ToList().Count > 0)
+                {
+                    <div class="sb-gdv-disc">
+                        <div class="sb-gdv-disc__content">Mới</div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    }
+</div>
+<!-- /FEATURED PRODUCTS -->
+
+<div class="divider">
+    <!-- divider -->
+    <i class="fa fa-star"></i>
+</div>
+
+<!-- PRODUCT LIST -->
+<div class="row margin-top60">
+
+    <div class="col-md-3">
+
+        <!-- SIDE NAV -->
+        <ul class="side-nav list-group" id="sidebar-nav">
+            @foreach (var item in listcategory)
+            {
+                <li class="list-group-item list-toggle">
+                    <a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-@item.CATEGORY_PRODUCT_CODE">@item.CATEGORY_PRODUCT_NAME</a>
+                    @if (item.O_CATEGORY_PRODUCT_DETAIL != null && item.O_CATEGORY_PRODUCT_DETAIL.Where(t=>t.ACTIVE == true).ToList().Count > 0)
+                    {
+                        <ul id="collapse-@item.CATEGORY_PRODUCT_CODE" class="collapse">
+                            @foreach (var item_detail in item.O_CATEGORY_PRODUCT_DETAIL.Where(t => t.ACTIVE == true).ToList())
+                            {
+                                <li><a href="@Url.Action("Product_Category_Detail", new { CATEGORY_PRODUCT_DETAIL_CD = item_detail.CATEGORY_PRODUCT_DETAIL_CD })"><i class="fa fa-angle-right"></i> @item_detail.CATEGORY_PRODUCT_DETAIL_NAME</a></li>
+                            }
+                        </ul>
+                    }
+                </li>
+            }
+
+
+        </ul>
+        <!-- /SIDE NAV -->
+        <!-- BANNER -->
+        <hr class="half-margins invisible" />
+
+        <a class="hidden-sm" href="" rel="nofollow" target="_blank">
+            <img class="img-responsive" src="@Url.Content("~/Content")/images/shop_banner.png" alt="" />
+        </a>
+        <!-- /BANNER -->
+        <!-- FACEBOOK -->
+    </div>
+
+    <div class="col-md-9">
+        <!-- PRODUCT LIST -->
+        <div id="ProductList" class="row scroll">
+
+        </div>
+        <div class="row">
+            <button id="moreProducts" type="button" class="btn btn-primary full">Xem thêm sản phẩm</button>
+        </div>
+        <div id="loadingDiv" style="text-align: center; display: none;">
+            <img alt="Loading" width="100" height="100" src="@Url.Content("~/Content/Images/ajax-loader.gif")" />
+        </div>
+        <!-- /PRODUCT LIST -->
+
+
+    </div>
+
+</div>
+<!-- /PRODUCT LIST -->

@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "DiamondAssess";
+    Layout = "~/Views/Shared/_ShopLayout.cshtml";
+
+    W_GJS.Models.GJSEntities gjs = new W_GJS.Models.GJSEntities();
+    W_GJS.Models.M_PAGE page = gjs.M_PAGE.Single(t => t.CATEGORY_PAGE_CD == 6);
+}
+
+@section Styles {
+    <link href="@Url.Content("~/Self/services/css/default.css")" rel="stylesheet" type="text/css" />
+}
+
+@section PageTitle {
+    <section class="page-title">
+        <div class="container">
+
+            <header>
+
+                <ul class="breadcrumb">
+                    <!-- breadcrumb -->
+                    <li><a href="@Url.Action("Index")">Trang Chủ</a></li>
+                    <li class="active">Dịch vụ</li>
+                </ul><!-- /breadcrumb -->
+
+                <h2>
+                    <!-- Page Title -->
+                    <strong>Dịch vụ</strong>
+                </h2><!-- /Page Title -->
+
+            </header>
+
+        </div>
+    </section>
+}
+
+
+<h2 class="owl-featured margin-bottom-30 margin-top20"><strong>BẢO TRÌ SẢN PHẨM NỮ TRANG</strong></h2>
+
+<div class="editor_content">
+    @Html.Raw(page.PAGE_COTRACT_CONTENT)
+</div>

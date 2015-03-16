@@ -1,0 +1,115 @@
+﻿<!-- Top Nav -->
+@{
+    W_GJS.Models.GJSEntities gjs = new W_GJS.Models.GJSEntities();
+    List<W_GJS.Models.O_CATEGORY_PRODUCT> listCategory = gjs.O_CATEGORY_PRODUCT.Where(t => t.ACTIVE == true).ToList();
+    List<W_GJS.Models.O_CATEGORY_NEWS> listNews = gjs.O_CATEGORY_NEWS.Where(t => t.ACTIVE == true).ToList();
+    List<W_GJS.Models.O_PRICE_GOLD> listPriceGold = gjs.O_PRICE_GOLD.ToList();
+}
+<header id="topNav">
+    <div class="container">
+
+        <!-- Logo -->
+        @*<a class="logo" href="@Url.Action("Index", "Home")">
+                <img src="@Url.Content("~/Content")/images/viLogo.png" height="75" alt="" />
+            </a>*@
+
+        <!-- Mobile Menu Button -->
+        <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <!-- /Search -->
+        <!-- Top Nav -->
+        <div class="navbar-collapse nav-main-collapse collapse">
+            <nav class="nav-main">
+
+                <!--
+                    NOTE
+
+                    For a regular link, remove "dropdown" class from LI tag and "dropdown-toggle" class from the href.
+                    Direct Link Example:
+
+                    <li>
+                        <a href="#">HOME</a>
+                    </li>
+                -->
+                <ul id="topMain" class="nav nav-pills nav-main colored">
+                    <li class="active">
+                        <a href="@Url.Action("Index", "Home")">
+                            TRANG CHỦ <span>home</span>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="@Url.Action("Edit", "Employee")">Thông tin <span>user</span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="@Url.Action("ProductList", "Home")">SẢN PHẨM <span>products</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index", "CategoryProduct")">Loại sản phẩm</a></li>
+                            <li><a href="@Url.Action("Index", "CategoryGranules")">Loại hạt</a></li>
+                            <li><a href="@Url.Action("Index", "Product")">Sản phẩm</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#">ĐƠN HÀNG <span>order</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index", "Order")">Đơn đặt hàng</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#">TRANG TĨNH <span>pages</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index", "CategoryPage")">Loại trang (menu)</a></li>
+                            <li><a href="@Url.Action("Index", "Page")">Trang</a></li>
+                            <li><a href="@Url.Action("Index", "Advertisement")">Trang quảng cáo</a></li>
+                            <li><a href="@Url.Action("Index", "Banner")">Banner</a></li>
+                            <li><a href="@Url.Action("Index", "SEO")">Thông tin để SEO</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="dropdown-toggle" href="#">CHI NHÁNH <span>branches</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index", "Cities")">Khu vực</a></li>
+                            <li><a href="@Url.Action("Index", "CitiesDetail")">Chi tiết khu vực</a></li>
+                            <li><a href="@Url.Action("Index", "Branch")">Chi nhánh</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="dropdown-toggle" href="#">BỘ SƯU TẬP <span>albums</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index", "CategoryAlbum")">Bộ sưu tập</a></li>
+                            <li><a href="@Url.Action("Index", "Album")">Hình ảnh trong album</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#">TIN TỨC <span>news</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index", "CategoryNews")">Loại tin tức</a></li>
+                            <li><a href="@Url.Action("Index", "News")">Tin tức</a></li>
+                        </ul>
+                    </li>
+                    <li data-toggle="modal" data-target="#gold-rate-modal">
+                        <a href="@Url.Action("Index", "PriceGold")">BẢNG GIÁ VÀNG <span>gold rates</span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#">KHÁCH HÀNG <span>user</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index", "Customer")">Thông tin</a></li>
+                        </ul>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index", "User")">Quyền</a></li>
+                        </ul>
+                       
+                    </li>
+                    
+
+                    <!--<li><a href="#" data-toggle="modal" data-target="#LoginModal">@*<i class="fa fa-angle-right"></i>*@Đăng Nhập <span>login</span></a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#RegisterModal">@*<i class="fa fa-angle-right"></i>*@Đăng Kí <span>register</span></a></li>-->
+                </ul>
+
+            </nav>
+        </div>
+        <!-- /Top Nav -->
+
+    </div><!-- /.container -->
+</header>

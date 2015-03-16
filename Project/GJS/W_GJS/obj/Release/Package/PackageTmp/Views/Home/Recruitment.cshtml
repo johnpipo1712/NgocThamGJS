@@ -1,0 +1,37 @@
+﻿@{
+    Layout = "~/Views/Shared/_ShopLayout.cshtml";
+    ViewBag.Title = "Tuyển dụng";
+
+    W_GJS.Models.GJSEntities gjs = new W_GJS.Models.GJSEntities();
+    W_GJS.Models.M_PAGE page = gjs.M_PAGE.Single(t => t.CATEGORY_PAGE_CD == 10);
+}
+
+@section PageTitle {
+    <section class="page-title">
+        <div class="container">
+
+            <header>
+
+                <ul class="breadcrumb">
+                    <!-- breadcrumb -->
+                    <li><a href="@Url.Action("Index")">Trang Chủ</a></li>
+                    <li class="active">Tuyển dụng</li>
+                </ul><!-- /breadcrumb -->
+
+                <h2>
+                    <!-- Page Title -->
+                    <strong>Tuyển dụng</strong>
+                </h2><!-- /Page Title -->
+
+            </header>
+
+        </div>
+    </section>
+}
+
+
+<h2 class="owl-featured margin-bottom-30 margin-top20"><strong>Thông tin tuyển dụng</strong></h2>
+
+<div class="newsdt-content">
+    @Html.Raw(page.PAGE_COTRACT_CONTENT)
+</div>

@@ -1,0 +1,2740 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GJSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="D_CITIES_DETAIL">
+          <Key>
+            <PropertyRef Name="CITIES_DETAIL_CD" />
+          </Key>
+          <Property Name="CITIES_DETAIL_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CITIES_CD" Type="bigint" />
+          <Property Name="CITIES_DETAIL_CODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="CITIES_DETAIL_NAME" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="D_ORDER_DETAIL">
+          <Key>
+            <PropertyRef Name="ORDER_DETAIL_CD" />
+          </Key>
+          <Property Name="ORDER_DETAIL_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ORDER_CD" Type="bigint" />
+          <Property Name="PRODUCT_CD" Type="bigint" />
+          <Property Name="SIZE" Type="nvarchar(max)" />
+          <Property Name="QUANTITY" Type="bigint" />
+          <Property Name="PRICE" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="D_PRODUCT_DETAIL">
+          <Key>
+            <PropertyRef Name="PRODUCT_DETAIL_CD" />
+          </Key>
+          <Property Name="PRODUCT_DETAIL_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRODUCT_CD" Type="bigint" />
+          <Property Name="URL_IMAGE" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="M_EMPLOYEE">
+          <Key>
+            <PropertyRef Name="EMPLOYEE_CD" />
+          </Key>
+          <Property Name="EMPLOYEE_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EMPLOYEE_CODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMPLOYEE_NAME" Type="nvarchar(max)" />
+          <Property Name="ADDRESS" Type="nvarchar(max)" />
+          <Property Name="EMAIL" Type="nvarchar(max)" />
+          <Property Name="BIRTHDAY" Type="datetime" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="M_PAGE">
+          <Key>
+            <PropertyRef Name="PAGE_COTRACT_CD" />
+          </Key>
+          <Property Name="PAGE_COTRACT_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PAGE_COTRACT_TITLE" Type="nvarchar(max)" />
+          <Property Name="PAGE_COTRACT_CONTENT" Type="nvarchar(max)" />
+          <Property Name="CATEGORY_PAGE_CD" Type="bigint" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_ADVERTISEMENT">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ADVERTISEMENT" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_ALBUM">
+          <Key>
+            <PropertyRef Name="ALBUM_CD" />
+          </Key>
+          <Property Name="ALBUM_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="URL_IMAGE" Type="nvarchar(max)" />
+          <Property Name="CATEGORY_ALBUM_CD" Type="bigint" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_BANNER">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="URL_IMAGE" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_BRANCH">
+          <Key>
+            <PropertyRef Name="BRANCH_CD" />
+          </Key>
+          <Property Name="BRANCH_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BRANCH_CODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="BRANCH_NAME" Type="nvarchar(max)" />
+          <Property Name="CITIES_CD" Type="bigint" />
+          <Property Name="CITIES_DETAIL_CD" Type="bigint" />
+          <Property Name="ADDRESS" Type="nvarchar(max)" />
+          <Property Name="LONGITUDE" Type="nvarchar(max)" />
+          <Property Name="LATITUDE" Type="nvarchar(max)" />
+          <Property Name="PHONE" Type="varchar" MaxLength="50" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_CATEGORY_ALBUM">
+          <Key>
+            <PropertyRef Name="CATEGORY_ALBUM_CD" />
+          </Key>
+          <Property Name="CATEGORY_ALBUM_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CATEGORY_ALBUM_NAME" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_CATEGORY_GRANULES">
+          <Key>
+            <PropertyRef Name="CATEGORY_GRANULES_CD" />
+          </Key>
+          <Property Name="CATEGORY_GRANULES_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CATEGORY_GRANULES_NAME" Type="nvarchar(max)" />
+          <Property Name="CATEGORY_GRANULES_CONTENT" Type="nvarchar(max)" />
+          <Property Name="CATEGORY_GRANULES_WEIGHT" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_CATEGORY_NEWS">
+          <Key>
+            <PropertyRef Name="CATEGORY_NEWS_CD" />
+          </Key>
+          <Property Name="CATEGORY_NEWS_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CATEGORY_NEWS_CODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="CATEGORY_NEWS_NAME" Type="nvarchar(max)" />
+          <Property Name="TAG_ALT" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_CATEGORY_PAGE">
+          <Key>
+            <PropertyRef Name="CATEGORY_PAGE_CD" />
+          </Key>
+          <Property Name="CATEGORY_PAGE_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CATEGORY_PAGE_CODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="CATEGORY_PAGE_NAME" Type="nvarchar(max)" />
+          <Property Name="TAG_ALT" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_CATEGORY_PRODUCT">
+          <Key>
+            <PropertyRef Name="CATEGORY_PRODUCT_CD" />
+          </Key>
+          <Property Name="CATEGORY_PRODUCT_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CATEGORY_PRODUCT_CODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="CATEGORY_PRODUCT_NAME" Type="nvarchar(max)" />
+          <Property Name="TAG_ALT" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_CATEGORY_PRODUCT_DETAIL">
+          <Key>
+            <PropertyRef Name="CATEGORY_PRODUCT_DETAIL_CD" />
+          </Key>
+          <Property Name="CATEGORY_PRODUCT_DETAIL_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CATEGORY_PRODUCT_CD" Type="bigint" />
+          <Property Name="CATEGORY_PRODUCT_DETAIL_CODE" Type="nvarchar(max)" />
+          <Property Name="CATEGORY_PRODUCT_DETAIL_NAME" Type="nvarchar(max)" />
+          <Property Name="TAG_ALT" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_CITIES">
+          <Key>
+            <PropertyRef Name="CITIES_CD" />
+          </Key>
+          <Property Name="CITIES_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CITIES_CODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="CITIES_NAME" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_CUSTOMER">
+          <Key>
+            <PropertyRef Name="CUSTOMER_CD" />
+          </Key>
+          <Property Name="CUSTOMER_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CUSTOMER_CODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="CUSTOMER_NAME" Type="nvarchar(max)" />
+          <Property Name="CUSTOMER_FIRST_NAME" Type="nvarchar(max)" />
+          <Property Name="CUSTOMER_LAST_NAME" Type="nvarchar(max)" />
+          <Property Name="PHONE" Type="nvarchar" MaxLength="50" />
+          <Property Name="ADDRESS" Type="nvarchar(max)" />
+          <Property Name="EMAIL" Type="nvarchar(max)" />
+          <Property Name="SEX" Type="nvarchar(max)" />
+          <Property Name="BIRTHDAY" Type="datetime" />
+          <Property Name="SUBSCRIBE" Type="bit" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_HOME_GROUP_PHOTO">
+          <Key>
+            <PropertyRef Name="HOME_GROUP_PHOTO_CD" />
+          </Key>
+          <Property Name="HOME_GROUP_PHOTO_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PHOTO_URL_1" Type="nvarchar(max)" />
+          <Property Name="PHOTO_URL_2" Type="nvarchar(max)" />
+          <Property Name="PHOTO_URL_3" Type="nvarchar(max)" />
+          <Property Name="PHOTO_URL_4" Type="nvarchar(max)" />
+          <Property Name="PHOTO_URL_5" Type="nvarchar(max)" />
+          <Property Name="PHOTO_URL_6" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_HOME_INTRODUCTION">
+          <Key>
+            <PropertyRef Name="O_HOME_INTRODUCTION_CD" />
+          </Key>
+          <Property Name="O_HOME_INTRODUCTION_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="O_HOME_INTRODUCTION_CONTENT" Type="nvarchar(max)" />
+          <Property Name="O_HOME_INTRODUCTION_AUTHOR" Type="nvarchar(max)" />
+          <Property Name="O_HOME_INTRODUCTION_PHOTO" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_HOME_SERVICE">
+          <Key>
+            <PropertyRef Name="O_HOME_SERVICE_CD" />
+          </Key>
+          <Property Name="O_HOME_SERVICE_CD" Type="bigint" Nullable="false" />
+          <Property Name="O_HOME_SERVICE_DESCRIPTION" Type="nvarchar(max)" />
+          <Property Name="O_HOME_SERVICE_TITLE" Type="nvarchar(max)" />
+          <Property Name="O_HOME_SERVICE_PHOTO" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_HOME_SERVICE_DETAIL">
+          <Key>
+            <PropertyRef Name="HOME_SERVICE_DETAIL_CD" />
+          </Key>
+          <Property Name="HOME_SERVICE_DETAIL_CD" Type="bigint" Nullable="false" />
+          <Property Name="HOME_SERVICE_DETAIL_PHOTO" Type="nvarchar(max)" />
+          <Property Name="HOME_SERVICE_DETAIL_DESCRIPTION" Type="nvarchar(max)" />
+          <Property Name="HOME_SERVICE_DETAIL_ACTION" Type="nvarchar(max)" />
+          <Property Name="HOME_SERVICE_DETAIL_TITLE" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_INFORMATION">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="INFORMATION_YAHOO" Type="nvarchar(max)" />
+          <Property Name="INFORMATION_SKYPE" Type="nvarchar(max)" />
+          <Property Name="INFORMATION_FACBOOK" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_NEWS">
+          <Key>
+            <PropertyRef Name="NEWS_CD" />
+          </Key>
+          <Property Name="NEWS_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NEWS_TITLE" Type="nvarchar(max)" />
+          <Property Name="NEW_DESCRIPTIONS" Type="nvarchar(max)" />
+          <Property Name="NEWS_CONTENT" Type="nvarchar(max)" />
+          <Property Name="IMAGE_NEWS" Type="nvarchar(max)" />
+          <Property Name="CATEGORY_NEWS_CD" Type="bigint" />
+          <Property Name="SOURCE_COPY" Type="nvarchar(max)" />
+          <Property Name="TAG_ALT" Type="nvarchar(max)" />
+          <Property Name="EMPLOYEE_CD" Type="bigint" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_NEWS_HIGHLIGHTS">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NEWS_CD" Type="bigint" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_NEWS_HOME">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="bigint" Nullable="false" />
+          <Property Name="NEWS_CD" Type="bigint" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_NEWS_NEW">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NEWS_CD" Type="bigint" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_ORDER">
+          <Key>
+            <PropertyRef Name="ORDER_CD" />
+          </Key>
+          <Property Name="ORDER_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ORDER_CODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="ORDER_CONTENT" Type="nvarchar(max)" />
+          <Property Name="EMPLOYEE_CD" Type="bigint" />
+          <Property Name="CUSTOMER_CD" Type="bigint" />
+          <Property Name="PHONE" Type="nvarchar(max)" />
+          <Property Name="EMAIL" Type="nvarchar(max)" />
+          <Property Name="DELIVERY_ADDRESS" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_PRICE_GOLD">
+          <Key>
+            <PropertyRef Name="PRICE_GOLD_CD" />
+          </Key>
+          <Property Name="PRICE_GOLD_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRICE_SALES" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="PRICE_BUY" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="GOLD_CODE" Type="nvarchar(max)" />
+          <Property Name="GOLD_NAME" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_PRODUCT">
+          <Key>
+            <PropertyRef Name="PRODUCT_CD" />
+          </Key>
+          <Property Name="PRODUCT_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRODUCT_CODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="PRODUCT_NAME" Type="nvarchar(max)" />
+          <Property Name="PRODUCT_TITLE" Type="nvarchar(max)" />
+          <Property Name="PRODUCT_CONTENT" Type="nvarchar(max)" />
+          <Property Name="CATEGORY_PRODUCT_CD" Type="bigint" />
+          <Property Name="CATEGORY_GRANULES_CD" Type="bigint" />
+          <Property Name="CATEGORY_PRODUCT_DETAIL_CD" Type="bigint" />
+          <Property Name="WEIGHT" Type="nvarchar(max)" />
+          <Property Name="QUANTITY_GRANULES" Type="nvarchar(max)" />
+          <Property Name="QUANTITY" Type="bigint" />
+          <Property Name="PRICE" Type="nvarchar(max)" />
+          <Property Name="PRICE_PROMOTION" Type="nvarchar(max)" />
+          <Property Name="WAGES" Type="nvarchar(max)" />
+          <Property Name="CURRENCY" Type="nvarchar(max)" />
+          <Property Name="URL_IMAGE" Type="nvarchar(max)" />
+          <Property Name="SIZE" Type="nvarchar(max)" />
+          <Property Name="TAG_ALT" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_PRODUCT_CATALOG">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRODUCT_CD" Type="bigint" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_PRODUCT_HIGHLIGHTS">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRODUCT_CD" Type="bigint" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_PRODUCT_NEW">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRODUCT_CD" Type="bigint" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_PRODUCT_SELLING">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRODUCT_CD" Type="bigint" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_SEO">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HREF_ICON" Type="nvarchar(max)" />
+          <Property Name="TITILE" Type="nvarchar(max)" />
+          <Property Name="META_DES" Type="nvarchar(max)" />
+          <Property Name="META_KEYWORDS" Type="nvarchar(max)" />
+          <Property Name="META_ROBOTS" Type="nvarchar(max)" />
+          <Property Name="META_REVISIT" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_USER_CUSTOMER">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_CD" Type="bigint" />
+          <Property Name="CUSTOMER_CD" Type="bigint" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_USER_EMPLOYEE">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_CD" Type="bigint" />
+          <Property Name="EMPLOYEE_CD" Type="bigint" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_USER_PST">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_CD" Type="bigint" />
+          <Property Name="PST_CD" Type="bigint" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="S_PST">
+          <Key>
+            <PropertyRef Name="PST_CD" />
+          </Key>
+          <Property Name="PST_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PST_CODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="PST_NAME" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="S_STATISTICS_VISIT">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COUNTER_VISIT" Type="bigint" />
+          <Property Name="TIME_ONLINE" Type="datetime" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="S_USER">
+          <Key>
+            <PropertyRef Name="USER_CD" />
+          </Key>
+          <Property Name="USER_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_NAME" Type="varchar(max)" />
+          <Property Name="USER_PASS" Type="varchar" MaxLength="50" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="W_PRODUCT">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRODUCT_CD" Type="bigint" />
+          <Property Name="QUANTITY" Type="bigint" />
+          <Property Name="STATUS" Type="bigint" />
+          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="CREATEDATE" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_D_CITIES_DETAIL_O_CITIES">
+          <End Role="O_CITIES" Type="Self.O_CITIES" Multiplicity="0..1" />
+          <End Role="D_CITIES_DETAIL" Type="Self.D_CITIES_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CITIES">
+              <PropertyRef Name="CITIES_CD" />
+            </Principal>
+            <Dependent Role="D_CITIES_DETAIL">
+              <PropertyRef Name="CITIES_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_D_ORDER_DETAIL_O_ORDER">
+          <End Role="O_ORDER" Type="Self.O_ORDER" Multiplicity="0..1" />
+          <End Role="D_ORDER_DETAIL" Type="Self.D_ORDER_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_ORDER">
+              <PropertyRef Name="ORDER_CD" />
+            </Principal>
+            <Dependent Role="D_ORDER_DETAIL">
+              <PropertyRef Name="ORDER_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_D_ORDER_DETAIL_O_PRODUCT">
+          <End Role="O_PRODUCT" Type="Self.O_PRODUCT" Multiplicity="0..1" />
+          <End Role="D_ORDER_DETAIL" Type="Self.D_ORDER_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_PRODUCT">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Principal>
+            <Dependent Role="D_ORDER_DETAIL">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_D_PRODUCT_DETAIL_O_PRODUCT">
+          <End Role="O_PRODUCT" Type="Self.O_PRODUCT" Multiplicity="0..1" />
+          <End Role="D_PRODUCT_DETAIL" Type="Self.D_PRODUCT_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_PRODUCT">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Principal>
+            <Dependent Role="D_PRODUCT_DETAIL">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_PAGE_O_CATEGORY_PAGE">
+          <End Role="O_CATEGORY_PAGE" Type="Self.O_CATEGORY_PAGE" Multiplicity="0..1" />
+          <End Role="M_PAGE" Type="Self.M_PAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CATEGORY_PAGE">
+              <PropertyRef Name="CATEGORY_PAGE_CD" />
+            </Principal>
+            <Dependent Role="M_PAGE">
+              <PropertyRef Name="CATEGORY_PAGE_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_ALBUM_O_CATEGORY_ALBUM">
+          <End Role="O_CATEGORY_ALBUM" Type="Self.O_CATEGORY_ALBUM" Multiplicity="0..1" />
+          <End Role="O_ALBUM" Type="Self.O_ALBUM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CATEGORY_ALBUM">
+              <PropertyRef Name="CATEGORY_ALBUM_CD" />
+            </Principal>
+            <Dependent Role="O_ALBUM">
+              <PropertyRef Name="CATEGORY_ALBUM_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_BRANCH_D_CITIES_DETAIL">
+          <End Role="D_CITIES_DETAIL" Type="Self.D_CITIES_DETAIL" Multiplicity="0..1" />
+          <End Role="O_BRANCH" Type="Self.O_BRANCH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="D_CITIES_DETAIL">
+              <PropertyRef Name="CITIES_DETAIL_CD" />
+            </Principal>
+            <Dependent Role="O_BRANCH">
+              <PropertyRef Name="CITIES_DETAIL_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_BRANCH_O_CITIES">
+          <End Role="O_CITIES" Type="Self.O_CITIES" Multiplicity="0..1" />
+          <End Role="O_BRANCH" Type="Self.O_BRANCH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CITIES">
+              <PropertyRef Name="CITIES_CD" />
+            </Principal>
+            <Dependent Role="O_BRANCH">
+              <PropertyRef Name="CITIES_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_CATEGORY_PRODUCT_DETAIL_O_CATEGORY_PRODUCT">
+          <End Role="O_CATEGORY_PRODUCT" Type="Self.O_CATEGORY_PRODUCT" Multiplicity="0..1" />
+          <End Role="O_CATEGORY_PRODUCT_DETAIL" Type="Self.O_CATEGORY_PRODUCT_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CATEGORY_PRODUCT">
+              <PropertyRef Name="CATEGORY_PRODUCT_CD" />
+            </Principal>
+            <Dependent Role="O_CATEGORY_PRODUCT_DETAIL">
+              <PropertyRef Name="CATEGORY_PRODUCT_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_NEWS_HIGHLIGHTS_O_NEWS">
+          <End Role="O_NEWS" Type="Self.O_NEWS" Multiplicity="0..1" />
+          <End Role="O_NEWS_HIGHLIGHTS" Type="Self.O_NEWS_HIGHLIGHTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_NEWS">
+              <PropertyRef Name="NEWS_CD" />
+            </Principal>
+            <Dependent Role="O_NEWS_HIGHLIGHTS">
+              <PropertyRef Name="NEWS_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_NEWS_HOME_O_NEWS">
+          <End Role="O_NEWS" Type="Self.O_NEWS" Multiplicity="0..1" />
+          <End Role="O_NEWS_HOME" Type="Self.O_NEWS_HOME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_NEWS">
+              <PropertyRef Name="NEWS_CD" />
+            </Principal>
+            <Dependent Role="O_NEWS_HOME">
+              <PropertyRef Name="NEWS_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_NEWS_M_EMPLOYEE">
+          <End Role="M_EMPLOYEE" Type="Self.M_EMPLOYEE" Multiplicity="0..1" />
+          <End Role="O_NEWS" Type="Self.O_NEWS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_EMPLOYEE">
+              <PropertyRef Name="EMPLOYEE_CD" />
+            </Principal>
+            <Dependent Role="O_NEWS">
+              <PropertyRef Name="EMPLOYEE_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_NEWS_NEW_O_NEWS">
+          <End Role="O_NEWS" Type="Self.O_NEWS" Multiplicity="0..1" />
+          <End Role="O_NEWS_NEW" Type="Self.O_NEWS_NEW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_NEWS">
+              <PropertyRef Name="NEWS_CD" />
+            </Principal>
+            <Dependent Role="O_NEWS_NEW">
+              <PropertyRef Name="NEWS_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_NEWS_O_CATEGORY_NEWS">
+          <End Role="O_CATEGORY_NEWS" Type="Self.O_CATEGORY_NEWS" Multiplicity="0..1" />
+          <End Role="O_NEWS" Type="Self.O_NEWS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CATEGORY_NEWS">
+              <PropertyRef Name="CATEGORY_NEWS_CD" />
+            </Principal>
+            <Dependent Role="O_NEWS">
+              <PropertyRef Name="CATEGORY_NEWS_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_ORDER_M_EMPLOYEE">
+          <End Role="M_EMPLOYEE" Type="Self.M_EMPLOYEE" Multiplicity="0..1" />
+          <End Role="O_ORDER" Type="Self.O_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_EMPLOYEE">
+              <PropertyRef Name="EMPLOYEE_CD" />
+            </Principal>
+            <Dependent Role="O_ORDER">
+              <PropertyRef Name="EMPLOYEE_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_ORDER_O_CUSTOMER">
+          <End Role="O_CUSTOMER" Type="Self.O_CUSTOMER" Multiplicity="0..1" />
+          <End Role="O_ORDER" Type="Self.O_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CUSTOMER">
+              <PropertyRef Name="CUSTOMER_CD" />
+            </Principal>
+            <Dependent Role="O_ORDER">
+              <PropertyRef Name="CUSTOMER_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_PRODUCT_CATALOG_O_PRODUCT">
+          <End Role="O_PRODUCT" Type="Self.O_PRODUCT" Multiplicity="0..1" />
+          <End Role="O_PRODUCT_CATALOG" Type="Self.O_PRODUCT_CATALOG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_PRODUCT">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Principal>
+            <Dependent Role="O_PRODUCT_CATALOG">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_PRODUCT_HIGHLIGHTS_O_PRODUCT">
+          <End Role="O_PRODUCT" Type="Self.O_PRODUCT" Multiplicity="0..1" />
+          <End Role="O_PRODUCT_HIGHLIGHTS" Type="Self.O_PRODUCT_HIGHLIGHTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_PRODUCT">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Principal>
+            <Dependent Role="O_PRODUCT_HIGHLIGHTS">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_PRODUCT_NEW_O_PRODUCT">
+          <End Role="O_PRODUCT" Type="Self.O_PRODUCT" Multiplicity="0..1" />
+          <End Role="O_PRODUCT_NEW" Type="Self.O_PRODUCT_NEW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_PRODUCT">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Principal>
+            <Dependent Role="O_PRODUCT_NEW">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_PRODUCT_O_CATEGORY_GRANULES">
+          <End Role="O_CATEGORY_GRANULES" Type="Self.O_CATEGORY_GRANULES" Multiplicity="0..1" />
+          <End Role="O_PRODUCT" Type="Self.O_PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CATEGORY_GRANULES">
+              <PropertyRef Name="CATEGORY_GRANULES_CD" />
+            </Principal>
+            <Dependent Role="O_PRODUCT">
+              <PropertyRef Name="CATEGORY_GRANULES_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_PRODUCT_O_CATEGORY_PRODUCT">
+          <End Role="O_CATEGORY_PRODUCT" Type="Self.O_CATEGORY_PRODUCT" Multiplicity="0..1" />
+          <End Role="O_PRODUCT" Type="Self.O_PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CATEGORY_PRODUCT">
+              <PropertyRef Name="CATEGORY_PRODUCT_CD" />
+            </Principal>
+            <Dependent Role="O_PRODUCT">
+              <PropertyRef Name="CATEGORY_PRODUCT_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_PRODUCT_O_CATEGORY_PRODUCT_DETAIL">
+          <End Role="O_CATEGORY_PRODUCT_DETAIL" Type="Self.O_CATEGORY_PRODUCT_DETAIL" Multiplicity="0..1" />
+          <End Role="O_PRODUCT" Type="Self.O_PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CATEGORY_PRODUCT_DETAIL">
+              <PropertyRef Name="CATEGORY_PRODUCT_DETAIL_CD" />
+            </Principal>
+            <Dependent Role="O_PRODUCT">
+              <PropertyRef Name="CATEGORY_PRODUCT_DETAIL_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_PRODUCT_SELLING_O_PRODUCT">
+          <End Role="O_PRODUCT" Type="Self.O_PRODUCT" Multiplicity="0..1" />
+          <End Role="O_PRODUCT_SELLING" Type="Self.O_PRODUCT_SELLING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_PRODUCT">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Principal>
+            <Dependent Role="O_PRODUCT_SELLING">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_USER_CUSTOMER_O_CUSTOMER">
+          <End Role="O_CUSTOMER" Type="Self.O_CUSTOMER" Multiplicity="0..1" />
+          <End Role="O_USER_CUSTOMER" Type="Self.O_USER_CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CUSTOMER">
+              <PropertyRef Name="CUSTOMER_CD" />
+            </Principal>
+            <Dependent Role="O_USER_CUSTOMER">
+              <PropertyRef Name="CUSTOMER_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_USER_CUSTOMER_S_USER">
+          <End Role="S_USER" Type="Self.S_USER" Multiplicity="0..1" />
+          <End Role="O_USER_CUSTOMER" Type="Self.O_USER_CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="S_USER">
+              <PropertyRef Name="USER_CD" />
+            </Principal>
+            <Dependent Role="O_USER_CUSTOMER">
+              <PropertyRef Name="USER_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_USER_EMPLOYEE_M_EMPLOYEE">
+          <End Role="M_EMPLOYEE" Type="Self.M_EMPLOYEE" Multiplicity="0..1" />
+          <End Role="O_USER_EMPLOYEE" Type="Self.O_USER_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_EMPLOYEE">
+              <PropertyRef Name="EMPLOYEE_CD" />
+            </Principal>
+            <Dependent Role="O_USER_EMPLOYEE">
+              <PropertyRef Name="EMPLOYEE_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_USER_EMPLOYEE_S_USER">
+          <End Role="S_USER" Type="Self.S_USER" Multiplicity="0..1" />
+          <End Role="O_USER_EMPLOYEE" Type="Self.O_USER_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="S_USER">
+              <PropertyRef Name="USER_CD" />
+            </Principal>
+            <Dependent Role="O_USER_EMPLOYEE">
+              <PropertyRef Name="USER_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_USER_PST_S_PST">
+          <End Role="S_PST" Type="Self.S_PST" Multiplicity="0..1" />
+          <End Role="O_USER_PST" Type="Self.O_USER_PST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="S_PST">
+              <PropertyRef Name="PST_CD" />
+            </Principal>
+            <Dependent Role="O_USER_PST">
+              <PropertyRef Name="PST_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_USER_PST_S_USER">
+          <End Role="S_USER" Type="Self.S_USER" Multiplicity="0..1" />
+          <End Role="O_USER_PST" Type="Self.O_USER_PST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="S_USER">
+              <PropertyRef Name="USER_CD" />
+            </Principal>
+            <Dependent Role="O_USER_PST">
+              <PropertyRef Name="USER_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Report_Order" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_STATISTICS_VISIT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="GJSModelStoreContainer">
+          <EntitySet Name="D_CITIES_DETAIL" EntityType="Self.D_CITIES_DETAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="D_ORDER_DETAIL" EntityType="Self.D_ORDER_DETAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="D_PRODUCT_DETAIL" EntityType="Self.D_PRODUCT_DETAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_EMPLOYEE" EntityType="Self.M_EMPLOYEE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_PAGE" EntityType="Self.M_PAGE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_ADVERTISEMENT" EntityType="Self.O_ADVERTISEMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_ALBUM" EntityType="Self.O_ALBUM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_BANNER" EntityType="Self.O_BANNER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_BRANCH" EntityType="Self.O_BRANCH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_CATEGORY_ALBUM" EntityType="Self.O_CATEGORY_ALBUM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_CATEGORY_GRANULES" EntityType="Self.O_CATEGORY_GRANULES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_CATEGORY_NEWS" EntityType="Self.O_CATEGORY_NEWS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_CATEGORY_PAGE" EntityType="Self.O_CATEGORY_PAGE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_CATEGORY_PRODUCT" EntityType="Self.O_CATEGORY_PRODUCT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_CATEGORY_PRODUCT_DETAIL" EntityType="Self.O_CATEGORY_PRODUCT_DETAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_CITIES" EntityType="Self.O_CITIES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_CUSTOMER" EntityType="Self.O_CUSTOMER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_HOME_GROUP_PHOTO" EntityType="Self.O_HOME_GROUP_PHOTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_HOME_INTRODUCTION" EntityType="Self.O_HOME_INTRODUCTION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_HOME_SERVICE" EntityType="Self.O_HOME_SERVICE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_HOME_SERVICE_DETAIL" EntityType="Self.O_HOME_SERVICE_DETAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_INFORMATION" EntityType="Self.O_INFORMATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_NEWS" EntityType="Self.O_NEWS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_NEWS_HIGHLIGHTS" EntityType="Self.O_NEWS_HIGHLIGHTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_NEWS_HOME" EntityType="Self.O_NEWS_HOME" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_NEWS_NEW" EntityType="Self.O_NEWS_NEW" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_ORDER" EntityType="Self.O_ORDER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_PRICE_GOLD" EntityType="Self.O_PRICE_GOLD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_PRODUCT" EntityType="Self.O_PRODUCT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_PRODUCT_CATALOG" EntityType="Self.O_PRODUCT_CATALOG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_PRODUCT_HIGHLIGHTS" EntityType="Self.O_PRODUCT_HIGHLIGHTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_PRODUCT_NEW" EntityType="Self.O_PRODUCT_NEW" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_PRODUCT_SELLING" EntityType="Self.O_PRODUCT_SELLING" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_SEO" EntityType="Self.O_SEO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_USER_CUSTOMER" EntityType="Self.O_USER_CUSTOMER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_USER_EMPLOYEE" EntityType="Self.O_USER_EMPLOYEE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_USER_PST" EntityType="Self.O_USER_PST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="S_PST" EntityType="Self.S_PST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="S_STATISTICS_VISIT" EntityType="Self.S_STATISTICS_VISIT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="S_USER" EntityType="Self.S_USER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="W_PRODUCT" EntityType="Self.W_PRODUCT" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_D_CITIES_DETAIL_O_CITIES" Association="Self.FK_D_CITIES_DETAIL_O_CITIES">
+            <End Role="O_CITIES" EntitySet="O_CITIES" />
+            <End Role="D_CITIES_DETAIL" EntitySet="D_CITIES_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_D_ORDER_DETAIL_O_ORDER" Association="Self.FK_D_ORDER_DETAIL_O_ORDER">
+            <End Role="O_ORDER" EntitySet="O_ORDER" />
+            <End Role="D_ORDER_DETAIL" EntitySet="D_ORDER_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_D_ORDER_DETAIL_O_PRODUCT" Association="Self.FK_D_ORDER_DETAIL_O_PRODUCT">
+            <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+            <End Role="D_ORDER_DETAIL" EntitySet="D_ORDER_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_D_PRODUCT_DETAIL_O_PRODUCT" Association="Self.FK_D_PRODUCT_DETAIL_O_PRODUCT">
+            <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+            <End Role="D_PRODUCT_DETAIL" EntitySet="D_PRODUCT_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_PAGE_O_CATEGORY_PAGE" Association="Self.FK_M_PAGE_O_CATEGORY_PAGE">
+            <End Role="O_CATEGORY_PAGE" EntitySet="O_CATEGORY_PAGE" />
+            <End Role="M_PAGE" EntitySet="M_PAGE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_ALBUM_O_CATEGORY_ALBUM" Association="Self.FK_O_ALBUM_O_CATEGORY_ALBUM">
+            <End Role="O_CATEGORY_ALBUM" EntitySet="O_CATEGORY_ALBUM" />
+            <End Role="O_ALBUM" EntitySet="O_ALBUM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_BRANCH_D_CITIES_DETAIL" Association="Self.FK_O_BRANCH_D_CITIES_DETAIL">
+            <End Role="D_CITIES_DETAIL" EntitySet="D_CITIES_DETAIL" />
+            <End Role="O_BRANCH" EntitySet="O_BRANCH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_BRANCH_O_CITIES" Association="Self.FK_O_BRANCH_O_CITIES">
+            <End Role="O_CITIES" EntitySet="O_CITIES" />
+            <End Role="O_BRANCH" EntitySet="O_BRANCH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_CATEGORY_PRODUCT_DETAIL_O_CATEGORY_PRODUCT" Association="Self.FK_O_CATEGORY_PRODUCT_DETAIL_O_CATEGORY_PRODUCT">
+            <End Role="O_CATEGORY_PRODUCT" EntitySet="O_CATEGORY_PRODUCT" />
+            <End Role="O_CATEGORY_PRODUCT_DETAIL" EntitySet="O_CATEGORY_PRODUCT_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_NEWS_HIGHLIGHTS_O_NEWS" Association="Self.FK_O_NEWS_HIGHLIGHTS_O_NEWS">
+            <End Role="O_NEWS" EntitySet="O_NEWS" />
+            <End Role="O_NEWS_HIGHLIGHTS" EntitySet="O_NEWS_HIGHLIGHTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_NEWS_HOME_O_NEWS" Association="Self.FK_O_NEWS_HOME_O_NEWS">
+            <End Role="O_NEWS" EntitySet="O_NEWS" />
+            <End Role="O_NEWS_HOME" EntitySet="O_NEWS_HOME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_NEWS_M_EMPLOYEE" Association="Self.FK_O_NEWS_M_EMPLOYEE">
+            <End Role="M_EMPLOYEE" EntitySet="M_EMPLOYEE" />
+            <End Role="O_NEWS" EntitySet="O_NEWS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_NEWS_NEW_O_NEWS" Association="Self.FK_O_NEWS_NEW_O_NEWS">
+            <End Role="O_NEWS" EntitySet="O_NEWS" />
+            <End Role="O_NEWS_NEW" EntitySet="O_NEWS_NEW" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_NEWS_O_CATEGORY_NEWS" Association="Self.FK_O_NEWS_O_CATEGORY_NEWS">
+            <End Role="O_CATEGORY_NEWS" EntitySet="O_CATEGORY_NEWS" />
+            <End Role="O_NEWS" EntitySet="O_NEWS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_ORDER_M_EMPLOYEE" Association="Self.FK_O_ORDER_M_EMPLOYEE">
+            <End Role="M_EMPLOYEE" EntitySet="M_EMPLOYEE" />
+            <End Role="O_ORDER" EntitySet="O_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_ORDER_O_CUSTOMER" Association="Self.FK_O_ORDER_O_CUSTOMER">
+            <End Role="O_CUSTOMER" EntitySet="O_CUSTOMER" />
+            <End Role="O_ORDER" EntitySet="O_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_PRODUCT_CATALOG_O_PRODUCT" Association="Self.FK_O_PRODUCT_CATALOG_O_PRODUCT">
+            <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+            <End Role="O_PRODUCT_CATALOG" EntitySet="O_PRODUCT_CATALOG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_PRODUCT_HIGHLIGHTS_O_PRODUCT" Association="Self.FK_O_PRODUCT_HIGHLIGHTS_O_PRODUCT">
+            <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+            <End Role="O_PRODUCT_HIGHLIGHTS" EntitySet="O_PRODUCT_HIGHLIGHTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_PRODUCT_NEW_O_PRODUCT" Association="Self.FK_O_PRODUCT_NEW_O_PRODUCT">
+            <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+            <End Role="O_PRODUCT_NEW" EntitySet="O_PRODUCT_NEW" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_PRODUCT_O_CATEGORY_GRANULES" Association="Self.FK_O_PRODUCT_O_CATEGORY_GRANULES">
+            <End Role="O_CATEGORY_GRANULES" EntitySet="O_CATEGORY_GRANULES" />
+            <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_PRODUCT_O_CATEGORY_PRODUCT" Association="Self.FK_O_PRODUCT_O_CATEGORY_PRODUCT">
+            <End Role="O_CATEGORY_PRODUCT" EntitySet="O_CATEGORY_PRODUCT" />
+            <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_PRODUCT_O_CATEGORY_PRODUCT_DETAIL" Association="Self.FK_O_PRODUCT_O_CATEGORY_PRODUCT_DETAIL">
+            <End Role="O_CATEGORY_PRODUCT_DETAIL" EntitySet="O_CATEGORY_PRODUCT_DETAIL" />
+            <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_PRODUCT_SELLING_O_PRODUCT" Association="Self.FK_O_PRODUCT_SELLING_O_PRODUCT">
+            <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+            <End Role="O_PRODUCT_SELLING" EntitySet="O_PRODUCT_SELLING" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_USER_CUSTOMER_O_CUSTOMER" Association="Self.FK_O_USER_CUSTOMER_O_CUSTOMER">
+            <End Role="O_CUSTOMER" EntitySet="O_CUSTOMER" />
+            <End Role="O_USER_CUSTOMER" EntitySet="O_USER_CUSTOMER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_USER_CUSTOMER_S_USER" Association="Self.FK_O_USER_CUSTOMER_S_USER">
+            <End Role="S_USER" EntitySet="S_USER" />
+            <End Role="O_USER_CUSTOMER" EntitySet="O_USER_CUSTOMER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_USER_EMPLOYEE_M_EMPLOYEE" Association="Self.FK_O_USER_EMPLOYEE_M_EMPLOYEE">
+            <End Role="M_EMPLOYEE" EntitySet="M_EMPLOYEE" />
+            <End Role="O_USER_EMPLOYEE" EntitySet="O_USER_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_USER_EMPLOYEE_S_USER" Association="Self.FK_O_USER_EMPLOYEE_S_USER">
+            <End Role="S_USER" EntitySet="S_USER" />
+            <End Role="O_USER_EMPLOYEE" EntitySet="O_USER_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_USER_PST_S_PST" Association="Self.FK_O_USER_PST_S_PST">
+            <End Role="S_PST" EntitySet="S_PST" />
+            <End Role="O_USER_PST" EntitySet="O_USER_PST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_USER_PST_S_USER" Association="Self.FK_O_USER_PST_S_USER">
+            <End Role="S_USER" EntitySet="S_USER" />
+            <End Role="O_USER_PST" EntitySet="O_USER_PST" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GJSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="GJSEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="SP_STATISTICS_VISIT" ReturnType="Collection(GJSModel.SP_STATISTICS_VISIT_Result)" />
+          <EntitySet Name="D_CITIES_DETAIL" EntityType="GJSModel.D_CITIES_DETAIL" />
+          <EntitySet Name="D_ORDER_DETAIL" EntityType="GJSModel.D_ORDER_DETAIL" />
+          <EntitySet Name="D_PRODUCT_DETAIL" EntityType="GJSModel.D_PRODUCT_DETAIL" />
+          <EntitySet Name="M_EMPLOYEE" EntityType="GJSModel.M_EMPLOYEE" />
+          <EntitySet Name="M_PAGE" EntityType="GJSModel.M_PAGE" />
+          <EntitySet Name="O_ADVERTISEMENT" EntityType="GJSModel.O_ADVERTISEMENT" />
+          <EntitySet Name="O_ALBUM" EntityType="GJSModel.O_ALBUM" />
+          <EntitySet Name="O_BANNER" EntityType="GJSModel.O_BANNER" />
+          <EntitySet Name="O_BRANCH" EntityType="GJSModel.O_BRANCH" />
+          <EntitySet Name="O_CATEGORY_ALBUM" EntityType="GJSModel.O_CATEGORY_ALBUM" />
+          <EntitySet Name="O_CATEGORY_GRANULES" EntityType="GJSModel.O_CATEGORY_GRANULES" />
+          <EntitySet Name="O_CATEGORY_NEWS" EntityType="GJSModel.O_CATEGORY_NEWS" />
+          <EntitySet Name="O_CATEGORY_PAGE" EntityType="GJSModel.O_CATEGORY_PAGE" />
+          <EntitySet Name="O_CATEGORY_PRODUCT" EntityType="GJSModel.O_CATEGORY_PRODUCT" />
+          <EntitySet Name="O_CATEGORY_PRODUCT_DETAIL" EntityType="GJSModel.O_CATEGORY_PRODUCT_DETAIL" />
+          <EntitySet Name="O_CITIES" EntityType="GJSModel.O_CITIES" />
+          <EntitySet Name="O_CUSTOMER" EntityType="GJSModel.O_CUSTOMER" />
+          <EntitySet Name="O_HOME_GROUP_PHOTO" EntityType="GJSModel.O_HOME_GROUP_PHOTO" />
+          <EntitySet Name="O_HOME_INTRODUCTION" EntityType="GJSModel.O_HOME_INTRODUCTION" />
+          <EntitySet Name="O_HOME_SERVICE" EntityType="GJSModel.O_HOME_SERVICE" />
+          <EntitySet Name="O_HOME_SERVICE_DETAIL" EntityType="GJSModel.O_HOME_SERVICE_DETAIL" />
+          <EntitySet Name="O_INFORMATION" EntityType="GJSModel.O_INFORMATION" />
+          <EntitySet Name="O_NEWS" EntityType="GJSModel.O_NEWS" />
+          <EntitySet Name="O_NEWS_HIGHLIGHTS" EntityType="GJSModel.O_NEWS_HIGHLIGHTS" />
+          <EntitySet Name="O_NEWS_HOME" EntityType="GJSModel.O_NEWS_HOME" />
+          <EntitySet Name="O_NEWS_NEW" EntityType="GJSModel.O_NEWS_NEW" />
+          <EntitySet Name="O_ORDER" EntityType="GJSModel.O_ORDER" />
+          <EntitySet Name="O_PRICE_GOLD" EntityType="GJSModel.O_PRICE_GOLD" />
+          <EntitySet Name="O_PRODUCT" EntityType="GJSModel.O_PRODUCT" />
+          <EntitySet Name="O_PRODUCT_CATALOG" EntityType="GJSModel.O_PRODUCT_CATALOG" />
+          <EntitySet Name="O_PRODUCT_HIGHLIGHTS" EntityType="GJSModel.O_PRODUCT_HIGHLIGHTS" />
+          <EntitySet Name="O_PRODUCT_NEW" EntityType="GJSModel.O_PRODUCT_NEW" />
+          <EntitySet Name="O_PRODUCT_SELLING" EntityType="GJSModel.O_PRODUCT_SELLING" />
+          <EntitySet Name="O_SEO" EntityType="GJSModel.O_SEO" />
+          <EntitySet Name="O_USER_CUSTOMER" EntityType="GJSModel.O_USER_CUSTOMER" />
+          <EntitySet Name="O_USER_EMPLOYEE" EntityType="GJSModel.O_USER_EMPLOYEE" />
+          <EntitySet Name="O_USER_PST" EntityType="GJSModel.O_USER_PST" />
+          <EntitySet Name="S_PST" EntityType="GJSModel.S_PST" />
+          <EntitySet Name="S_STATISTICS_VISIT" EntityType="GJSModel.S_STATISTICS_VISIT" />
+          <EntitySet Name="S_USER" EntityType="GJSModel.S_USER" />
+          <EntitySet Name="W_PRODUCT" EntityType="GJSModel.W_PRODUCT" />
+          <AssociationSet Name="FK_D_CITIES_DETAIL_O_CITIES" Association="GJSModel.FK_D_CITIES_DETAIL_O_CITIES">
+            <End Role="O_CITIES" EntitySet="O_CITIES" />
+            <End Role="D_CITIES_DETAIL" EntitySet="D_CITIES_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_BRANCH_D_CITIES_DETAIL" Association="GJSModel.FK_O_BRANCH_D_CITIES_DETAIL">
+            <End Role="D_CITIES_DETAIL" EntitySet="D_CITIES_DETAIL" />
+            <End Role="O_BRANCH" EntitySet="O_BRANCH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_D_ORDER_DETAIL_O_ORDER" Association="GJSModel.FK_D_ORDER_DETAIL_O_ORDER">
+            <End Role="O_ORDER" EntitySet="O_ORDER" />
+            <End Role="D_ORDER_DETAIL" EntitySet="D_ORDER_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_D_ORDER_DETAIL_O_PRODUCT" Association="GJSModel.FK_D_ORDER_DETAIL_O_PRODUCT">
+            <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+            <End Role="D_ORDER_DETAIL" EntitySet="D_ORDER_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_D_PRODUCT_DETAIL_O_PRODUCT" Association="GJSModel.FK_D_PRODUCT_DETAIL_O_PRODUCT">
+            <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+            <End Role="D_PRODUCT_DETAIL" EntitySet="D_PRODUCT_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_NEWS_M_EMPLOYEE" Association="GJSModel.FK_O_NEWS_M_EMPLOYEE">
+            <End Role="M_EMPLOYEE" EntitySet="M_EMPLOYEE" />
+            <End Role="O_NEWS" EntitySet="O_NEWS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_ORDER_M_EMPLOYEE" Association="GJSModel.FK_O_ORDER_M_EMPLOYEE">
+            <End Role="M_EMPLOYEE" EntitySet="M_EMPLOYEE" />
+            <End Role="O_ORDER" EntitySet="O_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_USER_EMPLOYEE_M_EMPLOYEE" Association="GJSModel.FK_O_USER_EMPLOYEE_M_EMPLOYEE">
+            <End Role="M_EMPLOYEE" EntitySet="M_EMPLOYEE" />
+            <End Role="O_USER_EMPLOYEE" EntitySet="O_USER_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_PAGE_O_CATEGORY_PAGE" Association="GJSModel.FK_M_PAGE_O_CATEGORY_PAGE">
+            <End Role="O_CATEGORY_PAGE" EntitySet="O_CATEGORY_PAGE" />
+            <End Role="M_PAGE" EntitySet="M_PAGE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_ALBUM_O_CATEGORY_ALBUM" Association="GJSModel.FK_O_ALBUM_O_CATEGORY_ALBUM">
+            <End Role="O_CATEGORY_ALBUM" EntitySet="O_CATEGORY_ALBUM" />
+            <End Role="O_ALBUM" EntitySet="O_ALBUM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_BRANCH_O_CITIES" Association="GJSModel.FK_O_BRANCH_O_CITIES">
+            <End Role="O_CITIES" EntitySet="O_CITIES" />
+            <End Role="O_BRANCH" EntitySet="O_BRANCH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_PRODUCT_O_CATEGORY_GRANULES" Association="GJSModel.FK_O_PRODUCT_O_CATEGORY_GRANULES">
+            <End Role="O_CATEGORY_GRANULES" EntitySet="O_CATEGORY_GRANULES" />
+            <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_NEWS_O_CATEGORY_NEWS" Association="GJSModel.FK_O_NEWS_O_CATEGORY_NEWS">
+            <End Role="O_CATEGORY_NEWS" EntitySet="O_CATEGORY_NEWS" />
+            <End Role="O_NEWS" EntitySet="O_NEWS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_CATEGORY_PRODUCT_DETAIL_O_CATEGORY_PRODUCT" Association="GJSModel.FK_O_CATEGORY_PRODUCT_DETAIL_O_CATEGORY_PRODUCT">
+            <End Role="O_CATEGORY_PRODUCT" EntitySet="O_CATEGORY_PRODUCT" />
+            <End Role="O_CATEGORY_PRODUCT_DETAIL" EntitySet="O_CATEGORY_PRODUCT_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_PRODUCT_O_CATEGORY_PRODUCT" Association="GJSModel.FK_O_PRODUCT_O_CATEGORY_PRODUCT">
+            <End Role="O_CATEGORY_PRODUCT" EntitySet="O_CATEGORY_PRODUCT" />
+            <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_PRODUCT_O_CATEGORY_PRODUCT_DETAIL" Association="GJSModel.FK_O_PRODUCT_O_CATEGORY_PRODUCT_DETAIL">
+            <End Role="O_CATEGORY_PRODUCT_DETAIL" EntitySet="O_CATEGORY_PRODUCT_DETAIL" />
+            <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_ORDER_O_CUSTOMER" Association="GJSModel.FK_O_ORDER_O_CUSTOMER">
+            <End Role="O_CUSTOMER" EntitySet="O_CUSTOMER" />
+            <End Role="O_ORDER" EntitySet="O_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_USER_CUSTOMER_O_CUSTOMER" Association="GJSModel.FK_O_USER_CUSTOMER_O_CUSTOMER">
+            <End Role="O_CUSTOMER" EntitySet="O_CUSTOMER" />
+            <End Role="O_USER_CUSTOMER" EntitySet="O_USER_CUSTOMER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_NEWS_HIGHLIGHTS_O_NEWS" Association="GJSModel.FK_O_NEWS_HIGHLIGHTS_O_NEWS">
+            <End Role="O_NEWS" EntitySet="O_NEWS" />
+            <End Role="O_NEWS_HIGHLIGHTS" EntitySet="O_NEWS_HIGHLIGHTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_NEWS_HOME_O_NEWS" Association="GJSModel.FK_O_NEWS_HOME_O_NEWS">
+            <End Role="O_NEWS" EntitySet="O_NEWS" />
+            <End Role="O_NEWS_HOME" EntitySet="O_NEWS_HOME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_NEWS_NEW_O_NEWS" Association="GJSModel.FK_O_NEWS_NEW_O_NEWS">
+            <End Role="O_NEWS" EntitySet="O_NEWS" />
+            <End Role="O_NEWS_NEW" EntitySet="O_NEWS_NEW" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_PRODUCT_CATALOG_O_PRODUCT" Association="GJSModel.FK_O_PRODUCT_CATALOG_O_PRODUCT">
+            <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+            <End Role="O_PRODUCT_CATALOG" EntitySet="O_PRODUCT_CATALOG" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_PRODUCT_HIGHLIGHTS_O_PRODUCT" Association="GJSModel.FK_O_PRODUCT_HIGHLIGHTS_O_PRODUCT">
+            <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+            <End Role="O_PRODUCT_HIGHLIGHTS" EntitySet="O_PRODUCT_HIGHLIGHTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_PRODUCT_NEW_O_PRODUCT" Association="GJSModel.FK_O_PRODUCT_NEW_O_PRODUCT">
+            <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+            <End Role="O_PRODUCT_NEW" EntitySet="O_PRODUCT_NEW" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_PRODUCT_SELLING_O_PRODUCT" Association="GJSModel.FK_O_PRODUCT_SELLING_O_PRODUCT">
+            <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+            <End Role="O_PRODUCT_SELLING" EntitySet="O_PRODUCT_SELLING" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_USER_CUSTOMER_S_USER" Association="GJSModel.FK_O_USER_CUSTOMER_S_USER">
+            <End Role="S_USER" EntitySet="S_USER" />
+            <End Role="O_USER_CUSTOMER" EntitySet="O_USER_CUSTOMER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_USER_EMPLOYEE_S_USER" Association="GJSModel.FK_O_USER_EMPLOYEE_S_USER">
+            <End Role="S_USER" EntitySet="S_USER" />
+            <End Role="O_USER_EMPLOYEE" EntitySet="O_USER_EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_USER_PST_S_PST" Association="GJSModel.FK_O_USER_PST_S_PST">
+            <End Role="S_PST" EntitySet="S_PST" />
+            <End Role="O_USER_PST" EntitySet="O_USER_PST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_O_USER_PST_S_USER" Association="GJSModel.FK_O_USER_PST_S_USER">
+            <End Role="S_USER" EntitySet="S_USER" />
+            <End Role="O_USER_PST" EntitySet="O_USER_PST" />
+          </AssociationSet>
+          <FunctionImport Name="Report_Order" ReturnType="Collection(GJSModel.Report_Order_Result)" />
+          </EntityContainer>
+        <ComplexType Name="SP_STATISTICS_VISIT_Result">
+          <Property Type="Int64" Name="COUNTER_VISIT_GN" Nullable="true" />
+          <Property Type="Int64" Name="COUNTER_VISIT_HQ" Nullable="true" />
+          <Property Type="Int64" Name="COUNTER_VISIT_WEEK_TN" Nullable="true" />
+          <Property Type="Int64" Name="COUNTER_VISIT_WEEK_TT" Nullable="true" />
+          <Property Type="Int64" Name="COUNTER_VISIT_MONTH_TN" Nullable="true" />
+          <Property Type="Int64" Name="COUNTER_VISIT_MONTH_TT" Nullable="true" />
+          <Property Type="Int64" Name="COUNTER_VISIT_TOTAL" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="D_CITIES_DETAIL">
+          <Key>
+            <PropertyRef Name="CITIES_DETAIL_CD" />
+          </Key>
+          <Property Name="CITIES_DETAIL_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CITIES_CD" Type="Int64" />
+          <Property Name="CITIES_DETAIL_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CITIES_DETAIL_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_CITIES" Relationship="GJSModel.FK_D_CITIES_DETAIL_O_CITIES" FromRole="D_CITIES_DETAIL" ToRole="O_CITIES" />
+          <NavigationProperty Name="O_BRANCH" Relationship="GJSModel.FK_O_BRANCH_D_CITIES_DETAIL" FromRole="D_CITIES_DETAIL" ToRole="O_BRANCH" />
+        </EntityType>
+        <EntityType Name="D_ORDER_DETAIL">
+          <Key>
+            <PropertyRef Name="ORDER_DETAIL_CD" />
+          </Key>
+          <Property Name="ORDER_DETAIL_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ORDER_CD" Type="Int64" />
+          <Property Name="PRODUCT_CD" Type="Int64" />
+          <Property Name="SIZE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QUANTITY" Type="Int64" />
+          <Property Name="PRICE" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_ORDER" Relationship="GJSModel.FK_D_ORDER_DETAIL_O_ORDER" FromRole="D_ORDER_DETAIL" ToRole="O_ORDER" />
+          <NavigationProperty Name="O_PRODUCT" Relationship="GJSModel.FK_D_ORDER_DETAIL_O_PRODUCT" FromRole="D_ORDER_DETAIL" ToRole="O_PRODUCT" />
+        </EntityType>
+        <EntityType Name="D_PRODUCT_DETAIL">
+          <Key>
+            <PropertyRef Name="PRODUCT_DETAIL_CD" />
+          </Key>
+          <Property Name="PRODUCT_DETAIL_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRODUCT_CD" Type="Int64" />
+          <Property Name="URL_IMAGE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_PRODUCT" Relationship="GJSModel.FK_D_PRODUCT_DETAIL_O_PRODUCT" FromRole="D_PRODUCT_DETAIL" ToRole="O_PRODUCT" />
+        </EntityType>
+        <EntityType Name="M_EMPLOYEE">
+          <Key>
+            <PropertyRef Name="EMPLOYEE_CD" />
+          </Key>
+          <Property Name="EMPLOYEE_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EMPLOYEE_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMPLOYEE_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BIRTHDAY" Type="DateTime" Precision="3" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_NEWS" Relationship="GJSModel.FK_O_NEWS_M_EMPLOYEE" FromRole="M_EMPLOYEE" ToRole="O_NEWS" />
+          <NavigationProperty Name="O_ORDER" Relationship="GJSModel.FK_O_ORDER_M_EMPLOYEE" FromRole="M_EMPLOYEE" ToRole="O_ORDER" />
+          <NavigationProperty Name="O_USER_EMPLOYEE" Relationship="GJSModel.FK_O_USER_EMPLOYEE_M_EMPLOYEE" FromRole="M_EMPLOYEE" ToRole="O_USER_EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="M_PAGE">
+          <Key>
+            <PropertyRef Name="PAGE_COTRACT_CD" />
+          </Key>
+          <Property Name="PAGE_COTRACT_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PAGE_COTRACT_TITLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PAGE_COTRACT_CONTENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CATEGORY_PAGE_CD" Type="Int64" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_CATEGORY_PAGE" Relationship="GJSModel.FK_M_PAGE_O_CATEGORY_PAGE" FromRole="M_PAGE" ToRole="O_CATEGORY_PAGE" />
+        </EntityType>
+        <EntityType Name="O_ADVERTISEMENT">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ADVERTISEMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="O_ALBUM">
+          <Key>
+            <PropertyRef Name="ALBUM_CD" />
+          </Key>
+          <Property Name="ALBUM_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="URL_IMAGE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CATEGORY_ALBUM_CD" Type="Int64" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_CATEGORY_ALBUM" Relationship="GJSModel.FK_O_ALBUM_O_CATEGORY_ALBUM" FromRole="O_ALBUM" ToRole="O_CATEGORY_ALBUM" />
+        </EntityType>
+        <EntityType Name="O_BANNER">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="URL_IMAGE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="O_BRANCH">
+          <Key>
+            <PropertyRef Name="BRANCH_CD" />
+          </Key>
+          <Property Name="BRANCH_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BRANCH_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BRANCH_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CITIES_CD" Type="Int64" />
+          <Property Name="CITIES_DETAIL_CD" Type="Int64" />
+          <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LONGITUDE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LATITUDE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="D_CITIES_DETAIL" Relationship="GJSModel.FK_O_BRANCH_D_CITIES_DETAIL" FromRole="O_BRANCH" ToRole="D_CITIES_DETAIL" />
+          <NavigationProperty Name="O_CITIES" Relationship="GJSModel.FK_O_BRANCH_O_CITIES" FromRole="O_BRANCH" ToRole="O_CITIES" />
+        </EntityType>
+        <EntityType Name="O_CATEGORY_ALBUM">
+          <Key>
+            <PropertyRef Name="CATEGORY_ALBUM_CD" />
+          </Key>
+          <Property Name="CATEGORY_ALBUM_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CATEGORY_ALBUM_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_ALBUM" Relationship="GJSModel.FK_O_ALBUM_O_CATEGORY_ALBUM" FromRole="O_CATEGORY_ALBUM" ToRole="O_ALBUM" />
+        </EntityType>
+        <EntityType Name="O_CATEGORY_GRANULES">
+          <Key>
+            <PropertyRef Name="CATEGORY_GRANULES_CD" />
+          </Key>
+          <Property Name="CATEGORY_GRANULES_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CATEGORY_GRANULES_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CATEGORY_GRANULES_CONTENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CATEGORY_GRANULES_WEIGHT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_PRODUCT" Relationship="GJSModel.FK_O_PRODUCT_O_CATEGORY_GRANULES" FromRole="O_CATEGORY_GRANULES" ToRole="O_PRODUCT" />
+        </EntityType>
+        <EntityType Name="O_CATEGORY_NEWS">
+          <Key>
+            <PropertyRef Name="CATEGORY_NEWS_CD" />
+          </Key>
+          <Property Name="CATEGORY_NEWS_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CATEGORY_NEWS_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CATEGORY_NEWS_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TAG_ALT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_NEWS" Relationship="GJSModel.FK_O_NEWS_O_CATEGORY_NEWS" FromRole="O_CATEGORY_NEWS" ToRole="O_NEWS" />
+        </EntityType>
+        <EntityType Name="O_CATEGORY_PAGE">
+          <Key>
+            <PropertyRef Name="CATEGORY_PAGE_CD" />
+          </Key>
+          <Property Name="CATEGORY_PAGE_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CATEGORY_PAGE_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CATEGORY_PAGE_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TAG_ALT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="M_PAGE" Relationship="GJSModel.FK_M_PAGE_O_CATEGORY_PAGE" FromRole="O_CATEGORY_PAGE" ToRole="M_PAGE" />
+        </EntityType>
+        <EntityType Name="O_CATEGORY_PRODUCT">
+          <Key>
+            <PropertyRef Name="CATEGORY_PRODUCT_CD" />
+          </Key>
+          <Property Name="CATEGORY_PRODUCT_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CATEGORY_PRODUCT_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CATEGORY_PRODUCT_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TAG_ALT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_CATEGORY_PRODUCT_DETAIL" Relationship="GJSModel.FK_O_CATEGORY_PRODUCT_DETAIL_O_CATEGORY_PRODUCT" FromRole="O_CATEGORY_PRODUCT" ToRole="O_CATEGORY_PRODUCT_DETAIL" />
+          <NavigationProperty Name="O_PRODUCT" Relationship="GJSModel.FK_O_PRODUCT_O_CATEGORY_PRODUCT" FromRole="O_CATEGORY_PRODUCT" ToRole="O_PRODUCT" />
+        </EntityType>
+        <EntityType Name="O_CATEGORY_PRODUCT_DETAIL">
+          <Key>
+            <PropertyRef Name="CATEGORY_PRODUCT_DETAIL_CD" />
+          </Key>
+          <Property Name="CATEGORY_PRODUCT_DETAIL_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CATEGORY_PRODUCT_CD" Type="Int64" />
+          <Property Name="CATEGORY_PRODUCT_DETAIL_CODE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CATEGORY_PRODUCT_DETAIL_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TAG_ALT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_CATEGORY_PRODUCT" Relationship="GJSModel.FK_O_CATEGORY_PRODUCT_DETAIL_O_CATEGORY_PRODUCT" FromRole="O_CATEGORY_PRODUCT_DETAIL" ToRole="O_CATEGORY_PRODUCT" />
+          <NavigationProperty Name="O_PRODUCT" Relationship="GJSModel.FK_O_PRODUCT_O_CATEGORY_PRODUCT_DETAIL" FromRole="O_CATEGORY_PRODUCT_DETAIL" ToRole="O_PRODUCT" />
+        </EntityType>
+        <EntityType Name="O_CITIES">
+          <Key>
+            <PropertyRef Name="CITIES_CD" />
+          </Key>
+          <Property Name="CITIES_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CITIES_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CITIES_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="D_CITIES_DETAIL" Relationship="GJSModel.FK_D_CITIES_DETAIL_O_CITIES" FromRole="O_CITIES" ToRole="D_CITIES_DETAIL" />
+          <NavigationProperty Name="O_BRANCH" Relationship="GJSModel.FK_O_BRANCH_O_CITIES" FromRole="O_CITIES" ToRole="O_BRANCH" />
+        </EntityType>
+        <EntityType Name="O_CUSTOMER">
+          <Key>
+            <PropertyRef Name="CUSTOMER_CD" />
+          </Key>
+          <Property Name="CUSTOMER_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CUSTOMER_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CUSTOMER_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CUSTOMER_FIRST_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CUSTOMER_LAST_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SEX" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BIRTHDAY" Type="DateTime" Precision="3" />
+          <Property Name="SUBSCRIBE" Type="Boolean" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_ORDER" Relationship="GJSModel.FK_O_ORDER_O_CUSTOMER" FromRole="O_CUSTOMER" ToRole="O_ORDER" />
+          <NavigationProperty Name="O_USER_CUSTOMER" Relationship="GJSModel.FK_O_USER_CUSTOMER_O_CUSTOMER" FromRole="O_CUSTOMER" ToRole="O_USER_CUSTOMER" />
+        </EntityType>
+        <EntityType Name="O_HOME_GROUP_PHOTO">
+          <Key>
+            <PropertyRef Name="HOME_GROUP_PHOTO_CD" />
+          </Key>
+          <Property Name="HOME_GROUP_PHOTO_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PHOTO_URL_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PHOTO_URL_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PHOTO_URL_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PHOTO_URL_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PHOTO_URL_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PHOTO_URL_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="O_HOME_INTRODUCTION">
+          <Key>
+            <PropertyRef Name="O_HOME_INTRODUCTION_CD" />
+          </Key>
+          <Property Name="O_HOME_INTRODUCTION_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="O_HOME_INTRODUCTION_CONTENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="O_HOME_INTRODUCTION_AUTHOR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="O_HOME_INTRODUCTION_PHOTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="O_HOME_SERVICE">
+          <Key>
+            <PropertyRef Name="O_HOME_SERVICE_CD" />
+          </Key>
+          <Property Name="O_HOME_SERVICE_CD" Type="Int64" Nullable="false" />
+          <Property Name="O_HOME_SERVICE_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="O_HOME_SERVICE_TITLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="O_HOME_SERVICE_PHOTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="O_HOME_SERVICE_DETAIL">
+          <Key>
+            <PropertyRef Name="HOME_SERVICE_DETAIL_CD" />
+          </Key>
+          <Property Name="HOME_SERVICE_DETAIL_CD" Type="Int64" Nullable="false" />
+          <Property Name="HOME_SERVICE_DETAIL_PHOTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HOME_SERVICE_DETAIL_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HOME_SERVICE_DETAIL_ACTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HOME_SERVICE_DETAIL_TITLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="O_INFORMATION">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="INFORMATION_YAHOO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="INFORMATION_SKYPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="INFORMATION_FACBOOK" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="O_NEWS">
+          <Key>
+            <PropertyRef Name="NEWS_CD" />
+          </Key>
+          <Property Name="NEWS_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NEWS_TITLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NEW_DESCRIPTIONS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NEWS_CONTENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IMAGE_NEWS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CATEGORY_NEWS_CD" Type="Int64" />
+          <Property Name="SOURCE_COPY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TAG_ALT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EMPLOYEE_CD" Type="Int64" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="M_EMPLOYEE" Relationship="GJSModel.FK_O_NEWS_M_EMPLOYEE" FromRole="O_NEWS" ToRole="M_EMPLOYEE" />
+          <NavigationProperty Name="O_CATEGORY_NEWS" Relationship="GJSModel.FK_O_NEWS_O_CATEGORY_NEWS" FromRole="O_NEWS" ToRole="O_CATEGORY_NEWS" />
+          <NavigationProperty Name="O_NEWS_HIGHLIGHTS" Relationship="GJSModel.FK_O_NEWS_HIGHLIGHTS_O_NEWS" FromRole="O_NEWS" ToRole="O_NEWS_HIGHLIGHTS" />
+          <NavigationProperty Name="O_NEWS_HOME" Relationship="GJSModel.FK_O_NEWS_HOME_O_NEWS" FromRole="O_NEWS" ToRole="O_NEWS_HOME" />
+          <NavigationProperty Name="O_NEWS_NEW" Relationship="GJSModel.FK_O_NEWS_NEW_O_NEWS" FromRole="O_NEWS" ToRole="O_NEWS_NEW" />
+        </EntityType>
+        <EntityType Name="O_NEWS_HIGHLIGHTS">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NEWS_CD" Type="Int64" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_NEWS" Relationship="GJSModel.FK_O_NEWS_HIGHLIGHTS_O_NEWS" FromRole="O_NEWS_HIGHLIGHTS" ToRole="O_NEWS" />
+        </EntityType>
+        <EntityType Name="O_NEWS_HOME">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="Int64" Nullable="false" />
+          <Property Name="NEWS_CD" Type="Int64" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_NEWS" Relationship="GJSModel.FK_O_NEWS_HOME_O_NEWS" FromRole="O_NEWS_HOME" ToRole="O_NEWS" />
+        </EntityType>
+        <EntityType Name="O_NEWS_NEW">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NEWS_CD" Type="Int64" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_NEWS" Relationship="GJSModel.FK_O_NEWS_NEW_O_NEWS" FromRole="O_NEWS_NEW" ToRole="O_NEWS" />
+        </EntityType>
+        <EntityType Name="O_ORDER">
+          <Key>
+            <PropertyRef Name="ORDER_CD" />
+          </Key>
+          <Property Name="ORDER_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ORDER_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ORDER_CONTENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EMPLOYEE_CD" Type="Int64" />
+          <Property Name="CUSTOMER_CD" Type="Int64" />
+          <Property Name="PHONE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DELIVERY_ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="D_ORDER_DETAIL" Relationship="GJSModel.FK_D_ORDER_DETAIL_O_ORDER" FromRole="O_ORDER" ToRole="D_ORDER_DETAIL" />
+          <NavigationProperty Name="M_EMPLOYEE" Relationship="GJSModel.FK_O_ORDER_M_EMPLOYEE" FromRole="O_ORDER" ToRole="M_EMPLOYEE" />
+          <NavigationProperty Name="O_CUSTOMER" Relationship="GJSModel.FK_O_ORDER_O_CUSTOMER" FromRole="O_ORDER" ToRole="O_CUSTOMER" />
+        </EntityType>
+        <EntityType Name="O_PRICE_GOLD">
+          <Key>
+            <PropertyRef Name="PRICE_GOLD_CD" />
+          </Key>
+          <Property Name="PRICE_GOLD_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRICE_SALES" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PRICE_BUY" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="GOLD_CODE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GOLD_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="O_PRODUCT">
+          <Key>
+            <PropertyRef Name="PRODUCT_CD" />
+          </Key>
+          <Property Name="PRODUCT_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRODUCT_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PRODUCT_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PRODUCT_TITLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PRODUCT_CONTENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CATEGORY_PRODUCT_CD" Type="Int64" />
+          <Property Name="CATEGORY_GRANULES_CD" Type="Int64" />
+          <Property Name="CATEGORY_PRODUCT_DETAIL_CD" Type="Int64" />
+          <Property Name="WEIGHT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QUANTITY" Type="Int64" />
+          <Property Name="PRICE" Type="String" />
+          <Property Name="PRICE_PROMOTION" Type="String" />
+          <Property Name="WAGES" Type="String" />
+          <Property Name="CURRENCY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="URL_IMAGE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SIZE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TAG_ALT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="D_ORDER_DETAIL" Relationship="GJSModel.FK_D_ORDER_DETAIL_O_PRODUCT" FromRole="O_PRODUCT" ToRole="D_ORDER_DETAIL" />
+          <NavigationProperty Name="D_PRODUCT_DETAIL" Relationship="GJSModel.FK_D_PRODUCT_DETAIL_O_PRODUCT" FromRole="O_PRODUCT" ToRole="D_PRODUCT_DETAIL" />
+          <NavigationProperty Name="O_CATEGORY_GRANULES" Relationship="GJSModel.FK_O_PRODUCT_O_CATEGORY_GRANULES" FromRole="O_PRODUCT" ToRole="O_CATEGORY_GRANULES" />
+          <NavigationProperty Name="O_CATEGORY_PRODUCT" Relationship="GJSModel.FK_O_PRODUCT_O_CATEGORY_PRODUCT" FromRole="O_PRODUCT" ToRole="O_CATEGORY_PRODUCT" />
+          <NavigationProperty Name="O_CATEGORY_PRODUCT_DETAIL" Relationship="GJSModel.FK_O_PRODUCT_O_CATEGORY_PRODUCT_DETAIL" FromRole="O_PRODUCT" ToRole="O_CATEGORY_PRODUCT_DETAIL" />
+          <NavigationProperty Name="O_PRODUCT_CATALOG" Relationship="GJSModel.FK_O_PRODUCT_CATALOG_O_PRODUCT" FromRole="O_PRODUCT" ToRole="O_PRODUCT_CATALOG" />
+          <NavigationProperty Name="O_PRODUCT_HIGHLIGHTS" Relationship="GJSModel.FK_O_PRODUCT_HIGHLIGHTS_O_PRODUCT" FromRole="O_PRODUCT" ToRole="O_PRODUCT_HIGHLIGHTS" />
+          <NavigationProperty Name="O_PRODUCT_NEW" Relationship="GJSModel.FK_O_PRODUCT_NEW_O_PRODUCT" FromRole="O_PRODUCT" ToRole="O_PRODUCT_NEW" />
+          <NavigationProperty Name="O_PRODUCT_SELLING" Relationship="GJSModel.FK_O_PRODUCT_SELLING_O_PRODUCT" FromRole="O_PRODUCT" ToRole="O_PRODUCT_SELLING" />
+          <Property Name="QUANTITY_GRANULES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="O_PRODUCT_CATALOG">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRODUCT_CD" Type="Int64" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_PRODUCT" Relationship="GJSModel.FK_O_PRODUCT_CATALOG_O_PRODUCT" FromRole="O_PRODUCT_CATALOG" ToRole="O_PRODUCT" />
+        </EntityType>
+        <EntityType Name="O_PRODUCT_HIGHLIGHTS">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRODUCT_CD" Type="Int64" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_PRODUCT" Relationship="GJSModel.FK_O_PRODUCT_HIGHLIGHTS_O_PRODUCT" FromRole="O_PRODUCT_HIGHLIGHTS" ToRole="O_PRODUCT" />
+        </EntityType>
+        <EntityType Name="O_PRODUCT_NEW">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRODUCT_CD" Type="Int64" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_PRODUCT" Relationship="GJSModel.FK_O_PRODUCT_NEW_O_PRODUCT" FromRole="O_PRODUCT_NEW" ToRole="O_PRODUCT" />
+        </EntityType>
+        <EntityType Name="O_PRODUCT_SELLING">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRODUCT_CD" Type="Int64" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_PRODUCT" Relationship="GJSModel.FK_O_PRODUCT_SELLING_O_PRODUCT" FromRole="O_PRODUCT_SELLING" ToRole="O_PRODUCT" />
+        </EntityType>
+        <EntityType Name="O_SEO">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HREF_ICON" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TITILE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="META_DES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="META_KEYWORDS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="META_ROBOTS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="META_REVISIT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="O_USER_CUSTOMER">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_CD" Type="Int64" />
+          <Property Name="CUSTOMER_CD" Type="Int64" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_CUSTOMER" Relationship="GJSModel.FK_O_USER_CUSTOMER_O_CUSTOMER" FromRole="O_USER_CUSTOMER" ToRole="O_CUSTOMER" />
+          <NavigationProperty Name="S_USER" Relationship="GJSModel.FK_O_USER_CUSTOMER_S_USER" FromRole="O_USER_CUSTOMER" ToRole="S_USER" />
+        </EntityType>
+        <EntityType Name="O_USER_EMPLOYEE">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_CD" Type="Int64" />
+          <Property Name="EMPLOYEE_CD" Type="Int64" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="M_EMPLOYEE" Relationship="GJSModel.FK_O_USER_EMPLOYEE_M_EMPLOYEE" FromRole="O_USER_EMPLOYEE" ToRole="M_EMPLOYEE" />
+          <NavigationProperty Name="S_USER" Relationship="GJSModel.FK_O_USER_EMPLOYEE_S_USER" FromRole="O_USER_EMPLOYEE" ToRole="S_USER" />
+        </EntityType>
+        <EntityType Name="O_USER_PST">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_CD" Type="Int64" />
+          <Property Name="PST_CD" Type="Int64" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="S_PST" Relationship="GJSModel.FK_O_USER_PST_S_PST" FromRole="O_USER_PST" ToRole="S_PST" />
+          <NavigationProperty Name="S_USER" Relationship="GJSModel.FK_O_USER_PST_S_USER" FromRole="O_USER_PST" ToRole="S_USER" />
+        </EntityType>
+        <EntityType Name="S_PST">
+          <Key>
+            <PropertyRef Name="PST_CD" />
+          </Key>
+          <Property Name="PST_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PST_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PST_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_USER_PST" Relationship="GJSModel.FK_O_USER_PST_S_PST" FromRole="S_PST" ToRole="O_USER_PST" />
+        </EntityType>
+        <EntityType Name="S_STATISTICS_VISIT">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COUNTER_VISIT" Type="Int64" />
+          <Property Name="TIME_ONLINE" Type="DateTime" Precision="3" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="S_USER">
+          <Key>
+            <PropertyRef Name="USER_CD" />
+          </Key>
+          <Property Name="USER_CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="USER_PASS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="O_USER_CUSTOMER" Relationship="GJSModel.FK_O_USER_CUSTOMER_S_USER" FromRole="S_USER" ToRole="O_USER_CUSTOMER" />
+          <NavigationProperty Name="O_USER_EMPLOYEE" Relationship="GJSModel.FK_O_USER_EMPLOYEE_S_USER" FromRole="S_USER" ToRole="O_USER_EMPLOYEE" />
+          <NavigationProperty Name="O_USER_PST" Relationship="GJSModel.FK_O_USER_PST_S_USER" FromRole="S_USER" ToRole="O_USER_PST" />
+        </EntityType>
+        <EntityType Name="W_PRODUCT">
+          <Key>
+            <PropertyRef Name="CD" />
+          </Key>
+          <Property Name="CD" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRODUCT_CD" Type="Int64" />
+          <Property Name="QUANTITY" Type="Int64" />
+          <Property Name="STATUS" Type="Int64" />
+          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="CREATEDATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <Association Name="FK_D_CITIES_DETAIL_O_CITIES">
+          <End Type="GJSModel.O_CITIES" Role="O_CITIES" Multiplicity="0..1" />
+          <End Type="GJSModel.D_CITIES_DETAIL" Role="D_CITIES_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CITIES">
+              <PropertyRef Name="CITIES_CD" />
+            </Principal>
+            <Dependent Role="D_CITIES_DETAIL">
+              <PropertyRef Name="CITIES_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_BRANCH_D_CITIES_DETAIL">
+          <End Type="GJSModel.D_CITIES_DETAIL" Role="D_CITIES_DETAIL" Multiplicity="0..1" />
+          <End Type="GJSModel.O_BRANCH" Role="O_BRANCH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="D_CITIES_DETAIL">
+              <PropertyRef Name="CITIES_DETAIL_CD" />
+            </Principal>
+            <Dependent Role="O_BRANCH">
+              <PropertyRef Name="CITIES_DETAIL_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_D_ORDER_DETAIL_O_ORDER">
+          <End Type="GJSModel.O_ORDER" Role="O_ORDER" Multiplicity="0..1" />
+          <End Type="GJSModel.D_ORDER_DETAIL" Role="D_ORDER_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_ORDER">
+              <PropertyRef Name="ORDER_CD" />
+            </Principal>
+            <Dependent Role="D_ORDER_DETAIL">
+              <PropertyRef Name="ORDER_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_D_ORDER_DETAIL_O_PRODUCT">
+          <End Type="GJSModel.O_PRODUCT" Role="O_PRODUCT" Multiplicity="0..1" />
+          <End Type="GJSModel.D_ORDER_DETAIL" Role="D_ORDER_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_PRODUCT">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Principal>
+            <Dependent Role="D_ORDER_DETAIL">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_D_PRODUCT_DETAIL_O_PRODUCT">
+          <End Type="GJSModel.O_PRODUCT" Role="O_PRODUCT" Multiplicity="0..1" />
+          <End Type="GJSModel.D_PRODUCT_DETAIL" Role="D_PRODUCT_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_PRODUCT">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Principal>
+            <Dependent Role="D_PRODUCT_DETAIL">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_NEWS_M_EMPLOYEE">
+          <End Type="GJSModel.M_EMPLOYEE" Role="M_EMPLOYEE" Multiplicity="0..1" />
+          <End Type="GJSModel.O_NEWS" Role="O_NEWS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_EMPLOYEE">
+              <PropertyRef Name="EMPLOYEE_CD" />
+            </Principal>
+            <Dependent Role="O_NEWS">
+              <PropertyRef Name="EMPLOYEE_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_ORDER_M_EMPLOYEE">
+          <End Type="GJSModel.M_EMPLOYEE" Role="M_EMPLOYEE" Multiplicity="0..1" />
+          <End Type="GJSModel.O_ORDER" Role="O_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_EMPLOYEE">
+              <PropertyRef Name="EMPLOYEE_CD" />
+            </Principal>
+            <Dependent Role="O_ORDER">
+              <PropertyRef Name="EMPLOYEE_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_USER_EMPLOYEE_M_EMPLOYEE">
+          <End Type="GJSModel.M_EMPLOYEE" Role="M_EMPLOYEE" Multiplicity="0..1" />
+          <End Type="GJSModel.O_USER_EMPLOYEE" Role="O_USER_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_EMPLOYEE">
+              <PropertyRef Name="EMPLOYEE_CD" />
+            </Principal>
+            <Dependent Role="O_USER_EMPLOYEE">
+              <PropertyRef Name="EMPLOYEE_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_PAGE_O_CATEGORY_PAGE">
+          <End Type="GJSModel.O_CATEGORY_PAGE" Role="O_CATEGORY_PAGE" Multiplicity="0..1" />
+          <End Type="GJSModel.M_PAGE" Role="M_PAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CATEGORY_PAGE">
+              <PropertyRef Name="CATEGORY_PAGE_CD" />
+            </Principal>
+            <Dependent Role="M_PAGE">
+              <PropertyRef Name="CATEGORY_PAGE_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_ALBUM_O_CATEGORY_ALBUM">
+          <End Type="GJSModel.O_CATEGORY_ALBUM" Role="O_CATEGORY_ALBUM" Multiplicity="0..1" />
+          <End Type="GJSModel.O_ALBUM" Role="O_ALBUM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CATEGORY_ALBUM">
+              <PropertyRef Name="CATEGORY_ALBUM_CD" />
+            </Principal>
+            <Dependent Role="O_ALBUM">
+              <PropertyRef Name="CATEGORY_ALBUM_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_BRANCH_O_CITIES">
+          <End Type="GJSModel.O_CITIES" Role="O_CITIES" Multiplicity="0..1" />
+          <End Type="GJSModel.O_BRANCH" Role="O_BRANCH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CITIES">
+              <PropertyRef Name="CITIES_CD" />
+            </Principal>
+            <Dependent Role="O_BRANCH">
+              <PropertyRef Name="CITIES_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_PRODUCT_O_CATEGORY_GRANULES">
+          <End Type="GJSModel.O_CATEGORY_GRANULES" Role="O_CATEGORY_GRANULES" Multiplicity="0..1" />
+          <End Type="GJSModel.O_PRODUCT" Role="O_PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CATEGORY_GRANULES">
+              <PropertyRef Name="CATEGORY_GRANULES_CD" />
+            </Principal>
+            <Dependent Role="O_PRODUCT">
+              <PropertyRef Name="CATEGORY_GRANULES_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_NEWS_O_CATEGORY_NEWS">
+          <End Type="GJSModel.O_CATEGORY_NEWS" Role="O_CATEGORY_NEWS" Multiplicity="0..1" />
+          <End Type="GJSModel.O_NEWS" Role="O_NEWS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CATEGORY_NEWS">
+              <PropertyRef Name="CATEGORY_NEWS_CD" />
+            </Principal>
+            <Dependent Role="O_NEWS">
+              <PropertyRef Name="CATEGORY_NEWS_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_CATEGORY_PRODUCT_DETAIL_O_CATEGORY_PRODUCT">
+          <End Type="GJSModel.O_CATEGORY_PRODUCT" Role="O_CATEGORY_PRODUCT" Multiplicity="0..1" />
+          <End Type="GJSModel.O_CATEGORY_PRODUCT_DETAIL" Role="O_CATEGORY_PRODUCT_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CATEGORY_PRODUCT">
+              <PropertyRef Name="CATEGORY_PRODUCT_CD" />
+            </Principal>
+            <Dependent Role="O_CATEGORY_PRODUCT_DETAIL">
+              <PropertyRef Name="CATEGORY_PRODUCT_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_PRODUCT_O_CATEGORY_PRODUCT">
+          <End Type="GJSModel.O_CATEGORY_PRODUCT" Role="O_CATEGORY_PRODUCT" Multiplicity="0..1" />
+          <End Type="GJSModel.O_PRODUCT" Role="O_PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CATEGORY_PRODUCT">
+              <PropertyRef Name="CATEGORY_PRODUCT_CD" />
+            </Principal>
+            <Dependent Role="O_PRODUCT">
+              <PropertyRef Name="CATEGORY_PRODUCT_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_PRODUCT_O_CATEGORY_PRODUCT_DETAIL">
+          <End Type="GJSModel.O_CATEGORY_PRODUCT_DETAIL" Role="O_CATEGORY_PRODUCT_DETAIL" Multiplicity="0..1" />
+          <End Type="GJSModel.O_PRODUCT" Role="O_PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CATEGORY_PRODUCT_DETAIL">
+              <PropertyRef Name="CATEGORY_PRODUCT_DETAIL_CD" />
+            </Principal>
+            <Dependent Role="O_PRODUCT">
+              <PropertyRef Name="CATEGORY_PRODUCT_DETAIL_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_ORDER_O_CUSTOMER">
+          <End Type="GJSModel.O_CUSTOMER" Role="O_CUSTOMER" Multiplicity="0..1" />
+          <End Type="GJSModel.O_ORDER" Role="O_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CUSTOMER">
+              <PropertyRef Name="CUSTOMER_CD" />
+            </Principal>
+            <Dependent Role="O_ORDER">
+              <PropertyRef Name="CUSTOMER_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_USER_CUSTOMER_O_CUSTOMER">
+          <End Type="GJSModel.O_CUSTOMER" Role="O_CUSTOMER" Multiplicity="0..1" />
+          <End Type="GJSModel.O_USER_CUSTOMER" Role="O_USER_CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_CUSTOMER">
+              <PropertyRef Name="CUSTOMER_CD" />
+            </Principal>
+            <Dependent Role="O_USER_CUSTOMER">
+              <PropertyRef Name="CUSTOMER_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_NEWS_HIGHLIGHTS_O_NEWS">
+          <End Type="GJSModel.O_NEWS" Role="O_NEWS" Multiplicity="0..1" />
+          <End Type="GJSModel.O_NEWS_HIGHLIGHTS" Role="O_NEWS_HIGHLIGHTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_NEWS">
+              <PropertyRef Name="NEWS_CD" />
+            </Principal>
+            <Dependent Role="O_NEWS_HIGHLIGHTS">
+              <PropertyRef Name="NEWS_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_NEWS_HOME_O_NEWS">
+          <End Type="GJSModel.O_NEWS" Role="O_NEWS" Multiplicity="0..1" />
+          <End Type="GJSModel.O_NEWS_HOME" Role="O_NEWS_HOME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_NEWS">
+              <PropertyRef Name="NEWS_CD" />
+            </Principal>
+            <Dependent Role="O_NEWS_HOME">
+              <PropertyRef Name="NEWS_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_NEWS_NEW_O_NEWS">
+          <End Type="GJSModel.O_NEWS" Role="O_NEWS" Multiplicity="0..1" />
+          <End Type="GJSModel.O_NEWS_NEW" Role="O_NEWS_NEW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_NEWS">
+              <PropertyRef Name="NEWS_CD" />
+            </Principal>
+            <Dependent Role="O_NEWS_NEW">
+              <PropertyRef Name="NEWS_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_PRODUCT_CATALOG_O_PRODUCT">
+          <End Type="GJSModel.O_PRODUCT" Role="O_PRODUCT" Multiplicity="0..1" />
+          <End Type="GJSModel.O_PRODUCT_CATALOG" Role="O_PRODUCT_CATALOG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_PRODUCT">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Principal>
+            <Dependent Role="O_PRODUCT_CATALOG">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_PRODUCT_HIGHLIGHTS_O_PRODUCT">
+          <End Type="GJSModel.O_PRODUCT" Role="O_PRODUCT" Multiplicity="0..1" />
+          <End Type="GJSModel.O_PRODUCT_HIGHLIGHTS" Role="O_PRODUCT_HIGHLIGHTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_PRODUCT">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Principal>
+            <Dependent Role="O_PRODUCT_HIGHLIGHTS">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_PRODUCT_NEW_O_PRODUCT">
+          <End Type="GJSModel.O_PRODUCT" Role="O_PRODUCT" Multiplicity="0..1" />
+          <End Type="GJSModel.O_PRODUCT_NEW" Role="O_PRODUCT_NEW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_PRODUCT">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Principal>
+            <Dependent Role="O_PRODUCT_NEW">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_PRODUCT_SELLING_O_PRODUCT">
+          <End Type="GJSModel.O_PRODUCT" Role="O_PRODUCT" Multiplicity="0..1" />
+          <End Type="GJSModel.O_PRODUCT_SELLING" Role="O_PRODUCT_SELLING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="O_PRODUCT">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Principal>
+            <Dependent Role="O_PRODUCT_SELLING">
+              <PropertyRef Name="PRODUCT_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_USER_CUSTOMER_S_USER">
+          <End Type="GJSModel.S_USER" Role="S_USER" Multiplicity="0..1" />
+          <End Type="GJSModel.O_USER_CUSTOMER" Role="O_USER_CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="S_USER">
+              <PropertyRef Name="USER_CD" />
+            </Principal>
+            <Dependent Role="O_USER_CUSTOMER">
+              <PropertyRef Name="USER_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_USER_EMPLOYEE_S_USER">
+          <End Type="GJSModel.S_USER" Role="S_USER" Multiplicity="0..1" />
+          <End Type="GJSModel.O_USER_EMPLOYEE" Role="O_USER_EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="S_USER">
+              <PropertyRef Name="USER_CD" />
+            </Principal>
+            <Dependent Role="O_USER_EMPLOYEE">
+              <PropertyRef Name="USER_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_USER_PST_S_PST">
+          <End Type="GJSModel.S_PST" Role="S_PST" Multiplicity="0..1" />
+          <End Type="GJSModel.O_USER_PST" Role="O_USER_PST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="S_PST">
+              <PropertyRef Name="PST_CD" />
+            </Principal>
+            <Dependent Role="O_USER_PST">
+              <PropertyRef Name="PST_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_O_USER_PST_S_USER">
+          <End Type="GJSModel.S_USER" Role="S_USER" Multiplicity="0..1" />
+          <End Type="GJSModel.O_USER_PST" Role="O_USER_PST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="S_USER">
+              <PropertyRef Name="USER_CD" />
+            </Principal>
+            <Dependent Role="O_USER_PST">
+              <PropertyRef Name="USER_CD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="Report_Order_Result">
+          <Property Type="String" Name="ORDER_CODE" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CUSTOMER_NAME" Nullable="true" />
+          <Property Type="String" Name="PRODUCT_CODE" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PRODUCT_NAME" Nullable="true" />
+          <Property Type="String" Name="URL_IMAGE" Nullable="true" />
+          <Property Type="String" Name="PHONE" Nullable="true" />
+          <Property Type="String" Name="EMAIL" Nullable="true" />
+          <Property Type="String" Name="DELIVERY_ADDRESS" Nullable="true" />
+          <Property Type="String" Name="SIZE" Nullable="true" />
+          <Property Type="Int64" Name="QUANTITY" Nullable="true" />
+          <Property Type="Decimal" Name="PRICE" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GJSModelStoreContainer" CdmEntityContainer="GJSEntities">
+          <FunctionImportMapping FunctionImportName="SP_STATISTICS_VISIT" FunctionName="GJSModel.Store.SP_STATISTICS_VISIT">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="GJSModel.SP_STATISTICS_VISIT_Result">
+                <ScalarProperty Name="COUNTER_VISIT_GN" ColumnName="COUNTER_VISIT_GN" />
+                <ScalarProperty Name="COUNTER_VISIT_HQ" ColumnName="COUNTER_VISIT_HQ" />
+                <ScalarProperty Name="COUNTER_VISIT_WEEK_TN" ColumnName="COUNTER_VISIT_WEEK_TN" />
+                <ScalarProperty Name="COUNTER_VISIT_WEEK_TT" ColumnName="COUNTER_VISIT_WEEK_TT" />
+                <ScalarProperty Name="COUNTER_VISIT_MONTH_TN" ColumnName="COUNTER_VISIT_MONTH_TN" />
+                <ScalarProperty Name="COUNTER_VISIT_MONTH_TT" ColumnName="COUNTER_VISIT_MONTH_TT" />
+                <ScalarProperty Name="COUNTER_VISIT_TOTAL" ColumnName="COUNTER_VISIT_TOTAL" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="D_CITIES_DETAIL">
+            <EntityTypeMapping TypeName="GJSModel.D_CITIES_DETAIL">
+              <MappingFragment StoreEntitySet="D_CITIES_DETAIL">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="CITIES_DETAIL_NAME" ColumnName="CITIES_DETAIL_NAME" />
+                <ScalarProperty Name="CITIES_DETAIL_CODE" ColumnName="CITIES_DETAIL_CODE" />
+                <ScalarProperty Name="CITIES_CD" ColumnName="CITIES_CD" />
+                <ScalarProperty Name="CITIES_DETAIL_CD" ColumnName="CITIES_DETAIL_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="D_ORDER_DETAIL">
+            <EntityTypeMapping TypeName="GJSModel.D_ORDER_DETAIL">
+              <MappingFragment StoreEntitySet="D_ORDER_DETAIL">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+                <ScalarProperty Name="SIZE" ColumnName="SIZE" />
+                <ScalarProperty Name="PRODUCT_CD" ColumnName="PRODUCT_CD" />
+                <ScalarProperty Name="ORDER_CD" ColumnName="ORDER_CD" />
+                <ScalarProperty Name="ORDER_DETAIL_CD" ColumnName="ORDER_DETAIL_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="D_PRODUCT_DETAIL">
+            <EntityTypeMapping TypeName="GJSModel.D_PRODUCT_DETAIL">
+              <MappingFragment StoreEntitySet="D_PRODUCT_DETAIL">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="URL_IMAGE" ColumnName="URL_IMAGE" />
+                <ScalarProperty Name="PRODUCT_CD" ColumnName="PRODUCT_CD" />
+                <ScalarProperty Name="PRODUCT_DETAIL_CD" ColumnName="PRODUCT_DETAIL_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_EMPLOYEE">
+            <EntityTypeMapping TypeName="GJSModel.M_EMPLOYEE">
+              <MappingFragment StoreEntitySet="M_EMPLOYEE">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="BIRTHDAY" ColumnName="BIRTHDAY" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="EMPLOYEE_NAME" ColumnName="EMPLOYEE_NAME" />
+                <ScalarProperty Name="EMPLOYEE_CODE" ColumnName="EMPLOYEE_CODE" />
+                <ScalarProperty Name="EMPLOYEE_CD" ColumnName="EMPLOYEE_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_PAGE">
+            <EntityTypeMapping TypeName="GJSModel.M_PAGE">
+              <MappingFragment StoreEntitySet="M_PAGE">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="CATEGORY_PAGE_CD" ColumnName="CATEGORY_PAGE_CD" />
+                <ScalarProperty Name="PAGE_COTRACT_CONTENT" ColumnName="PAGE_COTRACT_CONTENT" />
+                <ScalarProperty Name="PAGE_COTRACT_TITLE" ColumnName="PAGE_COTRACT_TITLE" />
+                <ScalarProperty Name="PAGE_COTRACT_CD" ColumnName="PAGE_COTRACT_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_ADVERTISEMENT">
+            <EntityTypeMapping TypeName="GJSModel.O_ADVERTISEMENT">
+              <MappingFragment StoreEntitySet="O_ADVERTISEMENT">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="ADVERTISEMENT" ColumnName="ADVERTISEMENT" />
+                <ScalarProperty Name="CD" ColumnName="CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_ALBUM">
+            <EntityTypeMapping TypeName="GJSModel.O_ALBUM">
+              <MappingFragment StoreEntitySet="O_ALBUM">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="CATEGORY_ALBUM_CD" ColumnName="CATEGORY_ALBUM_CD" />
+                <ScalarProperty Name="URL_IMAGE" ColumnName="URL_IMAGE" />
+                <ScalarProperty Name="ALBUM_CD" ColumnName="ALBUM_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_BANNER">
+            <EntityTypeMapping TypeName="GJSModel.O_BANNER">
+              <MappingFragment StoreEntitySet="O_BANNER">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="URL_IMAGE" ColumnName="URL_IMAGE" />
+                <ScalarProperty Name="CD" ColumnName="CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_BRANCH">
+            <EntityTypeMapping TypeName="GJSModel.O_BRANCH">
+              <MappingFragment StoreEntitySet="O_BRANCH">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+                <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="CITIES_DETAIL_CD" ColumnName="CITIES_DETAIL_CD" />
+                <ScalarProperty Name="CITIES_CD" ColumnName="CITIES_CD" />
+                <ScalarProperty Name="BRANCH_NAME" ColumnName="BRANCH_NAME" />
+                <ScalarProperty Name="BRANCH_CODE" ColumnName="BRANCH_CODE" />
+                <ScalarProperty Name="BRANCH_CD" ColumnName="BRANCH_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_CATEGORY_ALBUM">
+            <EntityTypeMapping TypeName="GJSModel.O_CATEGORY_ALBUM">
+              <MappingFragment StoreEntitySet="O_CATEGORY_ALBUM">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="CATEGORY_ALBUM_NAME" ColumnName="CATEGORY_ALBUM_NAME" />
+                <ScalarProperty Name="CATEGORY_ALBUM_CD" ColumnName="CATEGORY_ALBUM_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_CATEGORY_GRANULES">
+            <EntityTypeMapping TypeName="GJSModel.O_CATEGORY_GRANULES">
+              <MappingFragment StoreEntitySet="O_CATEGORY_GRANULES">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="CATEGORY_GRANULES_WEIGHT" ColumnName="CATEGORY_GRANULES_WEIGHT" />
+                <ScalarProperty Name="CATEGORY_GRANULES_CONTENT" ColumnName="CATEGORY_GRANULES_CONTENT" />
+                <ScalarProperty Name="CATEGORY_GRANULES_NAME" ColumnName="CATEGORY_GRANULES_NAME" />
+                <ScalarProperty Name="CATEGORY_GRANULES_CD" ColumnName="CATEGORY_GRANULES_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_CATEGORY_NEWS">
+            <EntityTypeMapping TypeName="GJSModel.O_CATEGORY_NEWS">
+              <MappingFragment StoreEntitySet="O_CATEGORY_NEWS">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="TAG_ALT" ColumnName="TAG_ALT" />
+                <ScalarProperty Name="CATEGORY_NEWS_NAME" ColumnName="CATEGORY_NEWS_NAME" />
+                <ScalarProperty Name="CATEGORY_NEWS_CODE" ColumnName="CATEGORY_NEWS_CODE" />
+                <ScalarProperty Name="CATEGORY_NEWS_CD" ColumnName="CATEGORY_NEWS_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_CATEGORY_PAGE">
+            <EntityTypeMapping TypeName="GJSModel.O_CATEGORY_PAGE">
+              <MappingFragment StoreEntitySet="O_CATEGORY_PAGE">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="TAG_ALT" ColumnName="TAG_ALT" />
+                <ScalarProperty Name="CATEGORY_PAGE_NAME" ColumnName="CATEGORY_PAGE_NAME" />
+                <ScalarProperty Name="CATEGORY_PAGE_CODE" ColumnName="CATEGORY_PAGE_CODE" />
+                <ScalarProperty Name="CATEGORY_PAGE_CD" ColumnName="CATEGORY_PAGE_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_CATEGORY_PRODUCT">
+            <EntityTypeMapping TypeName="GJSModel.O_CATEGORY_PRODUCT">
+              <MappingFragment StoreEntitySet="O_CATEGORY_PRODUCT">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="TAG_ALT" ColumnName="TAG_ALT" />
+                <ScalarProperty Name="CATEGORY_PRODUCT_NAME" ColumnName="CATEGORY_PRODUCT_NAME" />
+                <ScalarProperty Name="CATEGORY_PRODUCT_CODE" ColumnName="CATEGORY_PRODUCT_CODE" />
+                <ScalarProperty Name="CATEGORY_PRODUCT_CD" ColumnName="CATEGORY_PRODUCT_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_CATEGORY_PRODUCT_DETAIL">
+            <EntityTypeMapping TypeName="GJSModel.O_CATEGORY_PRODUCT_DETAIL">
+              <MappingFragment StoreEntitySet="O_CATEGORY_PRODUCT_DETAIL">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="TAG_ALT" ColumnName="TAG_ALT" />
+                <ScalarProperty Name="CATEGORY_PRODUCT_DETAIL_NAME" ColumnName="CATEGORY_PRODUCT_DETAIL_NAME" />
+                <ScalarProperty Name="CATEGORY_PRODUCT_DETAIL_CODE" ColumnName="CATEGORY_PRODUCT_DETAIL_CODE" />
+                <ScalarProperty Name="CATEGORY_PRODUCT_CD" ColumnName="CATEGORY_PRODUCT_CD" />
+                <ScalarProperty Name="CATEGORY_PRODUCT_DETAIL_CD" ColumnName="CATEGORY_PRODUCT_DETAIL_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_CITIES">
+            <EntityTypeMapping TypeName="GJSModel.O_CITIES">
+              <MappingFragment StoreEntitySet="O_CITIES">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="CITIES_NAME" ColumnName="CITIES_NAME" />
+                <ScalarProperty Name="CITIES_CODE" ColumnName="CITIES_CODE" />
+                <ScalarProperty Name="CITIES_CD" ColumnName="CITIES_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_CUSTOMER">
+            <EntityTypeMapping TypeName="GJSModel.O_CUSTOMER">
+              <MappingFragment StoreEntitySet="O_CUSTOMER">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="SUBSCRIBE" ColumnName="SUBSCRIBE" />
+                <ScalarProperty Name="BIRTHDAY" ColumnName="BIRTHDAY" />
+                <ScalarProperty Name="SEX" ColumnName="SEX" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="CUSTOMER_LAST_NAME" ColumnName="CUSTOMER_LAST_NAME" />
+                <ScalarProperty Name="CUSTOMER_FIRST_NAME" ColumnName="CUSTOMER_FIRST_NAME" />
+                <ScalarProperty Name="CUSTOMER_NAME" ColumnName="CUSTOMER_NAME" />
+                <ScalarProperty Name="CUSTOMER_CODE" ColumnName="CUSTOMER_CODE" />
+                <ScalarProperty Name="CUSTOMER_CD" ColumnName="CUSTOMER_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_HOME_GROUP_PHOTO">
+            <EntityTypeMapping TypeName="GJSModel.O_HOME_GROUP_PHOTO">
+              <MappingFragment StoreEntitySet="O_HOME_GROUP_PHOTO">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="PHOTO_URL_6" ColumnName="PHOTO_URL_6" />
+                <ScalarProperty Name="PHOTO_URL_5" ColumnName="PHOTO_URL_5" />
+                <ScalarProperty Name="PHOTO_URL_4" ColumnName="PHOTO_URL_4" />
+                <ScalarProperty Name="PHOTO_URL_3" ColumnName="PHOTO_URL_3" />
+                <ScalarProperty Name="PHOTO_URL_2" ColumnName="PHOTO_URL_2" />
+                <ScalarProperty Name="PHOTO_URL_1" ColumnName="PHOTO_URL_1" />
+                <ScalarProperty Name="HOME_GROUP_PHOTO_CD" ColumnName="HOME_GROUP_PHOTO_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_HOME_INTRODUCTION">
+            <EntityTypeMapping TypeName="GJSModel.O_HOME_INTRODUCTION">
+              <MappingFragment StoreEntitySet="O_HOME_INTRODUCTION">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="O_HOME_INTRODUCTION_PHOTO" ColumnName="O_HOME_INTRODUCTION_PHOTO" />
+                <ScalarProperty Name="O_HOME_INTRODUCTION_AUTHOR" ColumnName="O_HOME_INTRODUCTION_AUTHOR" />
+                <ScalarProperty Name="O_HOME_INTRODUCTION_CONTENT" ColumnName="O_HOME_INTRODUCTION_CONTENT" />
+                <ScalarProperty Name="O_HOME_INTRODUCTION_CD" ColumnName="O_HOME_INTRODUCTION_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_HOME_SERVICE">
+            <EntityTypeMapping TypeName="GJSModel.O_HOME_SERVICE">
+              <MappingFragment StoreEntitySet="O_HOME_SERVICE">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="O_HOME_SERVICE_PHOTO" ColumnName="O_HOME_SERVICE_PHOTO" />
+                <ScalarProperty Name="O_HOME_SERVICE_TITLE" ColumnName="O_HOME_SERVICE_TITLE" />
+                <ScalarProperty Name="O_HOME_SERVICE_DESCRIPTION" ColumnName="O_HOME_SERVICE_DESCRIPTION" />
+                <ScalarProperty Name="O_HOME_SERVICE_CD" ColumnName="O_HOME_SERVICE_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_HOME_SERVICE_DETAIL">
+            <EntityTypeMapping TypeName="GJSModel.O_HOME_SERVICE_DETAIL">
+              <MappingFragment StoreEntitySet="O_HOME_SERVICE_DETAIL">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="HOME_SERVICE_DETAIL_TITLE" ColumnName="HOME_SERVICE_DETAIL_TITLE" />
+                <ScalarProperty Name="HOME_SERVICE_DETAIL_ACTION" ColumnName="HOME_SERVICE_DETAIL_ACTION" />
+                <ScalarProperty Name="HOME_SERVICE_DETAIL_DESCRIPTION" ColumnName="HOME_SERVICE_DETAIL_DESCRIPTION" />
+                <ScalarProperty Name="HOME_SERVICE_DETAIL_PHOTO" ColumnName="HOME_SERVICE_DETAIL_PHOTO" />
+                <ScalarProperty Name="HOME_SERVICE_DETAIL_CD" ColumnName="HOME_SERVICE_DETAIL_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_INFORMATION">
+            <EntityTypeMapping TypeName="GJSModel.O_INFORMATION">
+              <MappingFragment StoreEntitySet="O_INFORMATION">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="INFORMATION_FACBOOK" ColumnName="INFORMATION_FACBOOK" />
+                <ScalarProperty Name="INFORMATION_SKYPE" ColumnName="INFORMATION_SKYPE" />
+                <ScalarProperty Name="INFORMATION_YAHOO" ColumnName="INFORMATION_YAHOO" />
+                <ScalarProperty Name="CD" ColumnName="CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_NEWS">
+            <EntityTypeMapping TypeName="GJSModel.O_NEWS">
+              <MappingFragment StoreEntitySet="O_NEWS">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="EMPLOYEE_CD" ColumnName="EMPLOYEE_CD" />
+                <ScalarProperty Name="TAG_ALT" ColumnName="TAG_ALT" />
+                <ScalarProperty Name="SOURCE_COPY" ColumnName="SOURCE_COPY" />
+                <ScalarProperty Name="CATEGORY_NEWS_CD" ColumnName="CATEGORY_NEWS_CD" />
+                <ScalarProperty Name="IMAGE_NEWS" ColumnName="IMAGE_NEWS" />
+                <ScalarProperty Name="NEWS_CONTENT" ColumnName="NEWS_CONTENT" />
+                <ScalarProperty Name="NEW_DESCRIPTIONS" ColumnName="NEW_DESCRIPTIONS" />
+                <ScalarProperty Name="NEWS_TITLE" ColumnName="NEWS_TITLE" />
+                <ScalarProperty Name="NEWS_CD" ColumnName="NEWS_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_NEWS_HIGHLIGHTS">
+            <EntityTypeMapping TypeName="GJSModel.O_NEWS_HIGHLIGHTS">
+              <MappingFragment StoreEntitySet="O_NEWS_HIGHLIGHTS">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="NEWS_CD" ColumnName="NEWS_CD" />
+                <ScalarProperty Name="CD" ColumnName="CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_NEWS_HOME">
+            <EntityTypeMapping TypeName="GJSModel.O_NEWS_HOME">
+              <MappingFragment StoreEntitySet="O_NEWS_HOME">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="NEWS_CD" ColumnName="NEWS_CD" />
+                <ScalarProperty Name="CD" ColumnName="CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_NEWS_NEW">
+            <EntityTypeMapping TypeName="GJSModel.O_NEWS_NEW">
+              <MappingFragment StoreEntitySet="O_NEWS_NEW">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="NEWS_CD" ColumnName="NEWS_CD" />
+                <ScalarProperty Name="CD" ColumnName="CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_ORDER">
+            <EntityTypeMapping TypeName="GJSModel.O_ORDER">
+              <MappingFragment StoreEntitySet="O_ORDER">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="DELIVERY_ADDRESS" ColumnName="DELIVERY_ADDRESS" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="CUSTOMER_CD" ColumnName="CUSTOMER_CD" />
+                <ScalarProperty Name="EMPLOYEE_CD" ColumnName="EMPLOYEE_CD" />
+                <ScalarProperty Name="ORDER_CONTENT" ColumnName="ORDER_CONTENT" />
+                <ScalarProperty Name="ORDER_CODE" ColumnName="ORDER_CODE" />
+                <ScalarProperty Name="ORDER_CD" ColumnName="ORDER_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_PRICE_GOLD">
+            <EntityTypeMapping TypeName="GJSModel.O_PRICE_GOLD">
+              <MappingFragment StoreEntitySet="O_PRICE_GOLD">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="GOLD_NAME" ColumnName="GOLD_NAME" />
+                <ScalarProperty Name="GOLD_CODE" ColumnName="GOLD_CODE" />
+                <ScalarProperty Name="PRICE_BUY" ColumnName="PRICE_BUY" />
+                <ScalarProperty Name="PRICE_SALES" ColumnName="PRICE_SALES" />
+                <ScalarProperty Name="PRICE_GOLD_CD" ColumnName="PRICE_GOLD_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_PRODUCT">
+            <EntityTypeMapping TypeName="GJSModel.O_PRODUCT">
+              <MappingFragment StoreEntitySet="O_PRODUCT">
+                <ScalarProperty Name="QUANTITY_GRANULES" ColumnName="QUANTITY_GRANULES" />
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="TAG_ALT" ColumnName="TAG_ALT" />
+                <ScalarProperty Name="SIZE" ColumnName="SIZE" />
+                <ScalarProperty Name="URL_IMAGE" ColumnName="URL_IMAGE" />
+                <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
+                <ScalarProperty Name="WAGES" ColumnName="WAGES" />
+                <ScalarProperty Name="PRICE_PROMOTION" ColumnName="PRICE_PROMOTION" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+                <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
+                <ScalarProperty Name="CATEGORY_PRODUCT_DETAIL_CD" ColumnName="CATEGORY_PRODUCT_DETAIL_CD" />
+                <ScalarProperty Name="CATEGORY_GRANULES_CD" ColumnName="CATEGORY_GRANULES_CD" />
+                <ScalarProperty Name="CATEGORY_PRODUCT_CD" ColumnName="CATEGORY_PRODUCT_CD" />
+                <ScalarProperty Name="PRODUCT_CONTENT" ColumnName="PRODUCT_CONTENT" />
+                <ScalarProperty Name="PRODUCT_TITLE" ColumnName="PRODUCT_TITLE" />
+                <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
+                <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
+                <ScalarProperty Name="PRODUCT_CD" ColumnName="PRODUCT_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_PRODUCT_CATALOG">
+            <EntityTypeMapping TypeName="GJSModel.O_PRODUCT_CATALOG">
+              <MappingFragment StoreEntitySet="O_PRODUCT_CATALOG">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="PRODUCT_CD" ColumnName="PRODUCT_CD" />
+                <ScalarProperty Name="CD" ColumnName="CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_PRODUCT_HIGHLIGHTS">
+            <EntityTypeMapping TypeName="GJSModel.O_PRODUCT_HIGHLIGHTS">
+              <MappingFragment StoreEntitySet="O_PRODUCT_HIGHLIGHTS">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="PRODUCT_CD" ColumnName="PRODUCT_CD" />
+                <ScalarProperty Name="CD" ColumnName="CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_PRODUCT_NEW">
+            <EntityTypeMapping TypeName="GJSModel.O_PRODUCT_NEW">
+              <MappingFragment StoreEntitySet="O_PRODUCT_NEW">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="PRODUCT_CD" ColumnName="PRODUCT_CD" />
+                <ScalarProperty Name="CD" ColumnName="CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_PRODUCT_SELLING">
+            <EntityTypeMapping TypeName="GJSModel.O_PRODUCT_SELLING">
+              <MappingFragment StoreEntitySet="O_PRODUCT_SELLING">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="PRODUCT_CD" ColumnName="PRODUCT_CD" />
+                <ScalarProperty Name="CD" ColumnName="CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_SEO">
+            <EntityTypeMapping TypeName="GJSModel.O_SEO">
+              <MappingFragment StoreEntitySet="O_SEO">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="META_REVISIT" ColumnName="META_REVISIT" />
+                <ScalarProperty Name="META_ROBOTS" ColumnName="META_ROBOTS" />
+                <ScalarProperty Name="META_KEYWORDS" ColumnName="META_KEYWORDS" />
+                <ScalarProperty Name="META_DES" ColumnName="META_DES" />
+                <ScalarProperty Name="TITILE" ColumnName="TITILE" />
+                <ScalarProperty Name="HREF_ICON" ColumnName="HREF_ICON" />
+                <ScalarProperty Name="CD" ColumnName="CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_USER_CUSTOMER">
+            <EntityTypeMapping TypeName="GJSModel.O_USER_CUSTOMER">
+              <MappingFragment StoreEntitySet="O_USER_CUSTOMER">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="CUSTOMER_CD" ColumnName="CUSTOMER_CD" />
+                <ScalarProperty Name="USER_CD" ColumnName="USER_CD" />
+                <ScalarProperty Name="CD" ColumnName="CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_USER_EMPLOYEE">
+            <EntityTypeMapping TypeName="GJSModel.O_USER_EMPLOYEE">
+              <MappingFragment StoreEntitySet="O_USER_EMPLOYEE">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="EMPLOYEE_CD" ColumnName="EMPLOYEE_CD" />
+                <ScalarProperty Name="USER_CD" ColumnName="USER_CD" />
+                <ScalarProperty Name="CD" ColumnName="CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_USER_PST">
+            <EntityTypeMapping TypeName="GJSModel.O_USER_PST">
+              <MappingFragment StoreEntitySet="O_USER_PST">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="PST_CD" ColumnName="PST_CD" />
+                <ScalarProperty Name="USER_CD" ColumnName="USER_CD" />
+                <ScalarProperty Name="CD" ColumnName="CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="S_PST">
+            <EntityTypeMapping TypeName="GJSModel.S_PST">
+              <MappingFragment StoreEntitySet="S_PST">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="PST_NAME" ColumnName="PST_NAME" />
+                <ScalarProperty Name="PST_CODE" ColumnName="PST_CODE" />
+                <ScalarProperty Name="PST_CD" ColumnName="PST_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="S_STATISTICS_VISIT">
+            <EntityTypeMapping TypeName="GJSModel.S_STATISTICS_VISIT">
+              <MappingFragment StoreEntitySet="S_STATISTICS_VISIT">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="TIME_ONLINE" ColumnName="TIME_ONLINE" />
+                <ScalarProperty Name="COUNTER_VISIT" ColumnName="COUNTER_VISIT" />
+                <ScalarProperty Name="CD" ColumnName="CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="S_USER">
+            <EntityTypeMapping TypeName="GJSModel.S_USER">
+              <MappingFragment StoreEntitySet="S_USER">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="USER_PASS" ColumnName="USER_PASS" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="USER_CD" ColumnName="USER_CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="W_PRODUCT">
+            <EntityTypeMapping TypeName="GJSModel.W_PRODUCT">
+              <MappingFragment StoreEntitySet="W_PRODUCT">
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+                <ScalarProperty Name="PRODUCT_CD" ColumnName="PRODUCT_CD" />
+                <ScalarProperty Name="CD" ColumnName="CD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Report_Order" FunctionName="GJSModel.Store.Report_Order">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="GJSModel.Report_Order_Result">
+                <ScalarProperty Name="ORDER_CODE" ColumnName="ORDER_CODE" />
+                <ScalarProperty Name="CUSTOMER_NAME" ColumnName="CUSTOMER_NAME" />
+                <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
+                <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
+                <ScalarProperty Name="URL_IMAGE" ColumnName="URL_IMAGE" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DELIVERY_ADDRESS" ColumnName="DELIVERY_ADDRESS" />
+                <ScalarProperty Name="SIZE" ColumnName="SIZE" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

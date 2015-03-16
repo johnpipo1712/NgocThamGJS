@@ -1,0 +1,74 @@
+﻿@model W_GJS.Models.M_PAGE
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+<script src="~/ckeditor/ckeditor.js" type="text/javascript"></script>
+@section Breadcrumb {
+    <ul class="breadcrumb breadcrumb-page">
+        <li class="breadcrumb-label text-light-gray">Bạn đang ở đây: </li>
+        <li><a href="#">Trang chủ</a></li>
+        <li class="active"><a href="#">Trang tĩnh</a></li>
+    </ul>
+
+    <div class="page-header">
+
+        <div class="row">
+            <!-- Page header, center on small screens -->
+            <h1 class="col-xs-12 col-sm-4 text-center text-left-sm"><i class="fa fa-home page-header-icon"></i>&nbsp;&nbsp;Trang tĩnh</h1>
+        </div>
+    </div>
+}
+<div class="row">
+    <div class="col-sm-12">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="panel form-horizontal">
+
+                <div class="panel-heading">
+                    <span class="panel-title">Sửa</span>
+                </div>
+
+                @Html.ValidationSummary(true)
+
+                <div class="panel-body">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PAGE_COTRACT_CONTENT, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.TextAreaFor(model => model.PAGE_COTRACT_CONTENT, new { @id = "ckeContent" })
+                            <script type="text/javascript">
+                                CKEDITOR.replace("ckeContent");
+                            </script>
+                            @Html.ValidationMessageFor(model => model.PAGE_COTRACT_CONTENT)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+
+                        <div class="col-sm-10">
+
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div style="margin-bottom: 0;" class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" value="Lưu" class="btn btn-default" />
+                        </div>
+                    </div> <!-- / .form-group -->
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<div>
+    @Html.ActionLink("Trở về danh sách", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

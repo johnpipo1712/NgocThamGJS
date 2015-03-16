@@ -1,0 +1,586 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GJSModelStoreContainer" CdmEntityContainer="GJSEntities">
+    <FunctionImportMapping FunctionImportName="SP_STATISTICS_VISIT" FunctionName="GJSModel.Store.SP_STATISTICS_VISIT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GJSModel.SP_STATISTICS_VISIT_Result">
+          <ScalarProperty Name="COUNTER_VISIT_GN" ColumnName="COUNTER_VISIT_GN" />
+          <ScalarProperty Name="COUNTER_VISIT_HQ" ColumnName="COUNTER_VISIT_HQ" />
+          <ScalarProperty Name="COUNTER_VISIT_WEEK_TN" ColumnName="COUNTER_VISIT_WEEK_TN" />
+          <ScalarProperty Name="COUNTER_VISIT_WEEK_TT" ColumnName="COUNTER_VISIT_WEEK_TT" />
+          <ScalarProperty Name="COUNTER_VISIT_MONTH_TN" ColumnName="COUNTER_VISIT_MONTH_TN" />
+          <ScalarProperty Name="COUNTER_VISIT_MONTH_TT" ColumnName="COUNTER_VISIT_MONTH_TT" />
+          <ScalarProperty Name="COUNTER_VISIT_TOTAL" ColumnName="COUNTER_VISIT_TOTAL" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="D_CITIES_DETAIL">
+      <EntityTypeMapping TypeName="GJSModel.D_CITIES_DETAIL">
+        <MappingFragment StoreEntitySet="D_CITIES_DETAIL">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CITIES_DETAIL_NAME" ColumnName="CITIES_DETAIL_NAME" />
+          <ScalarProperty Name="CITIES_DETAIL_CODE" ColumnName="CITIES_DETAIL_CODE" />
+          <ScalarProperty Name="CITIES_CD" ColumnName="CITIES_CD" />
+          <ScalarProperty Name="CITIES_DETAIL_CD" ColumnName="CITIES_DETAIL_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="D_ORDER_DETAIL">
+      <EntityTypeMapping TypeName="GJSModel.D_ORDER_DETAIL">
+        <MappingFragment StoreEntitySet="D_ORDER_DETAIL">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+          <ScalarProperty Name="SIZE" ColumnName="SIZE" />
+          <ScalarProperty Name="PRODUCT_CD" ColumnName="PRODUCT_CD" />
+          <ScalarProperty Name="ORDER_CD" ColumnName="ORDER_CD" />
+          <ScalarProperty Name="ORDER_DETAIL_CD" ColumnName="ORDER_DETAIL_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="D_PRODUCT_DETAIL">
+      <EntityTypeMapping TypeName="GJSModel.D_PRODUCT_DETAIL">
+        <MappingFragment StoreEntitySet="D_PRODUCT_DETAIL">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="URL_IMAGE" ColumnName="URL_IMAGE" />
+          <ScalarProperty Name="PRODUCT_CD" ColumnName="PRODUCT_CD" />
+          <ScalarProperty Name="PRODUCT_DETAIL_CD" ColumnName="PRODUCT_DETAIL_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_EMPLOYEE">
+      <EntityTypeMapping TypeName="GJSModel.M_EMPLOYEE">
+        <MappingFragment StoreEntitySet="M_EMPLOYEE">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="BIRTHDAY" ColumnName="BIRTHDAY" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="EMPLOYEE_NAME" ColumnName="EMPLOYEE_NAME" />
+          <ScalarProperty Name="EMPLOYEE_CODE" ColumnName="EMPLOYEE_CODE" />
+          <ScalarProperty Name="EMPLOYEE_CD" ColumnName="EMPLOYEE_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_PAGE">
+      <EntityTypeMapping TypeName="GJSModel.M_PAGE">
+        <MappingFragment StoreEntitySet="M_PAGE">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CATEGORY_PAGE_CD" ColumnName="CATEGORY_PAGE_CD" />
+          <ScalarProperty Name="PAGE_COTRACT_CONTENT" ColumnName="PAGE_COTRACT_CONTENT" />
+          <ScalarProperty Name="PAGE_COTRACT_TITLE" ColumnName="PAGE_COTRACT_TITLE" />
+          <ScalarProperty Name="PAGE_COTRACT_CD" ColumnName="PAGE_COTRACT_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_ADVERTISEMENT">
+      <EntityTypeMapping TypeName="GJSModel.O_ADVERTISEMENT">
+        <MappingFragment StoreEntitySet="O_ADVERTISEMENT">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="ADVERTISEMENT" ColumnName="ADVERTISEMENT" />
+          <ScalarProperty Name="CD" ColumnName="CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_ALBUM">
+      <EntityTypeMapping TypeName="GJSModel.O_ALBUM">
+        <MappingFragment StoreEntitySet="O_ALBUM">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CATEGORY_ALBUM_CD" ColumnName="CATEGORY_ALBUM_CD" />
+          <ScalarProperty Name="URL_IMAGE" ColumnName="URL_IMAGE" />
+          <ScalarProperty Name="ALBUM_CD" ColumnName="ALBUM_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_BANNER">
+      <EntityTypeMapping TypeName="GJSModel.O_BANNER">
+        <MappingFragment StoreEntitySet="O_BANNER">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="URL_IMAGE" ColumnName="URL_IMAGE" />
+          <ScalarProperty Name="CD" ColumnName="CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_BRANCH">
+      <EntityTypeMapping TypeName="GJSModel.O_BRANCH">
+        <MappingFragment StoreEntitySet="O_BRANCH">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+          <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="CITIES_DETAIL_CD" ColumnName="CITIES_DETAIL_CD" />
+          <ScalarProperty Name="CITIES_CD" ColumnName="CITIES_CD" />
+          <ScalarProperty Name="BRANCH_NAME" ColumnName="BRANCH_NAME" />
+          <ScalarProperty Name="BRANCH_CODE" ColumnName="BRANCH_CODE" />
+          <ScalarProperty Name="BRANCH_CD" ColumnName="BRANCH_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_CATEGORY_ALBUM">
+      <EntityTypeMapping TypeName="GJSModel.O_CATEGORY_ALBUM">
+        <MappingFragment StoreEntitySet="O_CATEGORY_ALBUM">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CATEGORY_ALBUM_NAME" ColumnName="CATEGORY_ALBUM_NAME" />
+          <ScalarProperty Name="CATEGORY_ALBUM_CD" ColumnName="CATEGORY_ALBUM_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_CATEGORY_GRANULES">
+      <EntityTypeMapping TypeName="GJSModel.O_CATEGORY_GRANULES">
+        <MappingFragment StoreEntitySet="O_CATEGORY_GRANULES">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CATEGORY_GRANULES_WEIGHT" ColumnName="CATEGORY_GRANULES_WEIGHT" />
+          <ScalarProperty Name="CATEGORY_GRANULES_CONTENT" ColumnName="CATEGORY_GRANULES_CONTENT" />
+          <ScalarProperty Name="CATEGORY_GRANULES_NAME" ColumnName="CATEGORY_GRANULES_NAME" />
+          <ScalarProperty Name="CATEGORY_GRANULES_CD" ColumnName="CATEGORY_GRANULES_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_CATEGORY_NEWS">
+      <EntityTypeMapping TypeName="GJSModel.O_CATEGORY_NEWS">
+        <MappingFragment StoreEntitySet="O_CATEGORY_NEWS">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="TAG_ALT" ColumnName="TAG_ALT" />
+          <ScalarProperty Name="CATEGORY_NEWS_NAME" ColumnName="CATEGORY_NEWS_NAME" />
+          <ScalarProperty Name="CATEGORY_NEWS_CODE" ColumnName="CATEGORY_NEWS_CODE" />
+          <ScalarProperty Name="CATEGORY_NEWS_CD" ColumnName="CATEGORY_NEWS_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_CATEGORY_PAGE">
+      <EntityTypeMapping TypeName="GJSModel.O_CATEGORY_PAGE">
+        <MappingFragment StoreEntitySet="O_CATEGORY_PAGE">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="TAG_ALT" ColumnName="TAG_ALT" />
+          <ScalarProperty Name="CATEGORY_PAGE_NAME" ColumnName="CATEGORY_PAGE_NAME" />
+          <ScalarProperty Name="CATEGORY_PAGE_CODE" ColumnName="CATEGORY_PAGE_CODE" />
+          <ScalarProperty Name="CATEGORY_PAGE_CD" ColumnName="CATEGORY_PAGE_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_CATEGORY_PRODUCT">
+      <EntityTypeMapping TypeName="GJSModel.O_CATEGORY_PRODUCT">
+        <MappingFragment StoreEntitySet="O_CATEGORY_PRODUCT">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="TAG_ALT" ColumnName="TAG_ALT" />
+          <ScalarProperty Name="CATEGORY_PRODUCT_NAME" ColumnName="CATEGORY_PRODUCT_NAME" />
+          <ScalarProperty Name="CATEGORY_PRODUCT_CODE" ColumnName="CATEGORY_PRODUCT_CODE" />
+          <ScalarProperty Name="CATEGORY_PRODUCT_CD" ColumnName="CATEGORY_PRODUCT_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_CATEGORY_PRODUCT_DETAIL">
+      <EntityTypeMapping TypeName="GJSModel.O_CATEGORY_PRODUCT_DETAIL">
+        <MappingFragment StoreEntitySet="O_CATEGORY_PRODUCT_DETAIL">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="TAG_ALT" ColumnName="TAG_ALT" />
+          <ScalarProperty Name="CATEGORY_PRODUCT_DETAIL_NAME" ColumnName="CATEGORY_PRODUCT_DETAIL_NAME" />
+          <ScalarProperty Name="CATEGORY_PRODUCT_DETAIL_CODE" ColumnName="CATEGORY_PRODUCT_DETAIL_CODE" />
+          <ScalarProperty Name="CATEGORY_PRODUCT_CD" ColumnName="CATEGORY_PRODUCT_CD" />
+          <ScalarProperty Name="CATEGORY_PRODUCT_DETAIL_CD" ColumnName="CATEGORY_PRODUCT_DETAIL_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_CITIES">
+      <EntityTypeMapping TypeName="GJSModel.O_CITIES">
+        <MappingFragment StoreEntitySet="O_CITIES">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CITIES_NAME" ColumnName="CITIES_NAME" />
+          <ScalarProperty Name="CITIES_CODE" ColumnName="CITIES_CODE" />
+          <ScalarProperty Name="CITIES_CD" ColumnName="CITIES_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_CUSTOMER">
+      <EntityTypeMapping TypeName="GJSModel.O_CUSTOMER">
+        <MappingFragment StoreEntitySet="O_CUSTOMER">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="SUBSCRIBE" ColumnName="SUBSCRIBE" />
+          <ScalarProperty Name="BIRTHDAY" ColumnName="BIRTHDAY" />
+          <ScalarProperty Name="SEX" ColumnName="SEX" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="CUSTOMER_LAST_NAME" ColumnName="CUSTOMER_LAST_NAME" />
+          <ScalarProperty Name="CUSTOMER_FIRST_NAME" ColumnName="CUSTOMER_FIRST_NAME" />
+          <ScalarProperty Name="CUSTOMER_NAME" ColumnName="CUSTOMER_NAME" />
+          <ScalarProperty Name="CUSTOMER_CODE" ColumnName="CUSTOMER_CODE" />
+          <ScalarProperty Name="CUSTOMER_CD" ColumnName="CUSTOMER_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_HOME_GROUP_PHOTO">
+      <EntityTypeMapping TypeName="GJSModel.O_HOME_GROUP_PHOTO">
+        <MappingFragment StoreEntitySet="O_HOME_GROUP_PHOTO">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="PHOTO_URL_6" ColumnName="PHOTO_URL_6" />
+          <ScalarProperty Name="PHOTO_URL_5" ColumnName="PHOTO_URL_5" />
+          <ScalarProperty Name="PHOTO_URL_4" ColumnName="PHOTO_URL_4" />
+          <ScalarProperty Name="PHOTO_URL_3" ColumnName="PHOTO_URL_3" />
+          <ScalarProperty Name="PHOTO_URL_2" ColumnName="PHOTO_URL_2" />
+          <ScalarProperty Name="PHOTO_URL_1" ColumnName="PHOTO_URL_1" />
+          <ScalarProperty Name="HOME_GROUP_PHOTO_CD" ColumnName="HOME_GROUP_PHOTO_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_HOME_INTRODUCTION">
+      <EntityTypeMapping TypeName="GJSModel.O_HOME_INTRODUCTION">
+        <MappingFragment StoreEntitySet="O_HOME_INTRODUCTION">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="O_HOME_INTRODUCTION_PHOTO" ColumnName="O_HOME_INTRODUCTION_PHOTO" />
+          <ScalarProperty Name="O_HOME_INTRODUCTION_AUTHOR" ColumnName="O_HOME_INTRODUCTION_AUTHOR" />
+          <ScalarProperty Name="O_HOME_INTRODUCTION_CONTENT" ColumnName="O_HOME_INTRODUCTION_CONTENT" />
+          <ScalarProperty Name="O_HOME_INTRODUCTION_CD" ColumnName="O_HOME_INTRODUCTION_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_HOME_SERVICE">
+      <EntityTypeMapping TypeName="GJSModel.O_HOME_SERVICE">
+        <MappingFragment StoreEntitySet="O_HOME_SERVICE">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="O_HOME_SERVICE_PHOTO" ColumnName="O_HOME_SERVICE_PHOTO" />
+          <ScalarProperty Name="O_HOME_SERVICE_TITLE" ColumnName="O_HOME_SERVICE_TITLE" />
+          <ScalarProperty Name="O_HOME_SERVICE_DESCRIPTION" ColumnName="O_HOME_SERVICE_DESCRIPTION" />
+          <ScalarProperty Name="O_HOME_SERVICE_CD" ColumnName="O_HOME_SERVICE_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_HOME_SERVICE_DETAIL">
+      <EntityTypeMapping TypeName="GJSModel.O_HOME_SERVICE_DETAIL">
+        <MappingFragment StoreEntitySet="O_HOME_SERVICE_DETAIL">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="HOME_SERVICE_DETAIL_TITLE" ColumnName="HOME_SERVICE_DETAIL_TITLE" />
+          <ScalarProperty Name="HOME_SERVICE_DETAIL_ACTION" ColumnName="HOME_SERVICE_DETAIL_ACTION" />
+          <ScalarProperty Name="HOME_SERVICE_DETAIL_DESCRIPTION" ColumnName="HOME_SERVICE_DETAIL_DESCRIPTION" />
+          <ScalarProperty Name="HOME_SERVICE_DETAIL_PHOTO" ColumnName="HOME_SERVICE_DETAIL_PHOTO" />
+          <ScalarProperty Name="HOME_SERVICE_DETAIL_CD" ColumnName="HOME_SERVICE_DETAIL_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_INFORMATION">
+      <EntityTypeMapping TypeName="GJSModel.O_INFORMATION">
+        <MappingFragment StoreEntitySet="O_INFORMATION">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="INFORMATION_FACBOOK" ColumnName="INFORMATION_FACBOOK" />
+          <ScalarProperty Name="INFORMATION_SKYPE" ColumnName="INFORMATION_SKYPE" />
+          <ScalarProperty Name="INFORMATION_YAHOO" ColumnName="INFORMATION_YAHOO" />
+          <ScalarProperty Name="CD" ColumnName="CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_NEWS">
+      <EntityTypeMapping TypeName="GJSModel.O_NEWS">
+        <MappingFragment StoreEntitySet="O_NEWS">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="EMPLOYEE_CD" ColumnName="EMPLOYEE_CD" />
+          <ScalarProperty Name="TAG_ALT" ColumnName="TAG_ALT" />
+          <ScalarProperty Name="SOURCE_COPY" ColumnName="SOURCE_COPY" />
+          <ScalarProperty Name="CATEGORY_NEWS_CD" ColumnName="CATEGORY_NEWS_CD" />
+          <ScalarProperty Name="IMAGE_NEWS" ColumnName="IMAGE_NEWS" />
+          <ScalarProperty Name="NEWS_CONTENT" ColumnName="NEWS_CONTENT" />
+          <ScalarProperty Name="NEW_DESCRIPTIONS" ColumnName="NEW_DESCRIPTIONS" />
+          <ScalarProperty Name="NEWS_TITLE" ColumnName="NEWS_TITLE" />
+          <ScalarProperty Name="NEWS_CD" ColumnName="NEWS_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_NEWS_HIGHLIGHTS">
+      <EntityTypeMapping TypeName="GJSModel.O_NEWS_HIGHLIGHTS">
+        <MappingFragment StoreEntitySet="O_NEWS_HIGHLIGHTS">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="NEWS_CD" ColumnName="NEWS_CD" />
+          <ScalarProperty Name="CD" ColumnName="CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_NEWS_HOME">
+      <EntityTypeMapping TypeName="GJSModel.O_NEWS_HOME">
+        <MappingFragment StoreEntitySet="O_NEWS_HOME">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="NEWS_CD" ColumnName="NEWS_CD" />
+          <ScalarProperty Name="CD" ColumnName="CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_NEWS_NEW">
+      <EntityTypeMapping TypeName="GJSModel.O_NEWS_NEW">
+        <MappingFragment StoreEntitySet="O_NEWS_NEW">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="NEWS_CD" ColumnName="NEWS_CD" />
+          <ScalarProperty Name="CD" ColumnName="CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_ORDER">
+      <EntityTypeMapping TypeName="GJSModel.O_ORDER">
+        <MappingFragment StoreEntitySet="O_ORDER">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="DELIVERY_ADDRESS" ColumnName="DELIVERY_ADDRESS" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="CUSTOMER_CD" ColumnName="CUSTOMER_CD" />
+          <ScalarProperty Name="EMPLOYEE_CD" ColumnName="EMPLOYEE_CD" />
+          <ScalarProperty Name="ORDER_CONTENT" ColumnName="ORDER_CONTENT" />
+          <ScalarProperty Name="ORDER_CODE" ColumnName="ORDER_CODE" />
+          <ScalarProperty Name="ORDER_CD" ColumnName="ORDER_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_PRICE_GOLD">
+      <EntityTypeMapping TypeName="GJSModel.O_PRICE_GOLD">
+        <MappingFragment StoreEntitySet="O_PRICE_GOLD">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="GOLD_NAME" ColumnName="GOLD_NAME" />
+          <ScalarProperty Name="GOLD_CODE" ColumnName="GOLD_CODE" />
+          <ScalarProperty Name="PRICE_BUY" ColumnName="PRICE_BUY" />
+          <ScalarProperty Name="PRICE_SALES" ColumnName="PRICE_SALES" />
+          <ScalarProperty Name="PRICE_GOLD_CD" ColumnName="PRICE_GOLD_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_PRODUCT">
+      <EntityTypeMapping TypeName="GJSModel.O_PRODUCT">
+        <MappingFragment StoreEntitySet="O_PRODUCT">
+          <ScalarProperty Name="QUANTITY_GRANULES" ColumnName="QUANTITY_GRANULES" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="TAG_ALT" ColumnName="TAG_ALT" />
+          <ScalarProperty Name="SIZE" ColumnName="SIZE" />
+          <ScalarProperty Name="URL_IMAGE" ColumnName="URL_IMAGE" />
+          <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
+          <ScalarProperty Name="WAGES" ColumnName="WAGES" />
+          <ScalarProperty Name="PRICE_PROMOTION" ColumnName="PRICE_PROMOTION" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+          <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
+          <ScalarProperty Name="CATEGORY_PRODUCT_DETAIL_CD" ColumnName="CATEGORY_PRODUCT_DETAIL_CD" />
+          <ScalarProperty Name="CATEGORY_GRANULES_CD" ColumnName="CATEGORY_GRANULES_CD" />
+          <ScalarProperty Name="CATEGORY_PRODUCT_CD" ColumnName="CATEGORY_PRODUCT_CD" />
+          <ScalarProperty Name="PRODUCT_CONTENT" ColumnName="PRODUCT_CONTENT" />
+          <ScalarProperty Name="PRODUCT_TITLE" ColumnName="PRODUCT_TITLE" />
+          <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
+          <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
+          <ScalarProperty Name="PRODUCT_CD" ColumnName="PRODUCT_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_PRODUCT_CATALOG">
+      <EntityTypeMapping TypeName="GJSModel.O_PRODUCT_CATALOG">
+        <MappingFragment StoreEntitySet="O_PRODUCT_CATALOG">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="PRODUCT_CD" ColumnName="PRODUCT_CD" />
+          <ScalarProperty Name="CD" ColumnName="CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_PRODUCT_HIGHLIGHTS">
+      <EntityTypeMapping TypeName="GJSModel.O_PRODUCT_HIGHLIGHTS">
+        <MappingFragment StoreEntitySet="O_PRODUCT_HIGHLIGHTS">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="PRODUCT_CD" ColumnName="PRODUCT_CD" />
+          <ScalarProperty Name="CD" ColumnName="CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_PRODUCT_NEW">
+      <EntityTypeMapping TypeName="GJSModel.O_PRODUCT_NEW">
+        <MappingFragment StoreEntitySet="O_PRODUCT_NEW">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="PRODUCT_CD" ColumnName="PRODUCT_CD" />
+          <ScalarProperty Name="CD" ColumnName="CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_PRODUCT_SELLING">
+      <EntityTypeMapping TypeName="GJSModel.O_PRODUCT_SELLING">
+        <MappingFragment StoreEntitySet="O_PRODUCT_SELLING">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="PRODUCT_CD" ColumnName="PRODUCT_CD" />
+          <ScalarProperty Name="CD" ColumnName="CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_SEO">
+      <EntityTypeMapping TypeName="GJSModel.O_SEO">
+        <MappingFragment StoreEntitySet="O_SEO">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="META_REVISIT" ColumnName="META_REVISIT" />
+          <ScalarProperty Name="META_ROBOTS" ColumnName="META_ROBOTS" />
+          <ScalarProperty Name="META_KEYWORDS" ColumnName="META_KEYWORDS" />
+          <ScalarProperty Name="META_DES" ColumnName="META_DES" />
+          <ScalarProperty Name="TITILE" ColumnName="TITILE" />
+          <ScalarProperty Name="HREF_ICON" ColumnName="HREF_ICON" />
+          <ScalarProperty Name="CD" ColumnName="CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_USER_CUSTOMER">
+      <EntityTypeMapping TypeName="GJSModel.O_USER_CUSTOMER">
+        <MappingFragment StoreEntitySet="O_USER_CUSTOMER">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CUSTOMER_CD" ColumnName="CUSTOMER_CD" />
+          <ScalarProperty Name="USER_CD" ColumnName="USER_CD" />
+          <ScalarProperty Name="CD" ColumnName="CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_USER_EMPLOYEE">
+      <EntityTypeMapping TypeName="GJSModel.O_USER_EMPLOYEE">
+        <MappingFragment StoreEntitySet="O_USER_EMPLOYEE">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="EMPLOYEE_CD" ColumnName="EMPLOYEE_CD" />
+          <ScalarProperty Name="USER_CD" ColumnName="USER_CD" />
+          <ScalarProperty Name="CD" ColumnName="CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="O_USER_PST">
+      <EntityTypeMapping TypeName="GJSModel.O_USER_PST">
+        <MappingFragment StoreEntitySet="O_USER_PST">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="PST_CD" ColumnName="PST_CD" />
+          <ScalarProperty Name="USER_CD" ColumnName="USER_CD" />
+          <ScalarProperty Name="CD" ColumnName="CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="S_PST">
+      <EntityTypeMapping TypeName="GJSModel.S_PST">
+        <MappingFragment StoreEntitySet="S_PST">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="PST_NAME" ColumnName="PST_NAME" />
+          <ScalarProperty Name="PST_CODE" ColumnName="PST_CODE" />
+          <ScalarProperty Name="PST_CD" ColumnName="PST_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="S_STATISTICS_VISIT">
+      <EntityTypeMapping TypeName="GJSModel.S_STATISTICS_VISIT">
+        <MappingFragment StoreEntitySet="S_STATISTICS_VISIT">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="TIME_ONLINE" ColumnName="TIME_ONLINE" />
+          <ScalarProperty Name="COUNTER_VISIT" ColumnName="COUNTER_VISIT" />
+          <ScalarProperty Name="CD" ColumnName="CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="S_USER">
+      <EntityTypeMapping TypeName="GJSModel.S_USER">
+        <MappingFragment StoreEntitySet="S_USER">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="USER_PASS" ColumnName="USER_PASS" />
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="USER_CD" ColumnName="USER_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W_PRODUCT">
+      <EntityTypeMapping TypeName="GJSModel.W_PRODUCT">
+        <MappingFragment StoreEntitySet="W_PRODUCT">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+          <ScalarProperty Name="PRODUCT_CD" ColumnName="PRODUCT_CD" />
+          <ScalarProperty Name="CD" ColumnName="CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Report_Order" FunctionName="GJSModel.Store.Report_Order">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GJSModel.Report_Order_Result">
+          <ScalarProperty Name="ORDER_CODE" ColumnName="ORDER_CODE" />
+          <ScalarProperty Name="CUSTOMER_NAME" ColumnName="CUSTOMER_NAME" />
+          <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
+          <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
+          <ScalarProperty Name="URL_IMAGE" ColumnName="URL_IMAGE" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="DELIVERY_ADDRESS" ColumnName="DELIVERY_ADDRESS" />
+          <ScalarProperty Name="SIZE" ColumnName="SIZE" />
+          <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

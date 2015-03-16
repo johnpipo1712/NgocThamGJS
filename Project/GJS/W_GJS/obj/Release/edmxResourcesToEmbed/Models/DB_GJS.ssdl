@@ -1,0 +1,1022 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GJSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="D_CITIES_DETAIL">
+    <Key>
+      <PropertyRef Name="CITIES_DETAIL_CD" />
+    </Key>
+    <Property Name="CITIES_DETAIL_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CITIES_CD" Type="bigint" />
+    <Property Name="CITIES_DETAIL_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="CITIES_DETAIL_NAME" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="D_ORDER_DETAIL">
+    <Key>
+      <PropertyRef Name="ORDER_DETAIL_CD" />
+    </Key>
+    <Property Name="ORDER_DETAIL_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ORDER_CD" Type="bigint" />
+    <Property Name="PRODUCT_CD" Type="bigint" />
+    <Property Name="SIZE" Type="nvarchar(max)" />
+    <Property Name="QUANTITY" Type="bigint" />
+    <Property Name="PRICE" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="D_PRODUCT_DETAIL">
+    <Key>
+      <PropertyRef Name="PRODUCT_DETAIL_CD" />
+    </Key>
+    <Property Name="PRODUCT_DETAIL_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRODUCT_CD" Type="bigint" />
+    <Property Name="URL_IMAGE" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="M_EMPLOYEE">
+    <Key>
+      <PropertyRef Name="EMPLOYEE_CD" />
+    </Key>
+    <Property Name="EMPLOYEE_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EMPLOYEE_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="EMPLOYEE_NAME" Type="nvarchar(max)" />
+    <Property Name="ADDRESS" Type="nvarchar(max)" />
+    <Property Name="EMAIL" Type="nvarchar(max)" />
+    <Property Name="BIRTHDAY" Type="datetime" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="M_PAGE">
+    <Key>
+      <PropertyRef Name="PAGE_COTRACT_CD" />
+    </Key>
+    <Property Name="PAGE_COTRACT_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PAGE_COTRACT_TITLE" Type="nvarchar(max)" />
+    <Property Name="PAGE_COTRACT_CONTENT" Type="nvarchar(max)" />
+    <Property Name="CATEGORY_PAGE_CD" Type="bigint" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_ADVERTISEMENT">
+    <Key>
+      <PropertyRef Name="CD" />
+    </Key>
+    <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ADVERTISEMENT" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_ALBUM">
+    <Key>
+      <PropertyRef Name="ALBUM_CD" />
+    </Key>
+    <Property Name="ALBUM_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="URL_IMAGE" Type="nvarchar(max)" />
+    <Property Name="CATEGORY_ALBUM_CD" Type="bigint" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_BANNER">
+    <Key>
+      <PropertyRef Name="CD" />
+    </Key>
+    <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="URL_IMAGE" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_BRANCH">
+    <Key>
+      <PropertyRef Name="BRANCH_CD" />
+    </Key>
+    <Property Name="BRANCH_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BRANCH_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="BRANCH_NAME" Type="nvarchar(max)" />
+    <Property Name="CITIES_CD" Type="bigint" />
+    <Property Name="CITIES_DETAIL_CD" Type="bigint" />
+    <Property Name="ADDRESS" Type="nvarchar(max)" />
+    <Property Name="LONGITUDE" Type="nvarchar(max)" />
+    <Property Name="LATITUDE" Type="nvarchar(max)" />
+    <Property Name="PHONE" Type="varchar" MaxLength="50" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_CATEGORY_ALBUM">
+    <Key>
+      <PropertyRef Name="CATEGORY_ALBUM_CD" />
+    </Key>
+    <Property Name="CATEGORY_ALBUM_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CATEGORY_ALBUM_NAME" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_CATEGORY_GRANULES">
+    <Key>
+      <PropertyRef Name="CATEGORY_GRANULES_CD" />
+    </Key>
+    <Property Name="CATEGORY_GRANULES_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CATEGORY_GRANULES_NAME" Type="nvarchar(max)" />
+    <Property Name="CATEGORY_GRANULES_CONTENT" Type="nvarchar(max)" />
+    <Property Name="CATEGORY_GRANULES_WEIGHT" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_CATEGORY_NEWS">
+    <Key>
+      <PropertyRef Name="CATEGORY_NEWS_CD" />
+    </Key>
+    <Property Name="CATEGORY_NEWS_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CATEGORY_NEWS_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="CATEGORY_NEWS_NAME" Type="nvarchar(max)" />
+    <Property Name="TAG_ALT" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_CATEGORY_PAGE">
+    <Key>
+      <PropertyRef Name="CATEGORY_PAGE_CD" />
+    </Key>
+    <Property Name="CATEGORY_PAGE_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CATEGORY_PAGE_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="CATEGORY_PAGE_NAME" Type="nvarchar(max)" />
+    <Property Name="TAG_ALT" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_CATEGORY_PRODUCT">
+    <Key>
+      <PropertyRef Name="CATEGORY_PRODUCT_CD" />
+    </Key>
+    <Property Name="CATEGORY_PRODUCT_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CATEGORY_PRODUCT_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="CATEGORY_PRODUCT_NAME" Type="nvarchar(max)" />
+    <Property Name="TAG_ALT" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_CATEGORY_PRODUCT_DETAIL">
+    <Key>
+      <PropertyRef Name="CATEGORY_PRODUCT_DETAIL_CD" />
+    </Key>
+    <Property Name="CATEGORY_PRODUCT_DETAIL_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CATEGORY_PRODUCT_CD" Type="bigint" />
+    <Property Name="CATEGORY_PRODUCT_DETAIL_CODE" Type="nvarchar(max)" />
+    <Property Name="CATEGORY_PRODUCT_DETAIL_NAME" Type="nvarchar(max)" />
+    <Property Name="TAG_ALT" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_CITIES">
+    <Key>
+      <PropertyRef Name="CITIES_CD" />
+    </Key>
+    <Property Name="CITIES_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CITIES_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="CITIES_NAME" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_CUSTOMER">
+    <Key>
+      <PropertyRef Name="CUSTOMER_CD" />
+    </Key>
+    <Property Name="CUSTOMER_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CUSTOMER_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="CUSTOMER_NAME" Type="nvarchar(max)" />
+    <Property Name="CUSTOMER_FIRST_NAME" Type="nvarchar(max)" />
+    <Property Name="CUSTOMER_LAST_NAME" Type="nvarchar(max)" />
+    <Property Name="PHONE" Type="nvarchar" MaxLength="50" />
+    <Property Name="ADDRESS" Type="nvarchar(max)" />
+    <Property Name="EMAIL" Type="nvarchar(max)" />
+    <Property Name="SEX" Type="nvarchar(max)" />
+    <Property Name="BIRTHDAY" Type="datetime" />
+    <Property Name="SUBSCRIBE" Type="bit" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_HOME_GROUP_PHOTO">
+    <Key>
+      <PropertyRef Name="HOME_GROUP_PHOTO_CD" />
+    </Key>
+    <Property Name="HOME_GROUP_PHOTO_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PHOTO_URL_1" Type="nvarchar(max)" />
+    <Property Name="PHOTO_URL_2" Type="nvarchar(max)" />
+    <Property Name="PHOTO_URL_3" Type="nvarchar(max)" />
+    <Property Name="PHOTO_URL_4" Type="nvarchar(max)" />
+    <Property Name="PHOTO_URL_5" Type="nvarchar(max)" />
+    <Property Name="PHOTO_URL_6" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_HOME_INTRODUCTION">
+    <Key>
+      <PropertyRef Name="O_HOME_INTRODUCTION_CD" />
+    </Key>
+    <Property Name="O_HOME_INTRODUCTION_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="O_HOME_INTRODUCTION_CONTENT" Type="nvarchar(max)" />
+    <Property Name="O_HOME_INTRODUCTION_AUTHOR" Type="nvarchar(max)" />
+    <Property Name="O_HOME_INTRODUCTION_PHOTO" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_HOME_SERVICE">
+    <Key>
+      <PropertyRef Name="O_HOME_SERVICE_CD" />
+    </Key>
+    <Property Name="O_HOME_SERVICE_CD" Type="bigint" Nullable="false" />
+    <Property Name="O_HOME_SERVICE_DESCRIPTION" Type="nvarchar(max)" />
+    <Property Name="O_HOME_SERVICE_TITLE" Type="nvarchar(max)" />
+    <Property Name="O_HOME_SERVICE_PHOTO" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_HOME_SERVICE_DETAIL">
+    <Key>
+      <PropertyRef Name="HOME_SERVICE_DETAIL_CD" />
+    </Key>
+    <Property Name="HOME_SERVICE_DETAIL_CD" Type="bigint" Nullable="false" />
+    <Property Name="HOME_SERVICE_DETAIL_PHOTO" Type="nvarchar(max)" />
+    <Property Name="HOME_SERVICE_DETAIL_DESCRIPTION" Type="nvarchar(max)" />
+    <Property Name="HOME_SERVICE_DETAIL_ACTION" Type="nvarchar(max)" />
+    <Property Name="HOME_SERVICE_DETAIL_TITLE" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_INFORMATION">
+    <Key>
+      <PropertyRef Name="CD" />
+    </Key>
+    <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="INFORMATION_YAHOO" Type="nvarchar(max)" />
+    <Property Name="INFORMATION_SKYPE" Type="nvarchar(max)" />
+    <Property Name="INFORMATION_FACBOOK" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_NEWS">
+    <Key>
+      <PropertyRef Name="NEWS_CD" />
+    </Key>
+    <Property Name="NEWS_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NEWS_TITLE" Type="nvarchar(max)" />
+    <Property Name="NEW_DESCRIPTIONS" Type="nvarchar(max)" />
+    <Property Name="NEWS_CONTENT" Type="nvarchar(max)" />
+    <Property Name="IMAGE_NEWS" Type="nvarchar(max)" />
+    <Property Name="CATEGORY_NEWS_CD" Type="bigint" />
+    <Property Name="SOURCE_COPY" Type="nvarchar(max)" />
+    <Property Name="TAG_ALT" Type="nvarchar(max)" />
+    <Property Name="EMPLOYEE_CD" Type="bigint" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_NEWS_HIGHLIGHTS">
+    <Key>
+      <PropertyRef Name="CD" />
+    </Key>
+    <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NEWS_CD" Type="bigint" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_NEWS_HOME">
+    <Key>
+      <PropertyRef Name="CD" />
+    </Key>
+    <Property Name="CD" Type="bigint" Nullable="false" />
+    <Property Name="NEWS_CD" Type="bigint" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_NEWS_NEW">
+    <Key>
+      <PropertyRef Name="CD" />
+    </Key>
+    <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NEWS_CD" Type="bigint" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_ORDER">
+    <Key>
+      <PropertyRef Name="ORDER_CD" />
+    </Key>
+    <Property Name="ORDER_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ORDER_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="ORDER_CONTENT" Type="nvarchar(max)" />
+    <Property Name="EMPLOYEE_CD" Type="bigint" />
+    <Property Name="CUSTOMER_CD" Type="bigint" />
+    <Property Name="PHONE" Type="nvarchar(max)" />
+    <Property Name="EMAIL" Type="nvarchar(max)" />
+    <Property Name="DELIVERY_ADDRESS" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_PRICE_GOLD">
+    <Key>
+      <PropertyRef Name="PRICE_GOLD_CD" />
+    </Key>
+    <Property Name="PRICE_GOLD_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRICE_SALES" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PRICE_BUY" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="GOLD_CODE" Type="nvarchar(max)" />
+    <Property Name="GOLD_NAME" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_PRODUCT">
+    <Key>
+      <PropertyRef Name="PRODUCT_CD" />
+    </Key>
+    <Property Name="PRODUCT_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRODUCT_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="PRODUCT_NAME" Type="nvarchar(max)" />
+    <Property Name="PRODUCT_TITLE" Type="nvarchar(max)" />
+    <Property Name="PRODUCT_CONTENT" Type="nvarchar(max)" />
+    <Property Name="CATEGORY_PRODUCT_CD" Type="bigint" />
+    <Property Name="CATEGORY_GRANULES_CD" Type="bigint" />
+    <Property Name="CATEGORY_PRODUCT_DETAIL_CD" Type="bigint" />
+    <Property Name="WEIGHT" Type="nvarchar(max)" />
+    <Property Name="QUANTITY_GRANULES" Type="nvarchar(max)" />
+    <Property Name="QUANTITY" Type="bigint" />
+    <Property Name="PRICE" Type="nvarchar(max)" />
+    <Property Name="PRICE_PROMOTION" Type="nvarchar(max)" />
+    <Property Name="WAGES" Type="nvarchar(max)" />
+    <Property Name="CURRENCY" Type="nvarchar(max)" />
+    <Property Name="URL_IMAGE" Type="nvarchar(max)" />
+    <Property Name="SIZE" Type="nvarchar(max)" />
+    <Property Name="TAG_ALT" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_PRODUCT_CATALOG">
+    <Key>
+      <PropertyRef Name="CD" />
+    </Key>
+    <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRODUCT_CD" Type="bigint" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_PRODUCT_HIGHLIGHTS">
+    <Key>
+      <PropertyRef Name="CD" />
+    </Key>
+    <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRODUCT_CD" Type="bigint" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_PRODUCT_NEW">
+    <Key>
+      <PropertyRef Name="CD" />
+    </Key>
+    <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRODUCT_CD" Type="bigint" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_PRODUCT_SELLING">
+    <Key>
+      <PropertyRef Name="CD" />
+    </Key>
+    <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRODUCT_CD" Type="bigint" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_SEO">
+    <Key>
+      <PropertyRef Name="CD" />
+    </Key>
+    <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HREF_ICON" Type="nvarchar(max)" />
+    <Property Name="TITILE" Type="nvarchar(max)" />
+    <Property Name="META_DES" Type="nvarchar(max)" />
+    <Property Name="META_KEYWORDS" Type="nvarchar(max)" />
+    <Property Name="META_ROBOTS" Type="nvarchar(max)" />
+    <Property Name="META_REVISIT" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_USER_CUSTOMER">
+    <Key>
+      <PropertyRef Name="CD" />
+    </Key>
+    <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USER_CD" Type="bigint" />
+    <Property Name="CUSTOMER_CD" Type="bigint" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_USER_EMPLOYEE">
+    <Key>
+      <PropertyRef Name="CD" />
+    </Key>
+    <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USER_CD" Type="bigint" />
+    <Property Name="EMPLOYEE_CD" Type="bigint" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="O_USER_PST">
+    <Key>
+      <PropertyRef Name="CD" />
+    </Key>
+    <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USER_CD" Type="bigint" />
+    <Property Name="PST_CD" Type="bigint" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="S_PST">
+    <Key>
+      <PropertyRef Name="PST_CD" />
+    </Key>
+    <Property Name="PST_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PST_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="PST_NAME" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="S_STATISTICS_VISIT">
+    <Key>
+      <PropertyRef Name="CD" />
+    </Key>
+    <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="COUNTER_VISIT" Type="bigint" />
+    <Property Name="TIME_ONLINE" Type="datetime" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="S_USER">
+    <Key>
+      <PropertyRef Name="USER_CD" />
+    </Key>
+    <Property Name="USER_CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USER_NAME" Type="varchar(max)" />
+    <Property Name="USER_PASS" Type="varchar" MaxLength="50" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="W_PRODUCT">
+    <Key>
+      <PropertyRef Name="CD" />
+    </Key>
+    <Property Name="CD" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRODUCT_CD" Type="bigint" />
+    <Property Name="QUANTITY" Type="bigint" />
+    <Property Name="STATUS" Type="bigint" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_D_CITIES_DETAIL_O_CITIES">
+    <End Role="O_CITIES" Type="Self.O_CITIES" Multiplicity="0..1" />
+    <End Role="D_CITIES_DETAIL" Type="Self.D_CITIES_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_CITIES">
+        <PropertyRef Name="CITIES_CD" />
+      </Principal>
+      <Dependent Role="D_CITIES_DETAIL">
+        <PropertyRef Name="CITIES_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_D_ORDER_DETAIL_O_ORDER">
+    <End Role="O_ORDER" Type="Self.O_ORDER" Multiplicity="0..1" />
+    <End Role="D_ORDER_DETAIL" Type="Self.D_ORDER_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_ORDER">
+        <PropertyRef Name="ORDER_CD" />
+      </Principal>
+      <Dependent Role="D_ORDER_DETAIL">
+        <PropertyRef Name="ORDER_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_D_ORDER_DETAIL_O_PRODUCT">
+    <End Role="O_PRODUCT" Type="Self.O_PRODUCT" Multiplicity="0..1" />
+    <End Role="D_ORDER_DETAIL" Type="Self.D_ORDER_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_PRODUCT">
+        <PropertyRef Name="PRODUCT_CD" />
+      </Principal>
+      <Dependent Role="D_ORDER_DETAIL">
+        <PropertyRef Name="PRODUCT_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_D_PRODUCT_DETAIL_O_PRODUCT">
+    <End Role="O_PRODUCT" Type="Self.O_PRODUCT" Multiplicity="0..1" />
+    <End Role="D_PRODUCT_DETAIL" Type="Self.D_PRODUCT_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_PRODUCT">
+        <PropertyRef Name="PRODUCT_CD" />
+      </Principal>
+      <Dependent Role="D_PRODUCT_DETAIL">
+        <PropertyRef Name="PRODUCT_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M_PAGE_O_CATEGORY_PAGE">
+    <End Role="O_CATEGORY_PAGE" Type="Self.O_CATEGORY_PAGE" Multiplicity="0..1" />
+    <End Role="M_PAGE" Type="Self.M_PAGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_CATEGORY_PAGE">
+        <PropertyRef Name="CATEGORY_PAGE_CD" />
+      </Principal>
+      <Dependent Role="M_PAGE">
+        <PropertyRef Name="CATEGORY_PAGE_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_ALBUM_O_CATEGORY_ALBUM">
+    <End Role="O_CATEGORY_ALBUM" Type="Self.O_CATEGORY_ALBUM" Multiplicity="0..1" />
+    <End Role="O_ALBUM" Type="Self.O_ALBUM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_CATEGORY_ALBUM">
+        <PropertyRef Name="CATEGORY_ALBUM_CD" />
+      </Principal>
+      <Dependent Role="O_ALBUM">
+        <PropertyRef Name="CATEGORY_ALBUM_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_BRANCH_D_CITIES_DETAIL">
+    <End Role="D_CITIES_DETAIL" Type="Self.D_CITIES_DETAIL" Multiplicity="0..1" />
+    <End Role="O_BRANCH" Type="Self.O_BRANCH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="D_CITIES_DETAIL">
+        <PropertyRef Name="CITIES_DETAIL_CD" />
+      </Principal>
+      <Dependent Role="O_BRANCH">
+        <PropertyRef Name="CITIES_DETAIL_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_BRANCH_O_CITIES">
+    <End Role="O_CITIES" Type="Self.O_CITIES" Multiplicity="0..1" />
+    <End Role="O_BRANCH" Type="Self.O_BRANCH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_CITIES">
+        <PropertyRef Name="CITIES_CD" />
+      </Principal>
+      <Dependent Role="O_BRANCH">
+        <PropertyRef Name="CITIES_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_CATEGORY_PRODUCT_DETAIL_O_CATEGORY_PRODUCT">
+    <End Role="O_CATEGORY_PRODUCT" Type="Self.O_CATEGORY_PRODUCT" Multiplicity="0..1" />
+    <End Role="O_CATEGORY_PRODUCT_DETAIL" Type="Self.O_CATEGORY_PRODUCT_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_CATEGORY_PRODUCT">
+        <PropertyRef Name="CATEGORY_PRODUCT_CD" />
+      </Principal>
+      <Dependent Role="O_CATEGORY_PRODUCT_DETAIL">
+        <PropertyRef Name="CATEGORY_PRODUCT_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_NEWS_HIGHLIGHTS_O_NEWS">
+    <End Role="O_NEWS" Type="Self.O_NEWS" Multiplicity="0..1" />
+    <End Role="O_NEWS_HIGHLIGHTS" Type="Self.O_NEWS_HIGHLIGHTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_NEWS">
+        <PropertyRef Name="NEWS_CD" />
+      </Principal>
+      <Dependent Role="O_NEWS_HIGHLIGHTS">
+        <PropertyRef Name="NEWS_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_NEWS_HOME_O_NEWS">
+    <End Role="O_NEWS" Type="Self.O_NEWS" Multiplicity="0..1" />
+    <End Role="O_NEWS_HOME" Type="Self.O_NEWS_HOME" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_NEWS">
+        <PropertyRef Name="NEWS_CD" />
+      </Principal>
+      <Dependent Role="O_NEWS_HOME">
+        <PropertyRef Name="NEWS_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_NEWS_M_EMPLOYEE">
+    <End Role="M_EMPLOYEE" Type="Self.M_EMPLOYEE" Multiplicity="0..1" />
+    <End Role="O_NEWS" Type="Self.O_NEWS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_EMPLOYEE">
+        <PropertyRef Name="EMPLOYEE_CD" />
+      </Principal>
+      <Dependent Role="O_NEWS">
+        <PropertyRef Name="EMPLOYEE_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_NEWS_NEW_O_NEWS">
+    <End Role="O_NEWS" Type="Self.O_NEWS" Multiplicity="0..1" />
+    <End Role="O_NEWS_NEW" Type="Self.O_NEWS_NEW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_NEWS">
+        <PropertyRef Name="NEWS_CD" />
+      </Principal>
+      <Dependent Role="O_NEWS_NEW">
+        <PropertyRef Name="NEWS_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_NEWS_O_CATEGORY_NEWS">
+    <End Role="O_CATEGORY_NEWS" Type="Self.O_CATEGORY_NEWS" Multiplicity="0..1" />
+    <End Role="O_NEWS" Type="Self.O_NEWS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_CATEGORY_NEWS">
+        <PropertyRef Name="CATEGORY_NEWS_CD" />
+      </Principal>
+      <Dependent Role="O_NEWS">
+        <PropertyRef Name="CATEGORY_NEWS_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_ORDER_M_EMPLOYEE">
+    <End Role="M_EMPLOYEE" Type="Self.M_EMPLOYEE" Multiplicity="0..1" />
+    <End Role="O_ORDER" Type="Self.O_ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_EMPLOYEE">
+        <PropertyRef Name="EMPLOYEE_CD" />
+      </Principal>
+      <Dependent Role="O_ORDER">
+        <PropertyRef Name="EMPLOYEE_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_ORDER_O_CUSTOMER">
+    <End Role="O_CUSTOMER" Type="Self.O_CUSTOMER" Multiplicity="0..1" />
+    <End Role="O_ORDER" Type="Self.O_ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_CUSTOMER">
+        <PropertyRef Name="CUSTOMER_CD" />
+      </Principal>
+      <Dependent Role="O_ORDER">
+        <PropertyRef Name="CUSTOMER_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_PRODUCT_CATALOG_O_PRODUCT">
+    <End Role="O_PRODUCT" Type="Self.O_PRODUCT" Multiplicity="0..1" />
+    <End Role="O_PRODUCT_CATALOG" Type="Self.O_PRODUCT_CATALOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_PRODUCT">
+        <PropertyRef Name="PRODUCT_CD" />
+      </Principal>
+      <Dependent Role="O_PRODUCT_CATALOG">
+        <PropertyRef Name="PRODUCT_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_PRODUCT_HIGHLIGHTS_O_PRODUCT">
+    <End Role="O_PRODUCT" Type="Self.O_PRODUCT" Multiplicity="0..1" />
+    <End Role="O_PRODUCT_HIGHLIGHTS" Type="Self.O_PRODUCT_HIGHLIGHTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_PRODUCT">
+        <PropertyRef Name="PRODUCT_CD" />
+      </Principal>
+      <Dependent Role="O_PRODUCT_HIGHLIGHTS">
+        <PropertyRef Name="PRODUCT_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_PRODUCT_NEW_O_PRODUCT">
+    <End Role="O_PRODUCT" Type="Self.O_PRODUCT" Multiplicity="0..1" />
+    <End Role="O_PRODUCT_NEW" Type="Self.O_PRODUCT_NEW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_PRODUCT">
+        <PropertyRef Name="PRODUCT_CD" />
+      </Principal>
+      <Dependent Role="O_PRODUCT_NEW">
+        <PropertyRef Name="PRODUCT_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_PRODUCT_O_CATEGORY_GRANULES">
+    <End Role="O_CATEGORY_GRANULES" Type="Self.O_CATEGORY_GRANULES" Multiplicity="0..1" />
+    <End Role="O_PRODUCT" Type="Self.O_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_CATEGORY_GRANULES">
+        <PropertyRef Name="CATEGORY_GRANULES_CD" />
+      </Principal>
+      <Dependent Role="O_PRODUCT">
+        <PropertyRef Name="CATEGORY_GRANULES_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_PRODUCT_O_CATEGORY_PRODUCT">
+    <End Role="O_CATEGORY_PRODUCT" Type="Self.O_CATEGORY_PRODUCT" Multiplicity="0..1" />
+    <End Role="O_PRODUCT" Type="Self.O_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_CATEGORY_PRODUCT">
+        <PropertyRef Name="CATEGORY_PRODUCT_CD" />
+      </Principal>
+      <Dependent Role="O_PRODUCT">
+        <PropertyRef Name="CATEGORY_PRODUCT_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_PRODUCT_O_CATEGORY_PRODUCT_DETAIL">
+    <End Role="O_CATEGORY_PRODUCT_DETAIL" Type="Self.O_CATEGORY_PRODUCT_DETAIL" Multiplicity="0..1" />
+    <End Role="O_PRODUCT" Type="Self.O_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_CATEGORY_PRODUCT_DETAIL">
+        <PropertyRef Name="CATEGORY_PRODUCT_DETAIL_CD" />
+      </Principal>
+      <Dependent Role="O_PRODUCT">
+        <PropertyRef Name="CATEGORY_PRODUCT_DETAIL_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_PRODUCT_SELLING_O_PRODUCT">
+    <End Role="O_PRODUCT" Type="Self.O_PRODUCT" Multiplicity="0..1" />
+    <End Role="O_PRODUCT_SELLING" Type="Self.O_PRODUCT_SELLING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_PRODUCT">
+        <PropertyRef Name="PRODUCT_CD" />
+      </Principal>
+      <Dependent Role="O_PRODUCT_SELLING">
+        <PropertyRef Name="PRODUCT_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_USER_CUSTOMER_O_CUSTOMER">
+    <End Role="O_CUSTOMER" Type="Self.O_CUSTOMER" Multiplicity="0..1" />
+    <End Role="O_USER_CUSTOMER" Type="Self.O_USER_CUSTOMER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="O_CUSTOMER">
+        <PropertyRef Name="CUSTOMER_CD" />
+      </Principal>
+      <Dependent Role="O_USER_CUSTOMER">
+        <PropertyRef Name="CUSTOMER_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_USER_CUSTOMER_S_USER">
+    <End Role="S_USER" Type="Self.S_USER" Multiplicity="0..1" />
+    <End Role="O_USER_CUSTOMER" Type="Self.O_USER_CUSTOMER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="S_USER">
+        <PropertyRef Name="USER_CD" />
+      </Principal>
+      <Dependent Role="O_USER_CUSTOMER">
+        <PropertyRef Name="USER_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_USER_EMPLOYEE_M_EMPLOYEE">
+    <End Role="M_EMPLOYEE" Type="Self.M_EMPLOYEE" Multiplicity="0..1" />
+    <End Role="O_USER_EMPLOYEE" Type="Self.O_USER_EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_EMPLOYEE">
+        <PropertyRef Name="EMPLOYEE_CD" />
+      </Principal>
+      <Dependent Role="O_USER_EMPLOYEE">
+        <PropertyRef Name="EMPLOYEE_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_USER_EMPLOYEE_S_USER">
+    <End Role="S_USER" Type="Self.S_USER" Multiplicity="0..1" />
+    <End Role="O_USER_EMPLOYEE" Type="Self.O_USER_EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="S_USER">
+        <PropertyRef Name="USER_CD" />
+      </Principal>
+      <Dependent Role="O_USER_EMPLOYEE">
+        <PropertyRef Name="USER_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_USER_PST_S_PST">
+    <End Role="S_PST" Type="Self.S_PST" Multiplicity="0..1" />
+    <End Role="O_USER_PST" Type="Self.O_USER_PST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="S_PST">
+        <PropertyRef Name="PST_CD" />
+      </Principal>
+      <Dependent Role="O_USER_PST">
+        <PropertyRef Name="PST_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_O_USER_PST_S_USER">
+    <End Role="S_USER" Type="Self.S_USER" Multiplicity="0..1" />
+    <End Role="O_USER_PST" Type="Self.O_USER_PST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="S_USER">
+        <PropertyRef Name="USER_CD" />
+      </Principal>
+      <Dependent Role="O_USER_PST">
+        <PropertyRef Name="USER_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Report_Order" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_STATISTICS_VISIT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="GJSModelStoreContainer">
+    <EntitySet Name="D_CITIES_DETAIL" EntityType="Self.D_CITIES_DETAIL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="D_ORDER_DETAIL" EntityType="Self.D_ORDER_DETAIL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="D_PRODUCT_DETAIL" EntityType="Self.D_PRODUCT_DETAIL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_EMPLOYEE" EntityType="Self.M_EMPLOYEE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_PAGE" EntityType="Self.M_PAGE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_ADVERTISEMENT" EntityType="Self.O_ADVERTISEMENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_ALBUM" EntityType="Self.O_ALBUM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_BANNER" EntityType="Self.O_BANNER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_BRANCH" EntityType="Self.O_BRANCH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_CATEGORY_ALBUM" EntityType="Self.O_CATEGORY_ALBUM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_CATEGORY_GRANULES" EntityType="Self.O_CATEGORY_GRANULES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_CATEGORY_NEWS" EntityType="Self.O_CATEGORY_NEWS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_CATEGORY_PAGE" EntityType="Self.O_CATEGORY_PAGE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_CATEGORY_PRODUCT" EntityType="Self.O_CATEGORY_PRODUCT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_CATEGORY_PRODUCT_DETAIL" EntityType="Self.O_CATEGORY_PRODUCT_DETAIL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_CITIES" EntityType="Self.O_CITIES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_CUSTOMER" EntityType="Self.O_CUSTOMER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_HOME_GROUP_PHOTO" EntityType="Self.O_HOME_GROUP_PHOTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_HOME_INTRODUCTION" EntityType="Self.O_HOME_INTRODUCTION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_HOME_SERVICE" EntityType="Self.O_HOME_SERVICE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_HOME_SERVICE_DETAIL" EntityType="Self.O_HOME_SERVICE_DETAIL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_INFORMATION" EntityType="Self.O_INFORMATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_NEWS" EntityType="Self.O_NEWS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_NEWS_HIGHLIGHTS" EntityType="Self.O_NEWS_HIGHLIGHTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_NEWS_HOME" EntityType="Self.O_NEWS_HOME" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_NEWS_NEW" EntityType="Self.O_NEWS_NEW" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_ORDER" EntityType="Self.O_ORDER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_PRICE_GOLD" EntityType="Self.O_PRICE_GOLD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_PRODUCT" EntityType="Self.O_PRODUCT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_PRODUCT_CATALOG" EntityType="Self.O_PRODUCT_CATALOG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_PRODUCT_HIGHLIGHTS" EntityType="Self.O_PRODUCT_HIGHLIGHTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_PRODUCT_NEW" EntityType="Self.O_PRODUCT_NEW" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_PRODUCT_SELLING" EntityType="Self.O_PRODUCT_SELLING" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_SEO" EntityType="Self.O_SEO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_USER_CUSTOMER" EntityType="Self.O_USER_CUSTOMER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_USER_EMPLOYEE" EntityType="Self.O_USER_EMPLOYEE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="O_USER_PST" EntityType="Self.O_USER_PST" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="S_PST" EntityType="Self.S_PST" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="S_STATISTICS_VISIT" EntityType="Self.S_STATISTICS_VISIT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="S_USER" EntityType="Self.S_USER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W_PRODUCT" EntityType="Self.W_PRODUCT" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_D_CITIES_DETAIL_O_CITIES" Association="Self.FK_D_CITIES_DETAIL_O_CITIES">
+      <End Role="O_CITIES" EntitySet="O_CITIES" />
+      <End Role="D_CITIES_DETAIL" EntitySet="D_CITIES_DETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_D_ORDER_DETAIL_O_ORDER" Association="Self.FK_D_ORDER_DETAIL_O_ORDER">
+      <End Role="O_ORDER" EntitySet="O_ORDER" />
+      <End Role="D_ORDER_DETAIL" EntitySet="D_ORDER_DETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_D_ORDER_DETAIL_O_PRODUCT" Association="Self.FK_D_ORDER_DETAIL_O_PRODUCT">
+      <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+      <End Role="D_ORDER_DETAIL" EntitySet="D_ORDER_DETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_D_PRODUCT_DETAIL_O_PRODUCT" Association="Self.FK_D_PRODUCT_DETAIL_O_PRODUCT">
+      <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+      <End Role="D_PRODUCT_DETAIL" EntitySet="D_PRODUCT_DETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M_PAGE_O_CATEGORY_PAGE" Association="Self.FK_M_PAGE_O_CATEGORY_PAGE">
+      <End Role="O_CATEGORY_PAGE" EntitySet="O_CATEGORY_PAGE" />
+      <End Role="M_PAGE" EntitySet="M_PAGE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_ALBUM_O_CATEGORY_ALBUM" Association="Self.FK_O_ALBUM_O_CATEGORY_ALBUM">
+      <End Role="O_CATEGORY_ALBUM" EntitySet="O_CATEGORY_ALBUM" />
+      <End Role="O_ALBUM" EntitySet="O_ALBUM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_BRANCH_D_CITIES_DETAIL" Association="Self.FK_O_BRANCH_D_CITIES_DETAIL">
+      <End Role="D_CITIES_DETAIL" EntitySet="D_CITIES_DETAIL" />
+      <End Role="O_BRANCH" EntitySet="O_BRANCH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_BRANCH_O_CITIES" Association="Self.FK_O_BRANCH_O_CITIES">
+      <End Role="O_CITIES" EntitySet="O_CITIES" />
+      <End Role="O_BRANCH" EntitySet="O_BRANCH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_CATEGORY_PRODUCT_DETAIL_O_CATEGORY_PRODUCT" Association="Self.FK_O_CATEGORY_PRODUCT_DETAIL_O_CATEGORY_PRODUCT">
+      <End Role="O_CATEGORY_PRODUCT" EntitySet="O_CATEGORY_PRODUCT" />
+      <End Role="O_CATEGORY_PRODUCT_DETAIL" EntitySet="O_CATEGORY_PRODUCT_DETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_NEWS_HIGHLIGHTS_O_NEWS" Association="Self.FK_O_NEWS_HIGHLIGHTS_O_NEWS">
+      <End Role="O_NEWS" EntitySet="O_NEWS" />
+      <End Role="O_NEWS_HIGHLIGHTS" EntitySet="O_NEWS_HIGHLIGHTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_NEWS_HOME_O_NEWS" Association="Self.FK_O_NEWS_HOME_O_NEWS">
+      <End Role="O_NEWS" EntitySet="O_NEWS" />
+      <End Role="O_NEWS_HOME" EntitySet="O_NEWS_HOME" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_NEWS_M_EMPLOYEE" Association="Self.FK_O_NEWS_M_EMPLOYEE">
+      <End Role="M_EMPLOYEE" EntitySet="M_EMPLOYEE" />
+      <End Role="O_NEWS" EntitySet="O_NEWS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_NEWS_NEW_O_NEWS" Association="Self.FK_O_NEWS_NEW_O_NEWS">
+      <End Role="O_NEWS" EntitySet="O_NEWS" />
+      <End Role="O_NEWS_NEW" EntitySet="O_NEWS_NEW" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_NEWS_O_CATEGORY_NEWS" Association="Self.FK_O_NEWS_O_CATEGORY_NEWS">
+      <End Role="O_CATEGORY_NEWS" EntitySet="O_CATEGORY_NEWS" />
+      <End Role="O_NEWS" EntitySet="O_NEWS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_ORDER_M_EMPLOYEE" Association="Self.FK_O_ORDER_M_EMPLOYEE">
+      <End Role="M_EMPLOYEE" EntitySet="M_EMPLOYEE" />
+      <End Role="O_ORDER" EntitySet="O_ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_ORDER_O_CUSTOMER" Association="Self.FK_O_ORDER_O_CUSTOMER">
+      <End Role="O_CUSTOMER" EntitySet="O_CUSTOMER" />
+      <End Role="O_ORDER" EntitySet="O_ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_PRODUCT_CATALOG_O_PRODUCT" Association="Self.FK_O_PRODUCT_CATALOG_O_PRODUCT">
+      <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+      <End Role="O_PRODUCT_CATALOG" EntitySet="O_PRODUCT_CATALOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_PRODUCT_HIGHLIGHTS_O_PRODUCT" Association="Self.FK_O_PRODUCT_HIGHLIGHTS_O_PRODUCT">
+      <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+      <End Role="O_PRODUCT_HIGHLIGHTS" EntitySet="O_PRODUCT_HIGHLIGHTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_PRODUCT_NEW_O_PRODUCT" Association="Self.FK_O_PRODUCT_NEW_O_PRODUCT">
+      <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+      <End Role="O_PRODUCT_NEW" EntitySet="O_PRODUCT_NEW" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_PRODUCT_O_CATEGORY_GRANULES" Association="Self.FK_O_PRODUCT_O_CATEGORY_GRANULES">
+      <End Role="O_CATEGORY_GRANULES" EntitySet="O_CATEGORY_GRANULES" />
+      <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_PRODUCT_O_CATEGORY_PRODUCT" Association="Self.FK_O_PRODUCT_O_CATEGORY_PRODUCT">
+      <End Role="O_CATEGORY_PRODUCT" EntitySet="O_CATEGORY_PRODUCT" />
+      <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_PRODUCT_O_CATEGORY_PRODUCT_DETAIL" Association="Self.FK_O_PRODUCT_O_CATEGORY_PRODUCT_DETAIL">
+      <End Role="O_CATEGORY_PRODUCT_DETAIL" EntitySet="O_CATEGORY_PRODUCT_DETAIL" />
+      <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_PRODUCT_SELLING_O_PRODUCT" Association="Self.FK_O_PRODUCT_SELLING_O_PRODUCT">
+      <End Role="O_PRODUCT" EntitySet="O_PRODUCT" />
+      <End Role="O_PRODUCT_SELLING" EntitySet="O_PRODUCT_SELLING" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_USER_CUSTOMER_O_CUSTOMER" Association="Self.FK_O_USER_CUSTOMER_O_CUSTOMER">
+      <End Role="O_CUSTOMER" EntitySet="O_CUSTOMER" />
+      <End Role="O_USER_CUSTOMER" EntitySet="O_USER_CUSTOMER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_USER_CUSTOMER_S_USER" Association="Self.FK_O_USER_CUSTOMER_S_USER">
+      <End Role="S_USER" EntitySet="S_USER" />
+      <End Role="O_USER_CUSTOMER" EntitySet="O_USER_CUSTOMER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_USER_EMPLOYEE_M_EMPLOYEE" Association="Self.FK_O_USER_EMPLOYEE_M_EMPLOYEE">
+      <End Role="M_EMPLOYEE" EntitySet="M_EMPLOYEE" />
+      <End Role="O_USER_EMPLOYEE" EntitySet="O_USER_EMPLOYEE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_USER_EMPLOYEE_S_USER" Association="Self.FK_O_USER_EMPLOYEE_S_USER">
+      <End Role="S_USER" EntitySet="S_USER" />
+      <End Role="O_USER_EMPLOYEE" EntitySet="O_USER_EMPLOYEE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_USER_PST_S_PST" Association="Self.FK_O_USER_PST_S_PST">
+      <End Role="S_PST" EntitySet="S_PST" />
+      <End Role="O_USER_PST" EntitySet="O_USER_PST" />
+    </AssociationSet>
+    <AssociationSet Name="FK_O_USER_PST_S_USER" Association="Self.FK_O_USER_PST_S_USER">
+      <End Role="S_USER" EntitySet="S_USER" />
+      <End Role="O_USER_PST" EntitySet="O_USER_PST" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

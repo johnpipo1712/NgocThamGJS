@@ -1,0 +1,107 @@
+﻿@model W_GJS.Models.O_PRICE_GOLD
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+@section Breadcrumb {
+    <ul class="breadcrumb breadcrumb-page">
+        <li class="breadcrumb-label text-light-gray">Bạn đang ở đây: </li>
+        <li><a href="#">Trang chủ</a></li>
+        <li class="active"><a href="#">Bảng giá vàng</a></li>
+    </ul>
+
+    <div class="page-header">
+
+        <div class="row">
+            <!-- Page header, center on small screens -->
+            <h1 class="col-xs-12 col-sm-4 text-center text-left-sm"><i class="fa fa-money page-header-icon"></i>&nbsp;&nbsp;Bảng giá vàng</h1>
+        </div>
+    </div>
+}
+<div class="row">
+    <div class="col-sm-12">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="panel form-horizontal">
+
+                <div class="panel-heading">
+                    <span class="panel-title">Sửa</span>
+                </div>
+
+                @Html.ValidationSummary(true)
+
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.GOLD_CODE, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @if ((int)Session[W_GJS.General.SessionConstants.LOGINED_ADMIN_ROLE_KEY] == 1)
+                            {
+                                @Html.EditorFor(model => model.GOLD_CODE)
+                                @Html.ValidationMessageFor(model => model.GOLD_CODE)
+                            }
+                            else
+                            {
+                                @Html.HiddenFor(model => model.GOLD_CODE)
+                               
+                                @Html.DisplayFor(model=>model.GOLD_CODE)
+                            }
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.GOLD_NAME, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @if ((int)Session[W_GJS.General.SessionConstants.LOGINED_ADMIN_ROLE_KEY] == 1)
+                            {
+                                @Html.EditorFor(model => model.GOLD_NAME)
+                                @Html.ValidationMessageFor(model => model.GOLD_NAME)
+                            }
+                            else
+                            {
+                                @Html.HiddenFor(model=>model.GOLD_NAME)
+                                 @Html.DisplayFor(model => model.GOLD_NAME)
+                            }
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PRICE_SALES, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.PRICE_SALES)
+                            @Html.ValidationMessageFor(model => model.PRICE_SALES)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PRICE_BUY, new { @class = "control-label col-md-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.PRICE_BUY)
+                            @Html.ValidationMessageFor(model => model.PRICE_BUY)
+                        </div>
+                    </div> <!-- / .form-group -->
+
+                    
+
+                    <div style="margin-bottom: 0;" class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" value="Sửa" class="btn btn-default" />
+                        </div>
+                    </div> <!-- / .form-group -->
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<div>
+    @Html.ActionLink("Trở về danh sách", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

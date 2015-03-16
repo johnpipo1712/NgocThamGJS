@@ -1,0 +1,40 @@
+﻿<!-- Top Bar -->
+<header id="topBar" class="styleBackgroundColor">
+    <div class="container">
+        <div id="barMain">
+            <nav class="nav-second">
+                <ul class="nav nav-pills nav-second">
+                    <li class="topbar-first-li" style="padding-right: 8%">
+                        <a class="logo" href="@Url.Action("Index", "Home")">
+                            <img src="@Url.Content("~/Content")/images/viLogo.png" height="70" alt="" />
+                        </a>
+                    </li>
+                    <li class="topbar-second-li"><img src="@Url.Content("~/Content/images/slogan55.png")" alt="Slogan" style="position:relative;top:9px;right:0px;margin-right:35px;width:100%" /></li>
+                    @*<li><a href="#" data-toggle="modal" data-target="#LoginModal"><i class="fa fa-angle-right"></i> Đăng Nhập</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#RegisterModal"><i class="fa fa-angle-right"></i> Đăng Kí</a></li>
+                    <li class="hidden-xs"><a href="shop-home-1.html#"><i class="fa fa-angle-right"></i> Liên Hệ</a></li>
+                    @Html.Partial("_Cart")*@
+                    @if (!String.IsNullOrEmpty((string)Session[W_GJS.General.SessionConstants.LOGINED_USER_KEY]))
+                    {
+
+                        <li>
+                            <div>Chào <a class="hightlight-small" href="@Url.Action("UserInformation", "Home")">@Session[W_GJS.General.SessionConstants.LOGINED_USER_KEY]</a></div> 
+                            <div>
+                                <button id="logout-button" data-success-action="@Url.Action("Index", "Home")" data-action="@Url.Action("Logout", "Home")" class=" btn btn-primary my-btn-edit">ĐĂNG XUẤT</button>
+                            </div>
+                        </li>
+
+                    }
+                    else
+                    {
+                        <li><a href="#" data-toggle="modal" data-target="#LoginModal"><i class="fa fa-lock"></i> Đăng Nhập</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#RegisterModal"><i class="fa fa-user"></i> Đăng Kí</a></li>
+                    }
+                    
+                    
+                </ul>
+            </nav>
+        </div>
+    </div><!-- /.container -->
+</header>
+<!-- /Top Bar -->

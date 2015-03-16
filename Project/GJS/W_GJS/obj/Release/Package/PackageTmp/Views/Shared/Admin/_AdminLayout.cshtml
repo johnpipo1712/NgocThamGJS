@@ -1,0 +1,136 @@
+﻿
+@if (String.IsNullOrEmpty((string)Session[W_GJS.General.SessionConstants.LOGINED_ADMIN_KEY]))
+{
+    Response.Redirect(Url.Action("Index", "Home"));
+}
+
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="ie9 gt-ie8"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="gt-ie8 gt-ie9 not-ie">
+ <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <!-- Open Sans font from Google CDN -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,600italic,700italic,700,600,300&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
+
+    <link href="@Url.Content("~/Content/css/admin")/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/css/admin")/pixel-admin.min.css" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/css/admin")/widgets.min.css" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/css/admin")/pages.min.css" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/css/admin")/rtl.min.css" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/css/admin")/themes.min.css" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/css/admin")/admin.css" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/css/admin")/admin-color.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 9]>
+        <script src="@Url.Content("~/Scripts/admin/")/ie.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="theme-adminflare main-menu-animated main-navbar-fixed main-menu-fixed">
+
+    <script>var init = [];</script>
+
+    <div id="main-wrapper">
+
+
+        <!-- 2. $MAIN_NAVIGATION ===========================================================================
+
+            Main navigation
+        -->
+        @Html.Partial("Admin/_MainNavigation")
+        <!-- /2. $END_MAIN_NAVIGATION -->
+        <!-- 4. $MAIN_MENU =================================================================================
+
+                Main menu
+
+                Notes:
+                * to make the menu item active, add a class 'active' to the <li>
+                  example: <li class="active">...</li>
+                * multilevel submenu example:
+                    <li class="mm-dropdown">
+                      <a href="#"><span class="mm-text">Submenu item text 1</span></a>
+                      <ul>
+                        <li>...</li>
+                        <li class="mm-dropdown">
+                          <a href="#"><span class="mm-text">Submenu item text 2</span></a>
+                          <ul>
+                            <li>...</li>
+                            ...
+                          </ul>
+                        </li>
+                        ...
+                      </ul>
+                    </li>
+        -->
+        <div id="main-menu" role="navigation">
+            <div id="main-menu-inner">
+                <div class="menu-content top" id="menu-content-demo">
+                    <div>
+                        <div class="text-bg"><span class="text-slim">Xin chào,</span> <span class="text-semibold">@Session[W_GJS.General.SessionConstants.LOGINED_ADMIN_KEY]</span></div>
+
+                        <img src="@Url.Content("~/Content/images/avatar")/default.jpg" alt="" class="">
+                        <div class="btn-group">
+                            <a href="https://mail.google.com/mail/" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-envelope"></i></a>
+                            @if (Session[W_GJS.General.SessionConstants.LOGINED_ADMIN_ROLE_KEY] != null
+                                && (int)Session[W_GJS.General.SessionConstants.LOGINED_ADMIN_ROLE_KEY] == 1)
+                            {
+                                <a href="@Url.Action("Edit", "Employee", new { EMPLOYEE_CD = 1 })" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-user"></i></a>
+                            }
+                            <a href="#" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-cog"></i></a>
+                            <a href="@Url.Action("Logout","Administrator")" class="btn btn-xs btn-danger btn-outline dark"><i class="fa fa-power-off"></i></a>
+                        </div>
+                        <a href="#" class="close">&times;</a>
+                    </div>
+                </div>
+                @Html.Partial("Admin/_MenuLeft");
+            </div> <!-- / #main-menu-inner -->
+        </div> <!-- / #main-menu -->
+        <!-- /4. $MAIN_MENU -->
+
+
+        <div id="content-wrapper">
+            <!-- 5. $CONTENT ===================================================================================
+
+                    Content
+            -->
+            <!-- Content here -->
+            @RenderSection("Breadcrumb", false)
+            @RenderBody()
+
+        </div> <!-- / #content-wrapper -->
+        <div id="main-menu-bg"></div>
+    </div> <!-- / #main-wrapper -->
+    <!-- Get jQuery from Google CDN -->
+    <!--[if !IE]> -->
+    <script type="text/javascript"> window.jQuery || document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js">' + "<" + "/script>"); </script>
+    <!-- <![endif]-->
+    <!--[if lte IE 9]>
+        <script type="text/javascript"> window.jQuery || document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">'+"<"+"/script>"); </script>
+    <![endif]-->
+
+    <script src="http://infinite-woodland-5276.herokuapp.com/jquery.transit.js"></script>
+
+    <!-- Pixel Admin's javascripts -->
+    <script src="@Url.Content("~/Scripts/admin/")/bootstrap.min.js"></script>
+    <script src="@Url.Content("~/Scripts/admin/")/pixel-admin.min.js"></script>
+    <script src="@Url.Content("~/Scripts/admin/jQuery.FilterTable")/jquery.filtertable.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('table').filterTable({ label: 'Tìm kiếm', placeholder: 'Từ khóa...' }); // apply filterTable to all tables on this page
+        });
+    </script>
+    <script type="text/javascript">
+        init.push(function () {
+            // Javascript code here
+        });
+        window.PixelAdmin.start(init);
+    </script>
+    @RenderSection("Scripts", false)
+</body>
+</html>

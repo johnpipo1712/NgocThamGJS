@@ -1,0 +1,134 @@
+.tinh {
+    bottom: 1px;
+    color: #666;
+    font-size: 12px;
+    padding: 5px 0;
+    height: 20px;
+    position: relative;
+    text-align: left;
+    width: 230px;
+    z-index: 99;
+}
+
+.choose-sys-store {
+    background: url(../images/bg-sys-store.png) repeat-x;
+    padding: 10px;
+    border: 1px solid #dadada;
+    border-radius: 7px;
+    height: 52px;
+}
+
+.choose-type {
+    height: 20px;
+    line-height: 20px;
+    margin: 5px 6px 0 10px;
+    position: relative;
+    width: 230px;
+    float: left;
+    padding: 1px 0px;
+    background: white;
+    border: 1px solid #999;
+}
+
+.sys-search {
+    background: url(../images/button-sys.png) no-repeat;
+    width: 87px;
+    height: 32px;
+    line-height: 32px;
+    color: #fff;
+    text-align: center;
+    float: left;
+    font-size: 16px;
+}
+
+.wrap-sys-store {
+    clear: both;
+    margin-top: 15px;
+}
+
+.clear {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.wrap-sys-store {
+    clear: both;
+    margin-top: 15px;
+}
+
+.table-stores tr:first-child td {
+    background: #FDF876;
+    border-right: 1px solid #fff;
+    color: #333;
+    font-weight: bold;
+}
+
+.table-stores tr td {
+    background: #eeefec;
+    padding: 5px 10px 5px 15px;
+    border: 1px solid #fff;
+    color: #666;
+}
+
+.table-stores tr.even td {
+    background: #e3e4e1;
+}
+
+.table-stores tr td.sys1 {
+    width: 35%;
+}
+
+.table-stores tr td.sys2 {
+    width: 45%;
+}
+
+.table-stores tr td.sys3 {
+    width: 20%;
+}
+
+.fancy {
+    color: #666666;
+}
+
+
+.left-vnmap {
+    float: left;
+    margin-right: 10px;
+}
+
+.right-branches {
+    float: left;
+    width: 665px;
+}
+
+.button-label {
+    background: url("../images/bg-arrow.png") no-repeat scroll right center transparent;
+    font-size: 12px;
+    height: 23px;
+    right: 2px;
+    line-height: 20px;
+    overflow: hidden;
+    padding: 5px 5px 5px 5px;
+    position: absolute;
+    text-align: left;
+    top: -3px;
+    width: 220px;
+    color: #666;
+    line-height: 16px;
+}
+
+.page-container {
+    margin-top: 2em;
+}
+
+#gold-rate-modal {
+    font-size: small;
+}
+
+.hand-cursor {
+    cursor: pointer;
+}

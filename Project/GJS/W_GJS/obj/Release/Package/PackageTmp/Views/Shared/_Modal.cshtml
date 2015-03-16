@@ -1,0 +1,320 @@
+﻿
+<!-- ATTENTION -->
+<!-- This page is used for default modals that will be included in every page only -->
+<!-- modal Login -->
+<div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <!-- modal header -->
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Đăng Nhập</h4>
+            </div><!-- /modal header -->
+
+
+            <form id="form-login" class="form-horizontal" role="form" action="@Url.Action("Login", "Home")" method="post">
+                <!-- modal body -->
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Tên đăng nhập</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="username" placeholder="Tên đăng nhập">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">Mật khẩu</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" name="password" placeholder="Mật khẩu">
+                        </div>
+                    </div>
+                    @*<div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Ghi nhớ
+                            </label>
+                        </div>
+                    </div>
+                </div>*@
+
+                    <div class="form-group">
+                        <div id="error-login"></div>
+                    </div>
+                    <!-- /modal body -->
+                </div>
+                <div class="modal-footer">
+                    <!-- modal footer -->
+                    <span id="loadingDivLogin" style="display: none;">
+                        <img alt="Loading" src="@Url.Content("~/Content/Images/ajax-loader.gif")" />
+                    </span>
+                    <a class="btn btn-default" data-dismiss="modal">Đóng</a>
+                    <button id="login-button" data-success-action="@Url.Action("Index", "Home")" data-action="@Url.Action("Login", "Home")" type="button" class="btn btn-primary">Đăng nhập</button>
+                    <input type="submit" style="display:none" />
+                </div><!-- /modal footer -->
+            </form>
+</div>
+    </div>
+</div>
+
+
+
+<!-- modal Register -->
+<div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <!-- modal header -->
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Đăng kí</h4>
+            </div><!-- /modal header -->
+
+
+            <form id="form-register" action="@Url.Action("Register", "Home")" method="post" class="sky-form">
+
+                <div class="modal-body">
+                    <fieldset>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-user"></i>
+                                <input type="text" name="user_name" placeholder="Tên đăng nhập">
+                                <b class="tooltip tooltip-bottom-right">Chỉ chấp nhận chữ không dấu và số</b>
+                            </label>
+                        </section>
+
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-envelope"></i>
+                                <input type="text" name="email" placeholder="Email">
+                                <b class="tooltip tooltip-bottom-right">Chúng tôi sẽ gửi email xác nhận qua địa chỉ này</b>
+                            </label>
+                        </section>
+
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-lock"></i>
+                                <input type="password" name="user_pass" placeholder="Mật khẩu">
+                                <b class="tooltip tooltip-bottom-right">Chỉ chấp nhận từ 6 ký tự trở lên</b>
+                            </label>
+                        </section>
+
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-lock"></i>
+                                <input type="password" name="user_re_pass" placeholder="Nhập lại mật khẩu">
+                                <b class="tooltip tooltip-bottom-right">Chỉ chấp nhận chữ không dấu và số</b>
+                            </label>
+                        </section>
+
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-phone"></i>
+                                <input type="text" name="phone_number" placeholder="Số điện thoại">
+                                <b class="tooltip tooltip-bottom-right">Chỉ chấp nhận số</b>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-university"></i>
+                                <input type="text" name="address" placeholder="Địa chỉ">
+                                <b class="tooltip tooltip-bottom-right">Nhập đầy đủ thông tin</b>
+                            </label>
+                        </section>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="row">
+                            <section class="col col-md-6">
+                                <label class="input">
+                                    <input type="text" name="first_name" placeholder="Họ">
+                                </label>
+                            </section>
+                            <section class="col col-md-6">
+                                <label class="input">
+                                    <input type="text" name="last_name" placeholder="Tên">
+                                </label>
+                            </section>
+                        </div>
+                        <section>
+                            <label class="select">
+                                <select name="sex">
+                                    <option value="0" selected="" disabled="">Giới tính</option>
+                                    <option value="1">Nam</option>
+                                    <option value="2">Nữ</option>
+                                </select>
+                                <i></i>
+                            </label>
+                        </section>
+
+                        <section>
+                            @*<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Tôi đồng ý với các điều khoản dịch vụ</label>*@
+                            <label class="checkbox"><input type="checkbox" value="1" name="SUBSCRIBE"><i></i>Tôi muốn nhận email thông báo từ website</label>
+                        </section>
+                    </fieldset>
+                    <fieldset>
+                        <div id="error-register" class="row"> </div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <!-- modal footer -->
+                    <span id="loadingDivRegister" style="display: none;">
+                        <img alt="Loading" src="@Url.Content("~/Content/Images/ajax-loader.gif")" />
+                    </span>
+                    <a class="btn btn-default" data-dismiss="modal">Đóng</a>
+                    <button id="register-button" data-success-action="@Url.Action("Index", "Home")" data-action="@Url.Action("Register", "Home")" type="button" class="btn btn-primary">Đăng Nhập</button>
+                    <input type="submit" style="display:none" />
+                </div><!-- /modal footer -->
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- modal Register Successfully -->
+<div class="modal fade" id="registerSuccesfully" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 800px; height:600px;">
+        <div class="modal-content">
+            <div class="modal-header" style="background: none; border-bottom: none;">
+                <!-- modal header -->
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div><!-- /modal header -->
+            <!-- modal body -->
+            <div class="modal-body">
+                <h2 class="owl-caption"><strong>ĐẮNG KÝ TÀI KHOẢN THÀNH CÔNG.</strong></h2>
+                
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- modal Contact Successfully -->
+<div class="modal fade" id="contactSuccesfully" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 800px; height:600px;">
+        <div class="modal-content">
+            <div class="modal-header" style="background: none; border-bottom: none;">
+                <!-- modal header -->
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div><!-- /modal header -->
+            <!-- modal body -->
+            <div class="modal-body">
+                <h2 class="owl-caption"><strong>Email của bạn đã được gửi thành công, chúng tôi sẽ phản hồi cho bạn sớm nhất.</strong></h2>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- modal Popup -->
+@{ 
+    W_GJS.Models.GJSEntities gjs = new W_GJS.Models.GJSEntities();
+    W_GJS.Models.O_ADVERTISEMENT OAV = gjs.O_ADVERTISEMENT.Single(t => t.CD == 1);
+}
+<div class="modal fade" id="PopupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 800px; height:600px;">
+        <div class="modal-content">
+            <div class="modal-header" style="background: none; border-bottom: none;">
+                <!-- modal header -->
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div><!-- /modal header -->
+            <!-- modal body -->
+            <div class="modal-body">
+                @Html.Raw(OAV.ADVERTISEMENT)
+                <img src="@Url.Content("~/Content/images/slogan55.png")" alt="Popup" />
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- modal Liện Hệ -->
+<div class="modal fade" id="BookingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <!-- modal header -->
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Liên Hệ</h4>
+            </div><!-- /modal header -->
+
+
+            @using (Html.BeginForm("SendContract", "Home", FormMethod.Post, new { id = "form-contact" }))
+            {
+                <!-- modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <input type="text" data-val="true" data-val-required="Vui lòng nhập thông tin !!!" class="form-control" id="Name" name="Name" placeholder="Họ tên*">
+                            <span class="field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" data-val="true" data-val-required="Vui lòng nhập thông tin !!!" class="form-control" name="Company" id="Company" placeholder="Công ty*">
+                            <span class="field-validation-valid" data-valmsg-for="Company" data-valmsg-replace="true"></span>
+
+                           </div>
+                        <div class="form-group">
+                            <input type="text" data-val="true" data-val-required="Vui lòng nhập thông tin !!!" class="form-control" name="Address" id="Address" placeholder="Địa chỉ*">
+                            <span class="field-validation-valid" data-valmsg-for="Address" data-valmsg-replace="true"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <input type="text" data-val="true" data-val-required="Vui lòng nhập thông tin !!!" class="form-control" name="Phone" id="Phone" placeholder="Điện thoại*">
+                            <span class="field-validation-valid" data-valmsg-for="Phone" data-valmsg-replace="true"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <input type="Email" data-val="true" data-val-required="Vui lòng nhập thông tin !!!" class="form-control" name="Email" id="Email" placeholder="Email*">
+                            <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <textarea id="Note" data-val="true" data-val-required="Vui lòng nhập thông tin !!!" name="Note" placeholder="Ghi chú*" rows="5" class="form-control"></textarea>
+                            <span class="field-validation-valid" data-valmsg-for="Note" data-valmsg-replace="true"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <div id="error-contact" class="row"> </div>
+                            <span class="field-validation-valid" data-valmsg-for="Note" data-valmsg-replace="true"></span>
+
+                        </div>
+                    </div>
+                    <div class="row text-center" style="border-bottom: 2px solid #ddd; padding-bottom: 20px; margin-bottom: 20px;">
+                        <span id="loadingDivContact" style="display: none;">
+                            <img alt="Loading" src="@Url.Content("~/Content/Images/ajax-loader.gif")" />
+                        </span>
+                        <input type="submit" style="display:none" />
+                        <button type="button" data-action="@Url.Action("SendContract", "Home")" id="contact-button" class="btn btn-primary">Gửi</button>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="text-center">
+                                <a href="#">
+                                    <img src="@Url.Content("~/Content/images/livechat.png")" onclick='window.open("@Url.Action("Chat", "Home") ", " mywindow", "status=1" );' alt="Live Chat" />
+                                    <div style="color: #333; font-weight: bold;">Nhấn vào đây để chat với chúng tôi</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="text-center" style="font-size: 16pt; font-weight: bold; color: #bf060c; padding: 20px;">
+                                HOẶC
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="text-center">
+                                <img src="@Url.Content("~/Content/images/callus.png")" alt="Live Chat" />
+                                <div>Gọi cho chúng tôi</div>
+                                <div style="font-weight: bold;">(073) 3 872838</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /modal body -->
+            }
+        </div>
+    </div>
+</div>

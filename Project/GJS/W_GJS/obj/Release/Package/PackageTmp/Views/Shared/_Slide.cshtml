@@ -1,0 +1,32 @@
+﻿<!--
+            OWL SLIDER
+
+            Note: 'cover' class = if background image used!
+            Nice backgrounds:
+                @Url.Content("~/Content")/images/demo/layerslider/slide-b-bg.jpg
+                @Url.Content("~/Content")/images/demo/layerslider/bg4.jpg
+                @Url.Content("~/Content")/images/demo/layerslider/slide-b-1.png
+        -->
+@{ 
+    W_GJS.Models.GJSEntities gjs = new W_GJS.Models.GJSEntities();
+    List<W_GJS.Models.O_BANNER> listbanner = gjs.O_BANNER.Where(t => t.ACTIVE == true).ToList();
+}
+<div class="slider cover" style="background-image:url('@Url.Content("~/Content")/images/slide/05.jpg')">
+
+
+        <!-- add class "controlls-over" if you need the button controlls over the image -->
+        <div class="owl-carousel controlls-over controls-hover-only" data-plugin-options='{"stopOnHover":false, "slideSpeed":1500, "autoPlay":8000, "items": 1, "autoHeight": false, "navigation": true, "pagination": true, "transitionStyle":"fadeUp"}'>
+            <!-- transitionStyle: fade, backSlide, goDown, fadeUp,  -->
+            @foreach (var item in listbanner)
+            { 
+               <div class="text-center">
+                   <img alt="" class="img-responsive appear-animation" data-animation="bounceInRight" src="@item.URL_IMAGE" />
+               </div>
+            }
+        </div>
+
+
+
+</div>
+<!-- /OWL SLIDER -->
+

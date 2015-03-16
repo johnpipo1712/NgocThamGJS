@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "Giỏ hàng";
+    W_GJS.Models.O_ORDER Ord = (W_GJS.Models.O_ORDER)Session["Cart"];
+
+}
+@section PageTitle {
+    <section class="page-title">
+        <div class="container">
+
+            <header>
+
+                <ul class="breadcrumb">
+                    <!-- breadcrumb -->
+                    <li><a href="@Url.Action("Index")">Trang Chủ</a></li>
+                    <li class="active">Giỏ hàng</li>
+                </ul><!-- /breadcrumb -->
+
+                <h2>
+                    <!-- Page Title -->
+                    <strong>Giỏ hàng</strong>
+                </h2><!-- /Page Title -->
+
+            </header>
+
+        </div>
+    </section>
+}
+
+
+@if (Ord != null)
+{
+    <div class="cartContent clearfix">
+
+        <!-- cart content -->
+        <div id="cartContent">
+            <!-- cart header -->
+            <div class="item head">
+                <span class="cart_img"></span>
+                <span class="product_name fsize13 bold">TÊN SẢN PHẨM</span>
+                <span class="qty fsize13 bold">Kích thước</span>
+                <span class="total_price fsize13 bold">SỐ LƯỢNG</span>
+                <div class="clearfix"></div>
+            </div>
+            <!-- /cart header -->
+            @foreach (var item in Ord.D_ORDER_DETAIL)
+            {
+                using (Html.BeginForm("UpdateCart", "Home", new { PRODUCT_CD = "PRODUCT_CD", QUANTITY = "QUANTITY" }, FormMethod.Post, new { @class= "form-cart" }))
+                {
+                    <div class="item">
+                        <div class="cart_img"><img src="@item.O_PRODUCT.URL_IMAGE" alt="" width="60" /></div>
+                        <a href="shop-page-full-product.html" class="product_name">
+                            <span>@item.O_PRODUCT.PRODUCT_NAME</span>
+                            <input type="hidden" name="PRODUCT_CD" value="@item.PRODUCT_CD" />
+                            @*<small>@item.O_PRODUCT.</small>*@
+                        </a>
+                        <div class="total_price"><span>@item.SIZE</span></div>
+                        <div class="qty"><input type="text" value="@item.QUANTITY" name="QUANTITY" maxlength="3" /></div>
+                        <a href="@Url.Action("DeleteCart",new {PRODUCT_CD = item.PRODUCT_CD})" class="remove_item"><i class="fa fa-times"></i></a>
+                        <button type="submit" class="remove_item"><i class="fa fa-edit"></i></button>
+                        <div class="clearfix"></div>
+                    </div>
+                }
+            }
+            <!-- cart item -->
+            <!-- /cart item -->            
+            <!-- update cart -->
+            @if (!String.IsNullOrEmpty((string)Session[W_GJS.General.SessionConstants.LOGINED_USER_KEY]))
+            {
+                using (Html.BeginForm("Checkout", "Home", FormMethod.Post))
+                {
+                    <button type="submit" onclick="return confirm('Bạn có chắc muốn thanh toán !!!');" class="btn_update btn btn-primary btn-md pull-right">THANH TOÁN</button>
+                        <!-- /update cart -->
+                }
+            }
+            else
+            {
+                <a href="#" data-toggle="modal" data-target="#LoginModal" class="btn_update btn btn-primary btn-md pull-right">THANH TOÁN</a>
+
+            }
+            <!-- cart total -->
+          
+            <!-- /cart total -->
+            <div class="clearfix"></div>
+        </div>
+        <!-- /cart content -->
+        
+    </div>
+}
+else
+{
+  <p>Chưa có sản phẩm trong giỏ hàng</p>
+}
